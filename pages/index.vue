@@ -1,63 +1,47 @@
+<!-- pages/index.vue -->
 <template>
   <div class="index-content">
-    <div v-if="!loading">
-      <HomePage />
+    <div v-if="loading">
+      <LoadingBar :progress="progress" />
     </div>
     <div v-else>
-      <LoadingBar ref="loadingBar" />
+      <HomePage />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import LoadingBar from '@/components/LoadingBar.vue';
-import HomePage from '@/components/HomePage.vue';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import LoadingBar from '~/components/LoadingBar.vue';
+import HomePage from '~/components/HomePage.vue';
+import { useImagePreloader } from '~/composables/useImagePreloader';
 
-export default Vue.extend({
-  components: {
-    LoadingBar,
-    HomePage
-  },
-  data() {
-    return {
-      loading: true
-    };
-  },
-  async mounted() {
-    const images: string[] = [
-      
-      // Arffornia
-      '/img/Arffornia/launcher_homepage.png',
-      '/img/Arffornia/launcher_homepageV4.png',
-      '/img/Arffornia/website_homepage.png',
-      '/img/Arffornia/map/v.2 (1).png',
-      '/img/Arffornia/map/v.2 (2).png',
-      '/img/Arffornia/map/v.4 (1).png',
-      '/img/Arffornia/map/v.4 (2).png',
+const imageList = [
+  '/images/Arffornia/launcher_homepage.png',
+  '/images/Arffornia/launcher_homepageV4.png',
+  '/images/Arffornia/website_homepage.png',
+  '/images/Arffornia/map/v.2 (1).png',
+  '/images/Arffornia/map/v.2 (2).png',
+  '/images/Arffornia/map/v.4 (1).png',
+  '/images/Arffornia/map/v.4 (2).png',
+  '/images/OCR/logo.png',
+  '/images/OCR/ArtificialNeuronModel_francais.png',
+  '/images/OCR/hard_grid.jpg',
+  '/images/OCR/image_04.jpg',
+  '/images/OCR/MorphologyWithErode.jpg',
+  '/images/UpsideDown/UpsideDownBG.png',
+  '/images/UpsideDown/drone.png',
+  '/images/UpsideDown/generator.png',
+  '/images/UpsideDown/Logo_S2game.png',
+  '/images/UpsideDown/plasmaOrb.png'
+];
 
-      // OCR
-      '/img/OCR/logo.png',
-      '/img/OCR/ArtificialNeuronModel_francais.png',
-      '/img/OCR/hard_grid.jpg',
-      '/img/OCR/image_04.jpg',
-      '/img/OCR/MorphologyWithErode.jpg',
+const loading = ref(true);
+const { progress, loadImages } = useImagePreloader(imageList);
 
-      // Upside Down
-      '/img/UpsideDown/UpsideDownBG.png',
-      '/img/UpsideDown/drone.png',
-      '/img/UpsideDown/generator.png',
-      '/img/UpsideDown/Logo_S2game.png',
-      '/img/UpsideDown/plasmaOrb.png'
-    ];
-
-    await this.$loadImages(images, (loaded: number, total: number) => {
-      // @ts-ignore
-      this.$refs.loadingBar.updateProgress(loaded, total);
-    });
-
-    this.loading = false;
-  }
+onMounted(async () => {
+  await loadImages();
+  loading.value = false;
 });
 </script>
 
@@ -65,7 +49,6 @@ export default Vue.extend({
 .index-content {
   font-family: Montserrat, sans-serif;
   overflow: hidden;
-
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
