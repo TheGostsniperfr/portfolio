@@ -14,7 +14,7 @@
 import { ref, onMounted } from 'vue';
 import LoadingBar from '~/components/LoadingBar.vue';
 import HomePage from '~/components/HomePage.vue';
-import { useImagePreloader } from '~/composables/useImagePreloader';
+import { useImagePreloader } from '~/composables/useImagePreloader.js';
 
 const imageList = [
   '/images/Arffornia/launcher_homepage.png',

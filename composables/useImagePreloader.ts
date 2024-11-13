@@ -1,7 +1,10 @@
-// composables/useImagePreloader.ts
 import { ref } from 'vue';
+import { useRuntimeConfig } from '#app';
 
 export function useImagePreloader(imageList: string[]) {
+  const config = useRuntimeConfig();
+  const baseURL = config.public.baseURL;
+  
   const loaded = ref(0);
   const total = imageList.length;
   const progress = ref(0);
@@ -10,7 +13,7 @@ export function useImagePreloader(imageList: string[]) {
     return new Promise<void>((resolve) => {
       imageList.forEach((src) => {
         const img = new Image();
-        img.src = src;
+        img.src = `${baseURL}${src}`;
         img.onload = img.onerror = () => {
           loaded.value++;
           progress.value = Math.floor((loaded.value / total) * 100);
