@@ -1,5 +1,9 @@
 <template>
   <div class="home-content">
+    <svg id="middle-cross" viewBox="0 0 22 22">
+      <polygon class="line" points="22 11.751 0 11.751 0 10.249 22 10.249 22 11"></polygon>
+      <polygon class="line" points="11.751 0 11.751 22 10.249 22 10.249 0 11 0"></polygon>
+    </svg>
     <div id="carousel" data-mouse-down-at="0" data-prev-percentage="0">
       <img class="image" src="/images/Arffornia/launcher_homepage.png" draggable="false">
       <img class="image" src="/images/OCR/logo.png" draggable="false">
@@ -14,16 +18,40 @@
 import { onMounted } from 'vue';
 
 let carousel;
+let currentPercentage = 0.0;
+let targetPercentage = 0.0;
+let animationFrame;
 
 onMounted(() => {
   carousel = document.getElementById("carousel");
 
   if (carousel) {
-    const handleOnDown = (e) => (carousel.dataset.mouseDownAt = e.clientX);
+    const animate = () => {
+      currentPercentage += (targetPercentage - currentPercentage) * 0.08;
 
+      if (Math.abs(targetPercentage - currentPercentage) < 0.001) {
+        currentPercentage = targetPercentage;
+      }
+
+      carousel.style.transform = `translate3d(${currentPercentage}%, -50%, 0)`;
+
+      for (const image of carousel.getElementsByClassName("image")) {
+        image.style.objectPosition = `${100 + currentPercentage}% center`;
+      }
+
+      if (Math.abs(targetPercentage - currentPercentage) > 0.001) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+      }
+    };
+
+
+    const handleOnDown = (e) => (carousel.dataset.mouseDownAt = e.clientX);
     const handleOnUp = () => {
       carousel.dataset.mouseDownAt = "0";
-      carousel.dataset.prevPercentage = carousel.dataset.percentage;
+      carousel.dataset.prevPercentage = targetPercentage;
     };
 
     const handleOnMove = (e) => {
@@ -32,39 +60,41 @@ onMounted(() => {
       const mouseDelta = parseFloat(carousel.dataset.mouseDownAt) - e.clientX;
       const maxDelta = window.innerWidth / 2;
 
-      const percentage = (mouseDelta / maxDelta) * -100;
-      const nextPercentageUnconstrained = parseFloat(carousel.dataset.prevPercentage) + percentage;
-      const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+      const percentage = (mouseDelta / maxDelta) * -80;
+      targetPercentage = parseFloat(carousel.dataset.prevPercentage) + percentage;
 
-      carousel.dataset.percentage = nextPercentage;
+      targetPercentage = Math.max(Math.min(targetPercentage, 0), -100);
 
-      carousel.animate(
-        {
-          transform: `translate(${nextPercentage}%, -50%)`,
-        },
-        { duration: 1200, fill: "forwards" }
-      );
+      if (!animationFrame) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
 
-      for (const image of carousel.getElementsByClassName("image")) {
-        image.animate(
-          {
-            objectPosition: `${100 + nextPercentage}% center`,
-          },
-          { duration: 1200, fill: "forwards" }
-        );
+    const handleOnScroll = (e) => {
+      e.preventDefault();
+
+      const scrollDelta = e.deltaY;
+      const percentageChange = (scrollDelta / window.innerHeight) * -30;
+
+      targetPercentage += percentageChange;
+      targetPercentage = Math.max(Math.min(targetPercentage, 0), -100);
+
+      if (!animationFrame) {
+        animationFrame = requestAnimationFrame(animate);
       }
     };
 
     window.onmousedown = (e) => handleOnDown(e);
-    window.ontouchstart = (e) => handleOnDown(e.touches[0]);
-    window.onmouseup = (e) => handleOnUp(e);
-    window.ontouchend = (e) => handleOnUp(e.touches[0]);
+    window.ontouchstart = (e) => handleOnDown(e.touches[ 0 ]);
+    window.onmouseup = () => handleOnUp();
+    window.ontouchend = () => handleOnUp();
     window.onmousemove = (e) => handleOnMove(e);
-    window.ontouchmove = (e) => handleOnMove(e.touches[0]);
+    window.ontouchmove = (e) => handleOnMove(e.touches[ 0 ]);
+
+    window.addEventListener("wheel", handleOnScroll);
   }
 });
 </script>
-
 
 <style scoped>
 .home-content {
@@ -72,14 +102,18 @@ onMounted(() => {
   width: 100vw;
   background-color: #000;
   margin: 0;
-  overflow: hidden;
 }
 
 #carousel>.image {
-  width: 40vmin;
-  height: 56vmin;
+  width: 33vmin;
+  height: 46vmin;
   object-fit: cover;
   object-position: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #carousel {
@@ -89,5 +123,25 @@ onMounted(() => {
   left: 50%;
   top: 50%;
   transform: translate(0%, -50%);
+}
+
+#middle-cross {
+  width: 23px;
+  height: 23px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0%, -50%);
+
+  fill: #fff;
+  z-index: 9999;
+}
+
+#middle-cross,
+.line {
+  stroke: #fff;
+  stroke-width: 0.1;
+  fill: #fff;
 }
 </style>
