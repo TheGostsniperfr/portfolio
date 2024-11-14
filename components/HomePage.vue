@@ -78,6 +78,7 @@ onMounted(() => {
 
       targetPercentage += percentageChange;
       targetPercentage = Math.max(Math.min(targetPercentage, 0), -100);
+      carousel.dataset.prevPercentage = targetPercentage;
 
       if (!animationFrame) {
         animationFrame = requestAnimationFrame(animate);
