@@ -52,14 +52,19 @@ onMounted(() => {
       }
     };
 
-    const handleOnDown = (e) => (carousel.dataset.mouseDownAt = e.clientX);
+    const handleOnDown = (e) => {
+      if (fullscreenImage.value) return;
+      carousel.dataset.mouseDownAt = e.clientX;
+    };
+
     const handleOnUp = () => {
+      if (fullscreenImage.value) return;
       carousel.dataset.mouseDownAt = "0";
       carousel.dataset.prevPercentage = targetPercentage;
     };
 
     const handleOnMove = (e) => {
-      if (carousel.dataset.mouseDownAt === "0") return;
+      if (fullscreenImage.value || carousel.dataset.mouseDownAt === "0") return;
 
       const mouseDelta = parseFloat(carousel.dataset.mouseDownAt) - e.clientX;
       const maxDelta = window.innerWidth / 2;
@@ -75,6 +80,7 @@ onMounted(() => {
     };
 
     const handleOnScroll = (e) => {
+      if (fullscreenImage.value) return;
       e.preventDefault();
 
       const scrollDelta = e.deltaY;
