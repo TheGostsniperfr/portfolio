@@ -22,9 +22,11 @@ let currentPercentage = 0.0;
 let targetPercentage = 0.0;
 let animationFrame;
 const fullscreenImage = ref(null);
+let middleCross;
 
 onMounted(() => {
   carousel = document.getElementById("carousel");
+  middleCross = document.getElementById("middle-cross");
 
   if (carousel) {
     const animate = () => {
@@ -89,9 +91,11 @@ onMounted(() => {
       const clickedImage = event.target;
       if (fullscreenImage.value) {
         fullscreenImage.value.classList.remove('fullscreen');
+        middleCross.classList.remove('fullscreen');
         fullscreenImage.value = null;
       } else {
         clickedImage.classList.add('fullscreen');
+        middleCross.classList.add('fullscreen');
         fullscreenImage.value = clickedImage;
       }
     };
@@ -154,14 +158,17 @@ onMounted(() => {
 #middle-cross {
   width: 23px;
   height: 23px;
-
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(0%, -50%);
-
   fill: #fff;
   z-index: 9999;
+  transition: transform 0.5s ease;
+}
+
+#middle-cross.fullscreen {
+  transform: translate(0%, -50%) scale(0);
 }
 
 #middle-cross,
