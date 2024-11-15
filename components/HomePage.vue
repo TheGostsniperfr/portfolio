@@ -30,7 +30,7 @@ onMounted(() => {
 
   if (carousel) {
     const animate = () => {
-      currentPercentage += (targetPercentage - currentPercentage) * 0.08;
+      currentPercentage += (targetPercentage - currentPercentage) * 0.1;
 
       if (Math.abs(targetPercentage - currentPercentage) < 0.001) {
         currentPercentage = targetPercentage;
@@ -94,13 +94,32 @@ onMounted(() => {
         animationFrame = requestAnimationFrame(animate);
       }
     };
-
+    
     const handleImageClick = (event) => {
       const clickedImage = event.target;
       if (fullscreenImage.value) {
         fullscreenImage.value.classList.remove('fullscreen');
         middleCross.classList.remove('fullscreen');
         fullscreenImage.value = null;
+
+        const images = carousel.getElementsByClassName("image");
+        const index = Array.from(images).indexOf(clickedImage);
+
+        const newPercentage = -(9 + (20.3 * index));
+
+        carousel.style.transform = `translate3d(${newPercentage}%, -50%, 0)`;
+
+        Array.from(images).forEach((image, index) => {
+          image.style.objectPosition = `${40 + newPercentage + (index + 1) * 20}% center`;
+        });
+
+        currentPercentage = newPercentage;
+        targetPercentage = newPercentage;
+        carousel.dataset.prevPercentage = newPercentage;
+
+        // if (!animationFrame) {
+        //   animationFrame = requestAnimationFrame(animate);
+        // }
       } else {
         clickedImage.classList.add('fullscreen');
         middleCross.classList.add('fullscreen');
@@ -109,6 +128,7 @@ onMounted(() => {
         const index = Array.from(carousel.getElementsByClassName("image")).indexOf(clickedImage);
 
         const value = -(29.3 + 10.35 * (index));
+
         targetPercentage = value;
         currentPercentage = value;
 
@@ -123,11 +143,11 @@ onMounted(() => {
     }
 
     window.onmousedown = (e) => handleOnDown(e);
-    window.ontouchstart = (e) => handleOnDown(e.touches[0]);
+    window.ontouchstart = (e) => handleOnDown(e.touches[ 0 ]);
     window.onmouseup = () => handleOnUp();
     window.ontouchend = () => handleOnUp();
     window.onmousemove = (e) => handleOnMove(e);
-    window.ontouchmove = (e) => handleOnMove(e.touches[0]);
+    window.ontouchmove = (e) => handleOnMove(e.touches[ 0 ]);
 
     window.addEventListener("wheel", handleOnScroll);
   }
