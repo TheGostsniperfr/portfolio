@@ -38,9 +38,11 @@ onMounted(() => {
 
       carousel.style.transform = `translate3d(${currentPercentage}%, -50%, 0)`;
 
-      for (const image of carousel.getElementsByClassName("image")) {
-        image.style.objectPosition = `${100 + currentPercentage}% center`;
-      }
+      const images = carousel.getElementsByClassName("image");
+
+      Array.from(images).forEach((image, index) => {
+        image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
+      });
 
       if (Math.abs(targetPercentage - currentPercentage) > 0.001) {
         animationFrame = requestAnimationFrame(animate);
@@ -101,7 +103,6 @@ onMounted(() => {
         const index = Array.from(carousel.getElementsByClassName("image")).indexOf(clickedImage);
 
         const value = -(29.3 + 10.35 * (index));
-        console.log("value is: " + value);
         targetPercentage = value;
         currentPercentage = value;
 
