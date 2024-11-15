@@ -94,7 +94,7 @@ onMounted(() => {
         animationFrame = requestAnimationFrame(animate);
       }
     };
-    
+
     const handleImageClick = (event) => {
       const clickedImage = event.target;
       if (fullscreenImage.value) {
@@ -117,10 +117,12 @@ onMounted(() => {
         targetPercentage = newPercentage;
         carousel.dataset.prevPercentage = newPercentage;
 
-        // if (!animationFrame) {
-        //   animationFrame = requestAnimationFrame(animate);
-        // }
+        setTimeout(() => {
+          carousel.style.transition = '';
+        }, 500);
       } else {
+        carousel.style.transition = 'transform 0.5s ease';
+
         clickedImage.classList.add('fullscreen');
         middleCross.classList.add('fullscreen');
         fullscreenImage.value = clickedImage;
@@ -137,6 +139,7 @@ onMounted(() => {
         }
       }
     };
+
 
     for (const image of carousel.getElementsByClassName("image")) {
       image.addEventListener("click", handleImageClick);
@@ -159,7 +162,7 @@ onMounted(() => {
 .home-content {
   height: 100vh;
   width: 100vw;
-  background-color: #000;
+  background-color: #141414;
   margin: 0;
 }
 

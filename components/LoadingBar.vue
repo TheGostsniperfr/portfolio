@@ -18,6 +18,7 @@
   
   <style scoped>
   .loading-container {
+    background-color: #141414;
     display: flex;
     align-items: center;
     justify-content: center;
