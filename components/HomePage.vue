@@ -15,12 +15,13 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
 let carousel;
 let currentPercentage = 0.0;
 let targetPercentage = 0.0;
 let animationFrame;
+const fullscreenImage = ref(null);
 
 onMounted(() => {
   carousel = document.getElementById("carousel");
@@ -46,7 +47,6 @@ onMounted(() => {
         animationFrame = null;
       }
     };
-
 
     const handleOnDown = (e) => (carousel.dataset.mouseDownAt = e.clientX);
     const handleOnUp = () => {
@@ -85,17 +85,33 @@ onMounted(() => {
       }
     };
 
+    const handleImageClick = (event) => {
+      const clickedImage = event.target;
+      if (fullscreenImage.value) {
+        fullscreenImage.value.classList.remove('fullscreen');
+        fullscreenImage.value = null;
+      } else {
+        clickedImage.classList.add('fullscreen');
+        fullscreenImage.value = clickedImage;
+      }
+    };
+
+    for (const image of carousel.getElementsByClassName("image")) {
+      image.addEventListener("click", handleImageClick);
+    }
+
     window.onmousedown = (e) => handleOnDown(e);
-    window.ontouchstart = (e) => handleOnDown(e.touches[ 0 ]);
+    window.ontouchstart = (e) => handleOnDown(e.touches[0]);
     window.onmouseup = () => handleOnUp();
     window.ontouchend = () => handleOnUp();
     window.onmousemove = (e) => handleOnMove(e);
-    window.ontouchmove = (e) => handleOnMove(e.touches[ 0 ]);
+    window.ontouchmove = (e) => handleOnMove(e.touches[0]);
 
     window.addEventListener("wheel", handleOnScroll);
   }
 });
 </script>
+
 
 <style scoped>
 .home-content {
@@ -105,18 +121,6 @@ onMounted(() => {
   margin: 0;
 }
 
-#carousel>.image {
-  width: 33vmin;
-  height: 46vmin;
-  object-fit: cover;
-  object-position: center;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 #carousel {
   display: flex;
   gap: 4vmin;
@@ -124,6 +128,27 @@ onMounted(() => {
   left: 50%;
   top: 50%;
   transform: translate(0%, -50%);
+  align-items: center;
+}
+
+#carousel>.image {
+  width: 33vmin;
+  height: 46vmin;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#carousel>.image.fullscreen {
+  transform: scale(1);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1000;
 }
 
 #middle-cross {
