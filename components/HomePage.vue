@@ -97,6 +97,17 @@ onMounted(() => {
         clickedImage.classList.add('fullscreen');
         middleCross.classList.add('fullscreen');
         fullscreenImage.value = clickedImage;
+
+        const index = Array.from(carousel.getElementsByClassName("image")).indexOf(clickedImage);
+
+        const value = -(29.3 + 10.35 * (index));
+        console.log("value is: " + value);
+        targetPercentage = value;
+        currentPercentage = value;
+
+        if (!animationFrame) {
+          animationFrame = requestAnimationFrame(animate);
+        }
       }
     };
 
