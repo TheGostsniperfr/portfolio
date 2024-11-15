@@ -11,6 +11,18 @@
       <img class="image" src="/images/TC/logo_back.png" draggable="false">
       <img class="image" src="/images/ACDC/logo_tp.png" draggable="false">
     </div>
+
+    <div id="page-number">
+      <div id="number">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+      </div>
+      <p>—</p>
+      <p>5</p>
+    </div>
   </div>
 </template>
 
@@ -217,5 +229,20 @@ onMounted(() => {
   stroke: #fff;
   stroke-width: 0.1;
   fill: #fff;
+}
+
+#page-number {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px; 
+  height: 1em;
+  font-weight: 450;
+  font-size: 1.1em;
+  line-height: 0.5em;
+  overflow: hidden;
 }
 </style>
