@@ -35,12 +35,18 @@ let targetPercentage = 0.0;
 let animationFrame;
 const fullscreenImage = ref(null);
 let middleCross;
+let images;
+let pageNumber;
+let currentImgIndex = -1;
 
 onMounted(() => {
   carousel = document.getElementById("carousel");
+  images = carousel.getElementsByClassName("image");
   middleCross = document.getElementById("middle-cross");
+  pageNumber = document.getElementById("page-number");
 
   if (carousel) {
+    updateImgIndex(0);
     const animate = () => {
       currentPercentage += (targetPercentage - currentPercentage) * 0.1;
 
@@ -49,8 +55,6 @@ onMounted(() => {
       }
 
       carousel.style.transform = `translate3d(${currentPercentage}%, -50%, 0)`;
-
-      const images = carousel.getElementsByClassName("image");
 
       Array.from(images).forEach((image, index) => {
         image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
@@ -86,6 +90,8 @@ onMounted(() => {
 
       targetPercentage = Math.max(Math.min(targetPercentage, 0), -100);
 
+      onPercentageChange();
+
       if (!animationFrame) {
         animationFrame = requestAnimationFrame(animate);
       }
@@ -100,6 +106,9 @@ onMounted(() => {
 
       targetPercentage += percentageChange;
       targetPercentage = Math.max(Math.min(targetPercentage, 0), -100);
+
+      onPercentageChange();
+
       carousel.dataset.prevPercentage = targetPercentage;
 
       if (!animationFrame) {
@@ -114,9 +123,7 @@ onMounted(() => {
         middleCross.classList.remove('fullscreen');
         fullscreenImage.value = null;
 
-        const images = carousel.getElementsByClassName("image");
         const index = Array.from(images).indexOf(clickedImage);
-
         const newPercentage = -(9 + (20.3 * index));
 
         carousel.style.transform = `translate3d(${newPercentage}%, -50%, 0)`;
@@ -141,6 +148,8 @@ onMounted(() => {
 
         const index = Array.from(carousel.getElementsByClassName("image")).indexOf(clickedImage);
 
+        updateImgIndex(index);
+
         const value = -(29.3 + 10.35 * (index));
 
         targetPercentage = value;
@@ -152,6 +161,24 @@ onMounted(() => {
       }
     };
 
+    function onPercentageChange(newPercentage) {
+      if (-targetPercentage < 18.34) {
+        updateImgIndex(0);
+      }
+      else {
+        updateImgIndex(Math.floor((-targetPercentage - 18.34) / 20.5) + 1);
+      }
+    }
+
+    function updateImgIndex(newIndex) {
+      if (currentImgIndex === newIndex) return;
+
+      const numberContainer = document.getElementById("number");
+
+      numberContainer.style.transform = `translateY(${(newIndex - 2) * -1.5}em)`;
+
+      currentImgIndex = newIndex;
+    }
 
     for (const image of carousel.getElementsByClassName("image")) {
       image.addEventListener("click", handleImageClick);
@@ -238,11 +265,15 @@ onMounted(() => {
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 5px; 
+  gap: 5px;
   height: 1em;
   font-weight: 450;
   font-size: 1.1em;
   line-height: 0.5em;
-  overflow: hidden;
+  overflow: hidden
+}
+
+#number {
+  transition: transform 0.5s ease;
 }
 </style>
