@@ -36,14 +36,19 @@ let animationFrame;
 const fullscreenImage = ref(null);
 let middleCross;
 let images;
-let pageNumber;
 let currentImgIndex = -1;
+
+const minCarouselX = -9;
+const maxCarouelX = -90.2;
 
 onMounted(() => {
   carousel = document.getElementById("carousel");
   images = carousel.getElementsByClassName("image");
   middleCross = document.getElementById("middle-cross");
-  pageNumber = document.getElementById("page-number");
+  
+  // init carousel start posision
+  currentPercentage = minCarouselX;
+  carousel.style.transform = `translate3d(${minCarouselX}%, -50%, 0)`;
 
   if (carousel) {
     updateImgIndex(0);
@@ -88,7 +93,7 @@ onMounted(() => {
       const percentage = (mouseDelta / maxDelta) * -80;
       targetPercentage = parseFloat(carousel.dataset.prevPercentage) + percentage;
 
-      targetPercentage = Math.max(Math.min(targetPercentage, 0), -100);
+      targetPercentage = Math.max(Math.min(targetPercentage, minCarouselX), maxCarouelX);
 
       onPercentageChange();
 
@@ -105,7 +110,7 @@ onMounted(() => {
       const percentageChange = (scrollDelta / window.innerHeight) * -30;
 
       targetPercentage += percentageChange;
-      targetPercentage = Math.max(Math.min(targetPercentage, 0), -100);
+      targetPercentage = Math.max(Math.min(targetPercentage, minCarouselX), maxCarouelX);
 
       onPercentageChange();
 
