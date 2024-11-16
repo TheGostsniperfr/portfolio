@@ -45,10 +45,10 @@ onMounted(() => {
   carousel = document.getElementById("carousel");
   images = carousel.getElementsByClassName("image");
   middleCross = document.getElementById("middle-cross");
-  
+
   // init carousel start posision
   currentPercentage = minCarouselX;
-  carousel.style.transform = `translate3d(${minCarouselX}%, -50%, 0)`;
+  carousel.style.transform = `translate3d(${minCarouselX}%, 0, 0)`;
 
   if (carousel) {
     updateImgIndex(0);
@@ -59,7 +59,7 @@ onMounted(() => {
         currentPercentage = targetPercentage;
       }
 
-      carousel.style.transform = `translate3d(${currentPercentage}%, -50%, 0)`;
+      carousel.style.transform = `translate3d(${currentPercentage}%, 0, 0)`;
 
       Array.from(images).forEach((image, index) => {
         image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
@@ -127,26 +127,7 @@ onMounted(() => {
         fullscreenImage.value.classList.remove('fullscreen');
         middleCross.classList.remove('fullscreen');
         fullscreenImage.value = null;
-
-        const index = Array.from(images).indexOf(clickedImage);
-        const newPercentage = -(9 + (20.3 * index));
-
-        carousel.style.transform = `translate3d(${newPercentage}%, -50%, 0)`;
-
-        Array.from(images).forEach((image, index) => {
-          image.style.objectPosition = `${40 + newPercentage + (index + 1) * 20}% center`;
-        });
-
-        currentPercentage = newPercentage;
-        targetPercentage = newPercentage;
-        carousel.dataset.prevPercentage = newPercentage;
-
-        setTimeout(() => {
-          carousel.style.transition = '';
-        }, 500);
       } else {
-        carousel.style.transition = 'transform 0.5s ease';
-
         clickedImage.classList.add('fullscreen');
         middleCross.classList.add('fullscreen');
         fullscreenImage.value = clickedImage;
@@ -155,10 +136,15 @@ onMounted(() => {
 
         updateImgIndex(index);
 
-        const value = -(29.3 + 10.35 * (index));
+        const newPercentage = -(29.3 + 10.35 * (index));
 
-        targetPercentage = value;
-        currentPercentage = value;
+        carousel.style.transform = `translate3d(${newPercentage}%, 0, 0)`;
+
+        Array.from(images).forEach((image, index) => {
+          image.style.objectPosition = `${40 + newPercentage + (index + 1) * 20}% center`;
+        });
+
+        targetPercentage = newPercentage;
 
         if (!animationFrame) {
           animationFrame = requestAnimationFrame(animate);
@@ -166,7 +152,7 @@ onMounted(() => {
       }
     };
 
-    function onPercentageChange(newPercentage) {
+    function onPercentageChange() {
       if (-targetPercentage < 18.34) {
         updateImgIndex(0);
       }
@@ -204,10 +190,13 @@ onMounted(() => {
 
 <style scoped>
 .home-content {
+  display: flex;
   height: 100vh;
   width: 100vw;
   background-color: #141414;
   margin: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 #carousel {
@@ -215,8 +204,6 @@ onMounted(() => {
   gap: 4vmin;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(0%, -50%);
   align-items: center;
 }
 
@@ -233,7 +220,6 @@ onMounted(() => {
 }
 
 #carousel>.image.fullscreen {
-  transform: scale(1);
   width: 100vw;
   height: 100vh;
   object-fit: cover;
