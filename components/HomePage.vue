@@ -49,6 +49,9 @@ onMounted(() => {
   // init carousel start posision
   currentPercentage = minCarouselX;
   carousel.style.transform = `translate3d(${minCarouselX}%, 0, 0)`;
+  Array.from(images).forEach((image, index) => {
+    image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
+  });
 
   if (carousel) {
     updateImgIndex(0);
