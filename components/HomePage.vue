@@ -1,5 +1,6 @@
 <template>
   <div class="home-content">
+    <NavBar/>
     <svg id="middle-cross" viewBox="0 0 22 22">
       <polygon class="line" points="22 11.751 0 11.751 0 10.249 22 10.249 22 11"></polygon>
       <polygon class="line" points="11.751 0 11.751 22 10.249 22 10.249 0 11 0"></polygon>
@@ -28,6 +29,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import NavBar from './NavBar.vue';
 
 let carousel;
 let currentPercentage = 0.0;
