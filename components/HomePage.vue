@@ -18,13 +18,14 @@
       </div>
     </div>
 
-    <a id="back-btn" href="#back" @click="goBack" v-show="fullscreenImage">
+    <a id="back-btn" @click="goBack" v-bind:class="{ visible: fullscreenImage }">
       Back
     </a>
 
-    <a id="title-btn" :href="titleLink" v-show="fullscreenImage">
+    <a id="title-btn" :href="titleLink" v-bind:class="{ visible: fullscreenImage }">
       {{ titleText }}
     </a>
+
 
     <div id="page-number">
       <div id="number">
@@ -144,12 +145,7 @@ onMounted(() => {
     const handleImageClick = (event) => {
       const clickedImage = event.target;
       if (fullscreenImage.value) {
-        fullscreenImage.value.classList.remove('fullscreen');
-        middleCross.classList.remove('fullscreen');
-        fullscreenImage.value = null;
-
-        // Reset the imageContainer when fullscreen is closed
-        clickedImage.closest('.imageContainer').classList.remove('fullscreen');
+        onCloseFullScreen();
       } else {
         clickedImage.classList.add('fullscreen');
         middleCross.classList.add('fullscreen');
@@ -170,6 +166,9 @@ onMounted(() => {
 
         targetPercentage = newPercentage;
         carousel.dataset.prevPercentage = newPercentage;
+
+        document.getElementById('back-btn').classList.add('visible');
+        document.getElementById('title-btn').classList.add('visible');
 
         // Add fullscreen class to the image container as well
         clickedImage.closest('.imageContainer').classList.add('fullscreen');
@@ -216,8 +215,27 @@ onMounted(() => {
   }
 });
 
+function onCloseFullScreen() {
+  if (fullscreenImage.value) {
+    fullscreenImage.value.classList.remove('fullscreen');
+
+    if (middleCross) {
+      middleCross.classList.remove('fullscreen');
+    }
+
+    const container = fullscreenImage.value.closest('.imageContainer');
+    if (container) {
+      container.classList.remove('fullscreen');
+    }
+
+    fullscreenImage.value = null;
+    document.getElementById('back-btn').classList.remove('visible');
+    document.getElementById('title-btn').classList.remove('visible');
+  }
+}
+
 const goBack = (event) => {
-  // TODO
+  onCloseFullScreen();
 };
 
 </script>
@@ -312,6 +330,20 @@ const goBack = (event) => {
 
 #number {
   transition: transform 0.5s ease;
+}
+
+#back-btn,
+#title-btn {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+#back-btn.visible,
+#title-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s;
 }
 
 #title-btn {
