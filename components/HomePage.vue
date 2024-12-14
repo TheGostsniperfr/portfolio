@@ -58,7 +58,7 @@ onMounted(() => {
   if (carousel) {
     updateImgIndex(0);
     const animate = () => {
-      currentPercentage += (targetPercentage - currentPercentage) * 0.1;
+      currentPercentage += (targetPercentage - currentPercentage) * 0.15;
 
       if (Math.abs(targetPercentage - currentPercentage) < 0.001) {
         currentPercentage = targetPercentage;
@@ -95,7 +95,7 @@ onMounted(() => {
       const mouseDelta = parseFloat(carousel.dataset.mouseDownAt) - e.clientX;
       const maxDelta = window.innerWidth / 2;
 
-      const percentage = (mouseDelta / maxDelta) * -80;
+      const percentage = (mouseDelta / maxDelta) * -80 * 0.7;
       targetPercentage = parseFloat(carousel.dataset.prevPercentage) + percentage;
 
       targetPercentage = Math.max(Math.min(targetPercentage, minCarouselX), maxCarouelX);
@@ -111,7 +111,7 @@ onMounted(() => {
       if (fullscreenImage.value) return;
       e.preventDefault();
 
-      const scrollDelta = e.deltaY;
+      const scrollDelta = e.deltaY * 0.7;
       const percentageChange = (scrollDelta / window.innerHeight) * -30;
 
       targetPercentage += percentageChange;
