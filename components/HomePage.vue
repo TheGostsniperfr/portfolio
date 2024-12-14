@@ -1,16 +1,16 @@
 <template>
   <div class="home-content">
-    <NavBar/>
+    <NavBar />
     <svg id="middle-cross" viewBox="0 0 22 22">
       <polygon class="line" points="22 11.751 0 11.751 0 10.249 22 10.249 22 11"></polygon>
       <polygon class="line" points="11.751 0 11.751 22 10.249 22 10.249 0 11 0"></polygon>
     </svg>
     <div id="carousel" data-mouse-down-at="0" data-prev-percentage="0">
-      <img class="image" src="/images/other/test_image_16_9.jpg" draggable="false">
-      <img class="image" src="/images/other/test_image_16_9.jpg" draggable="false">
-      <img class="image" src="/images/other/test_image_16_9.jpg" draggable="false">
-      <img class="image" src="/images/other/test_image_16_9.jpg" draggable="false">
-      <img class="image" src="/images/other/test_image_16_9.jpg" draggable="false">
+      <div class="imageContainer"><img class="image" src="/images/Arffornia/launcher_homepage.png" draggable="false"></div>
+      <div class="imageContainer"><img class="image" src="/images/OCR/logo.png" draggable="false"></div>
+      <div class="imageContainer"><img class="image" src="/images/UpsideDown/UpsideDownBG.png" draggable="false"></div>
+      <div class="imageContainer"><img class="image" src="/images/TC/logo_back.png" draggable="false"></div>
+      <div class="imageContainer"><img class="image" src="/images/ACDC/logo_tp.png" draggable="false"></div>
     </div>
 
     <div id="page-number">
@@ -52,7 +52,7 @@ onMounted(() => {
   currentPercentage = minCarouselX;
   carousel.style.transform = `translate3d(${minCarouselX}%, 0, 0)`;
   Array.from(images).forEach((image, index) => {
-    // image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
+    image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
   });
 
   if (carousel) {
@@ -67,7 +67,7 @@ onMounted(() => {
       carousel.style.transform = `translate3d(${currentPercentage}%, 0, 0)`;
 
       Array.from(images).forEach((image, index) => {
-        // image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
+        image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
       });
 
       if (Math.abs(targetPercentage - currentPercentage) > 0.001) {
@@ -132,6 +132,9 @@ onMounted(() => {
         fullscreenImage.value.classList.remove('fullscreen');
         middleCross.classList.remove('fullscreen');
         fullscreenImage.value = null;
+
+        // Reset the imageContainer when fullscreen is closed
+        clickedImage.closest('.imageContainer').classList.remove('fullscreen');
       } else {
         clickedImage.classList.add('fullscreen');
         middleCross.classList.add('fullscreen');
@@ -141,24 +144,29 @@ onMounted(() => {
 
         updateImgIndex(index);
 
-        // const newPercentage = -(29.3 + 10.35 * (index));
-        const newPercentage =  -(-minCarouselX + (20.44 * index));
+        // const newPercentage = -(-minCarouselX + (20.44 * index));
+        const newPercentage = -(29.3 + 10.35 * (index));
+
+
 
         carousel.style.transform = `translate3d(${newPercentage}%, 0, 0)`;
 
         Array.from(images).forEach((image, index) => {
-          // image.style.objectPosition = `${40 + newPercentage + (index + 1) * 20}% center`;
+          image.style.objectPosition = `${40 + newPercentage + (index + 1) * 20}% center`;
         });
-        
-        
+
         targetPercentage = newPercentage;
         carousel.dataset.prevPercentage = newPercentage;
+
+        // Add fullscreen class to the image container as well
+        clickedImage.closest('.imageContainer').classList.add('fullscreen');
 
         if (!animationFrame) {
           animationFrame = requestAnimationFrame(animate);
         }
       }
     };
+
 
     function onPercentageChange() {
       if (-targetPercentage < 18.34) {
@@ -205,6 +213,7 @@ onMounted(() => {
   margin: 0;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 #carousel {
@@ -215,22 +224,32 @@ onMounted(() => {
   align-items: center;
 }
 
-#carousel>.image {
+#carousel>.imageContainer {
   width: 33vmin;
   height: 46vmin;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
+  transition: transform 0.7s ease, width 0.7s ease, height 0.7s ease;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  overflow: hidden;
 }
 
-#carousel>.image.fullscreen {
-  transform: scale(7);
-  object-fit: contain;
-  object-position: center;
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+  transform: scale(2);
+}
+
+.image.fullscreen {
+  transform: scale(1);
+}
+
+#carousel>.imageContainer.fullscreen {
+  width: 100vw;
+  height: 100vh;
   z-index: 1000;
 }
 
@@ -269,7 +288,7 @@ onMounted(() => {
   font-weight: 450;
   font-size: 1.1em;
   line-height: 0.5em;
-  overflow: hidden
+  overflow: hidden;
 }
 
 #number {
