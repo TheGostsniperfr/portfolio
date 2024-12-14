@@ -6,12 +6,25 @@
       <polygon class="line" points="11.751 0 11.751 22 10.249 22 10.249 0 11 0"></polygon>
     </svg>
     <div id="carousel" data-mouse-down-at="0" data-prev-percentage="0">
-      <div class="imageContainer"><img class="image" src="/images/Arffornia/launcher_homepage.png" draggable="false"></div>
-      <div class="imageContainer"><img class="image" src="/images/OCR/logo.png" draggable="false"></div>
-      <div class="imageContainer"><img class="image" src="/images/UpsideDown/UpsideDownBG.png" draggable="false"></div>
-      <div class="imageContainer"><img class="image" src="/images/TC/logo_back.png" draggable="false"></div>
-      <div class="imageContainer"><img class="image" src="/images/ACDC/logo_tp.png" draggable="false"></div>
+      <div class="imageContainer"><img class="image" src="/images/Arffornia/launcher_homepage.png" draggable="false"
+          data-title="Arffornia Project"></div>
+      <div class="imageContainer"><img class="image" src="/images/OCR/logo.png" draggable="false"
+          data-title="OCR Sudoku-Forgers"></div>
+      <div class="imageContainer"><img class="image" src="/images/UpsideDown/UpsideDownBG.png" draggable="false"
+          data-title="Upside Down"></div>
+      <div class="imageContainer"><img class="image" src="/images/TC/logo_back.png" draggable="false"
+          data-title="Toolchain"></div>
+      <div class="imageContainer"><img class="image" src="/images/ACDC/logo_tp.png" draggable="false" data-title="ACDC">
+      </div>
     </div>
+
+    <a id="back-btn" href="#back" @click="goBack" v-show="fullscreenImage">
+      Back
+    </a>
+
+    <a id="title-btn" :href="titleLink" v-show="fullscreenImage">
+      {{ titleText }}
+    </a>
 
     <div id="page-number">
       <div id="number">
@@ -42,6 +55,8 @@ let currentImgIndex = -1;
 
 const minCarouselX = -8.4;
 const maxCarouelX = -90.15;
+const titleText = ref("Upside Down");
+const titleLink = ref("#");
 
 onMounted(() => {
   carousel = document.getElementById("carousel");
@@ -147,8 +162,6 @@ onMounted(() => {
         // const newPercentage = -(-minCarouselX + (20.44 * index));
         const newPercentage = -(29.3 + 10.35 * (index));
 
-
-
         carousel.style.transform = `translate3d(${newPercentage}%, 0, 0)`;
 
         Array.from(images).forEach((image, index) => {
@@ -167,12 +180,10 @@ onMounted(() => {
       }
     };
 
-
     function onPercentageChange() {
       if (-targetPercentage < 18.34) {
         updateImgIndex(0);
-      }
-      else {
+      } else {
         updateImgIndex(Math.floor((-targetPercentage - 18.34) / 20.5) + 1);
       }
     }
@@ -185,6 +196,9 @@ onMounted(() => {
       numberContainer.style.transform = `translateY(${(newIndex - 2) * -1.5}em)`;
 
       currentImgIndex = newIndex;
+
+      titleText.value = images[ newIndex ].dataset.title;
+      titleLink.value = `#${titleText.value.replace(/ /g, "-")}`;
     }
 
     for (const image of carousel.getElementsByClassName("image")) {
@@ -201,6 +215,11 @@ onMounted(() => {
     window.addEventListener("wheel", handleOnScroll);
   }
 });
+
+const goBack = (event) => {
+  // TODO
+};
+
 </script>
 
 
@@ -293,5 +312,66 @@ onMounted(() => {
 
 #number {
   transition: transform 0.5s ease;
+}
+
+#title-btn {
+  --border-color: #fff;
+  --border-thickness: 5px;
+  --hover-gap: 10px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 500%;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  padding: calc(var(--hover-gap) + var(--border-thickness));
+  border-radius: 3px;
+  background: #000;
+  cursor: pointer;
+
+  --gradient-color-stop: #0000 25%, var(--border-color) 0;
+  background:
+    conic-gradient(from 180deg at top var(--border-thickness) right var(--border-thickness), var(--gradient-color-stop)) var(--gradient-animation, 200%) 0 / 200% var(--gradient-animation, var(--border-thickness)) no-repeat,
+    conic-gradient(at bottom var(--border-thickness) left var(--border-thickness), var(--gradient-color-stop)) 0 var(--gradient-animation, 200%) / var(--gradient-animation, var(--border-thickness)) 200% no-repeat;
+  transition: 0.3s, background-position 0.3s 0.3s;
+  z-index: 1;
+}
+
+#title-btn:hover {
+  --gradient-animation: 100%;
+  transition: 0.3s, background-size 0.3s 0.3s;
+}
+
+#back-btn {
+  --border-color: #fff;
+  --border-thickness: 3px;
+  --hover-gap: 5px;
+
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+  padding: calc(var(--hover-gap) + var(--border-thickness));
+  border-radius: 3px;
+  font-size: 125%;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  background: #000;
+  cursor: pointer;
+
+  --gradient-color-stop: #0000 25%, var(--border-color) 0;
+  background:
+    conic-gradient(from 180deg at top var(--border-thickness) right var(--border-thickness), var(--gradient-color-stop)) var(--gradient-animation, 200%) 0 / 200% var(--gradient-animation, var(--border-thickness)) no-repeat,
+    conic-gradient(at bottom var(--border-thickness) left var(--border-thickness), var(--gradient-color-stop)) 0 var(--gradient-animation, 200%) / var(--gradient-animation, var(--border-thickness)) 200% no-repeat;
+  transition: 0.3s, background-position 0.3s 0.3s;
+  z-index: 1;
+}
+
+#back-btn:hover {
+  --gradient-animation: 100%;
+  transition: 0.3s, background-size 0.3s 0.3s;
 }
 </style>

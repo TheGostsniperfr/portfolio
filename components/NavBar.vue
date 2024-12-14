@@ -60,6 +60,10 @@ onUnmounted(() => {
   opacity: 0.5;
 }
 
+.link-container:hover {
+  opacity: 1;
+}
+
 .link-dot {
   font-size: 1em;
   font-weight: 650;
