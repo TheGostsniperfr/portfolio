@@ -17,6 +17,7 @@ import HomePage from '~/components/HomePage.vue';
 import { useImagePreloader } from '~/composables/useImagePreloader.js';
 
 const imageList = [
+  '/images/other/test_image_16_9.jpg',
   '/images/Arffornia/launcher_homepage.png',
   '/images/Arffornia/launcher_homepageV4.png',
   '/images/Arffornia/website_homepage.png',

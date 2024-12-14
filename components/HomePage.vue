@@ -6,11 +6,11 @@
       <polygon class="line" points="11.751 0 11.751 22 10.249 22 10.249 0 11 0"></polygon>
     </svg>
     <div id="carousel" data-mouse-down-at="0" data-prev-percentage="0">
-      <img class="image" src="/images/Arffornia/launcher_homepage.png" draggable="false">
-      <img class="image" src="/images/OCR/logo.png" draggable="false">
-      <img class="image" src="/images/UpsideDown/UpsideDownBG.png" draggable="false">
-      <img class="image" src="/images/TC/logo_back.png" draggable="false">
-      <img class="image" src="/images/ACDC/logo_tp.png" draggable="false">
+      <img class="image" src="/images/other/test_image_16_9.jpg" draggable="false">
+      <img class="image" src="/images/other/test_image_16_9.jpg" draggable="false">
+      <img class="image" src="/images/other/test_image_16_9.jpg" draggable="false">
+      <img class="image" src="/images/other/test_image_16_9.jpg" draggable="false">
+      <img class="image" src="/images/other/test_image_16_9.jpg" draggable="false">
     </div>
 
     <div id="page-number">
@@ -40,8 +40,8 @@ let middleCross;
 let images;
 let currentImgIndex = -1;
 
-const minCarouselX = -9;
-const maxCarouelX = -90.2;
+const minCarouselX = -8.4;
+const maxCarouelX = -90.15;
 
 onMounted(() => {
   carousel = document.getElementById("carousel");
@@ -52,7 +52,7 @@ onMounted(() => {
   currentPercentage = minCarouselX;
   carousel.style.transform = `translate3d(${minCarouselX}%, 0, 0)`;
   Array.from(images).forEach((image, index) => {
-    image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
+    // image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
   });
 
   if (carousel) {
@@ -67,7 +67,7 @@ onMounted(() => {
       carousel.style.transform = `translate3d(${currentPercentage}%, 0, 0)`;
 
       Array.from(images).forEach((image, index) => {
-        image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
+        // image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
       });
 
       if (Math.abs(targetPercentage - currentPercentage) > 0.001) {
@@ -141,15 +141,18 @@ onMounted(() => {
 
         updateImgIndex(index);
 
-        const newPercentage = -(29.3 + 10.35 * (index));
+        // const newPercentage = -(29.3 + 10.35 * (index));
+        const newPercentage =  -(-minCarouselX + (20.44 * index));
 
         carousel.style.transform = `translate3d(${newPercentage}%, 0, 0)`;
 
         Array.from(images).forEach((image, index) => {
-          image.style.objectPosition = `${40 + newPercentage + (index + 1) * 20}% center`;
+          // image.style.objectPosition = `${40 + newPercentage + (index + 1) * 20}% center`;
         });
-
+        
+        
         targetPercentage = newPercentage;
+        carousel.dataset.prevPercentage = newPercentage;
 
         if (!animationFrame) {
           animationFrame = requestAnimationFrame(animate);
@@ -225,9 +228,9 @@ onMounted(() => {
 }
 
 #carousel>.image.fullscreen {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  transform: scale(7);
+  object-fit: contain;
+  object-position: center;
   z-index: 1000;
 }
 
