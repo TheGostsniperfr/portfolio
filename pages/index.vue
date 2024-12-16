@@ -5,7 +5,7 @@
       <LoadingBar :progress="progress" />
     </div>
     <div v-else>
-      <HomePage />
+        <HomePage />
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import LoadingBar from '~/components/LoadingBar.vue';
-import HomePage from '~/components/HomePage.vue';
+import HomePage from '~/pages/HomePage.vue';
 import { useImagePreloader } from '~/composables/useImagePreloader.js';
 
 const imageList = [

@@ -11,7 +11,7 @@
       <div class="imageContainer"><img class="image" src="/images/OCR/logo.png" draggable="false"
           data-title="OCR Sudoku-Forgers"></div>
       <div class="imageContainer"><img class="image" src="/images/UpsideDown/UpsideDownBG.png" draggable="false"
-          data-title="Upside Down"></div>
+          data-title="Upside-Down"></div>
       <div class="imageContainer"><img class="image" src="/images/TC/logo_back.png" draggable="false"
           data-title="Toolchain"></div>
       <div class="imageContainer"><img class="image" src="/images/ACDC/logo_tp.png" draggable="false" data-title="ACDC">
@@ -21,11 +21,10 @@
     <a id="back-btn" @click="goBack" v-bind:class="{ visible: fullscreenImage }">
       Back
     </a>
-
-    <a id="title-btn" :href="titleLink" v-bind:class="{ visible: fullscreenImage }">
+    
+    <NuxtLink  id="title-btn" :to="titleLink" v-bind:class="{ visible: fullscreenImage }" prefetch>
       {{ titleText }}
-    </a>
-
+    </NuxtLink>
 
     <div id="page-number">
       <div id="number">
@@ -43,7 +42,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import NavBar from './NavBar.vue';
+import NavBar from '~/components/NavBar.vue';
 
 let carousel;
 let currentPercentage = 0.0;
@@ -197,7 +196,7 @@ onMounted(() => {
       currentImgIndex = newIndex;
 
       titleText.value = images[ newIndex ].dataset.title;
-      titleLink.value = `#${titleText.value.replace(/ /g, "-")}`;
+      titleLink.value = `${titleText.value.replace(/ /g, "-")}`;
     }
 
     for (const image of carousel.getElementsByClassName("image")) {
