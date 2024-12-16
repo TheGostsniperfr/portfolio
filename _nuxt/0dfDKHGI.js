@@ -1,0 +1,1 @@
+import{_ as e,c as o,o as c}from"./D89Hvw-Y.js";const s={},t={class:"test"};function _(n,r){return c(),o("p",t,"Hello world")}const d=e(s,[["render",_],["__scopeId","data-v-17242efd"]]);export{d as default};
