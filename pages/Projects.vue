@@ -1,5 +1,5 @@
 <template>
-  <div class="home-content">
+  <div class="projects-content">
     <NavBar />
     <svg id="middle-cross" viewBox="0 0 22 22">
       <polygon class="line" points="22 11.751 0 11.751 0 10.249 22 10.249 22 11"></polygon>
@@ -11,7 +11,7 @@
       <div class="imageContainer"><img class="image" src="/images/OCR/logo.png" draggable="false"
           data-title="OCR Sudoku-Forgers"></div>
       <div class="imageContainer"><img class="image" src="/images/UpsideDown/UpsideDownBG.png" draggable="false"
-          data-title="Upside-Down"></div>
+          data-title="Upside Down"></div>
       <div class="imageContainer"><img class="image" src="/images/TC/logo_back.png" draggable="false"
           data-title="Toolchain"></div>
       <div class="imageContainer"><img class="image" src="/images/ACDC/logo_tp.png" draggable="false" data-title="ACDC">
@@ -196,7 +196,7 @@ onMounted(() => {
       currentImgIndex = newIndex;
 
       titleText.value = images[ newIndex ].dataset.title;
-      titleLink.value = `${titleText.value.replace(/ /g, "-")}`;
+      titleLink.value = `${titleText.value.replace(/ /g, "")}`;
     }
 
     for (const image of carousel.getElementsByClassName("image")) {
@@ -241,7 +241,7 @@ const goBack = (event) => {
 
 
 <style scoped>
-.home-content {
+.projects-content {
   display: flex;
   height: 100vh;
   width: 100vw;

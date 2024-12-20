@@ -1,20 +1,15 @@
 <!-- pages/index.vue -->
 <template>
   <div class="index-content">
-    <div v-if="loading">
-      <LoadingBar :progress="progress" />
-    </div>
-    <div v-else>
-        <HomePage />
-    </div>
+    <LoadingBar :progress="progress" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import LoadingBar from '~/components/LoadingBar.vue';
-import HomePage from '~/pages/HomePage.vue';
 import { useImagePreloader } from '~/composables/useImagePreloader.js';
+import { useRouter } from 'vue-router';
 
 const imageList = [
   '/images/other/test_image_16_9.jpg',
@@ -37,12 +32,13 @@ const imageList = [
   '/images/UpsideDown/plasmaOrb.png'
 ];
 
-const loading = ref(true);
 const { progress, loadImages } = useImagePreloader(imageList);
+
+const router = useRouter()
 
 onMounted(async () => {
   await loadImages();
-  loading.value = false;
+  router.push('/Projects');
 });
 </script>
 
