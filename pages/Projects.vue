@@ -21,8 +21,8 @@
     <a id="back-btn" @click="goBack" v-bind:class="{ visible: fullscreenImage }">
       Back
     </a>
-    
-    <NuxtLink  id="title-btn" :to="titleLink" v-bind:class="{ visible: fullscreenImage }" prefetch>
+
+    <NuxtLink id="title-btn" :to="titleLink" v-bind:class="{ visible: fullscreenImage }" prefetch>
       {{ titleText }}
     </NuxtLink>
 
@@ -63,15 +63,13 @@ onMounted(() => {
   images = carousel.getElementsByClassName("image");
   middleCross = document.getElementById("middle-cross");
 
-  // init carousel start posision
-  currentPercentage = minCarouselX;
-  carousel.style.transform = `translate3d(${minCarouselX}%, 0, 0)`;
-  Array.from(images).forEach((image, index) => {
-    image.style.objectPosition = `${40 + currentPercentage + (index + 1) * 20}% center`;
-  });
-
+  
   if (carousel) {
-    updateImgIndex(0);
+    // init carousel start posision
+    goToImg(2);
+    updateImgIndex(2);
+    currentPercentage = targetPercentage;
+
     const animate = () => {
       currentPercentage += (targetPercentage - currentPercentage) * 0.15;
 
@@ -155,16 +153,7 @@ onMounted(() => {
         updateImgIndex(index);
 
         // const newPercentage = -(-minCarouselX + (20.44 * index));
-        const newPercentage = -(29.3 + 10.35 * (index));
-
-        carousel.style.transform = `translate3d(${newPercentage}%, 0, 0)`;
-
-        Array.from(images).forEach((image, index) => {
-          image.style.objectPosition = `${40 + newPercentage + (index + 1) * 20}% center`;
-        });
-
-        targetPercentage = newPercentage;
-        carousel.dataset.prevPercentage = newPercentage;
+        goToImg(index);
 
         document.getElementById('back-btn').classList.add('visible');
         document.getElementById('title-btn').classList.add('visible');
@@ -177,6 +166,19 @@ onMounted(() => {
         }
       }
     };
+
+    function goToImg(index) {
+      const newPercentage = -(29.3 + 10.35 * (index));
+
+      carousel.style.transform = `translate3d(${newPercentage}%, 0, 0)`;
+
+      Array.from(images).forEach((image, index) => {
+        image.style.objectPosition = `${40 + newPercentage + (index + 1) * 20}% center`;
+      });
+
+      targetPercentage = newPercentage;
+      carousel.dataset.prevPercentage = newPercentage;
+    }
 
     function onPercentageChange() {
       if (-targetPercentage < 18.34) {

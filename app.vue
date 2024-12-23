@@ -1,7 +1,7 @@
 <!-- app.vue -->
 <template>
   <div>
-    <transition name="fade" mode="out-in">
+    <transition name="slide-up" mode="out-in">
       <NuxtPage />
     </transition>
   </div>
@@ -16,11 +16,27 @@ body {
   overflow: hidden;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
+/* Transition de bas vers le haut avec chevauchement */
+.slide-up-leave-active {
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
-.fade-enter-from, .fade-leave-to {
+.slide-up-enter-active {
+  transition: transform 0.4s ease, opacity 1.5s ease-in-out;
+}
+
+.slide-up-enter-from {
+  transform: translateY(100%);
   opacity: 0;
+}
+
+.slide-up-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.slide-up-enter-to, .slide-up-leave-from {
+  transform: translateY(0);
+  opacity: 1;
 }
 </style>
