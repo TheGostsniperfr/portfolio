@@ -16,7 +16,6 @@ body {
   overflow: hidden;
 }
 
-/* Transition de bas vers le haut avec chevauchement */
 .slide-up-leave-active {
   transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }

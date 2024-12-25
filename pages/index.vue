@@ -29,7 +29,11 @@ const imageList = [
   '/images/UpsideDown/drone.png',
   '/images/UpsideDown/generator.png',
   '/images/UpsideDown/Logo_S2game.png',
-  '/images/UpsideDown/plasmaOrb.png'
+  '/images/UpsideDown/plasmaOrb.png',
+  '/images/other/dline_1.png',
+  '/images/other/dline_2.png',
+  '/images/other/dline_3.png',
+
 ];
 
 const { progress, loadImages } = useImagePreloader(imageList);
