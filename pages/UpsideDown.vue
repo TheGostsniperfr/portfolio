@@ -46,6 +46,8 @@
 
       </template>
     </PresentationSection>
+      <GridSection title="Six Test Chambers Await You." description="Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes.
+  Stay alert — the test environments can be unforgiving, and mistakes can be costly." :blocks="MapGridBlocks"/>
   </div>
 </template>
 
@@ -54,6 +56,7 @@ import { onMounted } from 'vue';
 import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
+import GridSection from '~/components/GridSection.vue';
 
 onMounted(() => {
   const presentation = document.querySelector('.presentation');
@@ -73,31 +76,64 @@ onMounted(() => {
 });
 
 const technoBlocks = [
-    {
-        image: "/images/UpsideDown/plasmaOrb.png",
-        title: "Unreal Engine 5.5 is now available",
-        description: "Find out what's new and download the update today.",
-    },
-    {
-        image: "/images/UpsideDown/plasmaOrb.png",
-        title: "Fab, Epic’s new unified content marketplace, launches today!",
-        description: "Epic launches Fab, a one-stop destination where you can discover, buy, and sell digital assets.",
-    },
-    {
-        image: "/images/UpsideDown/plasmaOrb.png",
-        title: "Catch up on the big news from Unreal Fest Seattle 2024",
-        description: "Dive into Epic Games’ announcements from Unreal Fest Seattle 2024.",
-    },
-    {
-        image: "/images/UpsideDown/plasmaOrb.png",
-        title: "Unreal Engine 5.5 is now available",
-        description: "Find out what's new and download the update today.",
-    },
-    {
-        image: "/images/UpsideDown/plasmaOrb.png",
-        title: "Fab, Epic’s new unified content marketplace, launches today!",
-        description: "Epic launches Fab, a one-stop destination where you can discover, buy, and sell digital assets.",
-    }
+  {
+    image: "/images/UpsideDown/plasmaOrb.png",
+    title: "Unreal Engine 5.5 is now available",
+    description: "Find out what's new and download the update today.",
+  },
+  {
+    image: "/images/UpsideDown/plasmaOrb.png",
+    title: "Fab, Epic’s new unified content marketplace, launches today!",
+    description: "Epic launches Fab, a one-stop destination where you can discover, buy, and sell digital assets.",
+  },
+  {
+    image: "/images/UpsideDown/plasmaOrb.png",
+    title: "Catch up on the big news from Unreal Fest Seattle 2024",
+    description: "Dive into Epic Games’ announcements from Unreal Fest Seattle 2024.",
+  },
+  {
+    image: "/images/UpsideDown/plasmaOrb.png",
+    title: "Unreal Engine 5.5 is now available",
+    description: "Find out what's new and download the update today.",
+  },
+  {
+    image: "/images/UpsideDown/plasmaOrb.png",
+    title: "Fab, Epic’s new unified content marketplace, launches today!",
+    description: "Epic launches Fab, a one-stop destination where you can discover, buy, and sell digital assets.",
+  }
+];
+
+const MapGridBlocks = [
+  {
+    image: "/images/UpsideDown/UpsideDownBG.png",
+    title: "Room 1:",
+    description: "Learn or fall",
+  },
+  {
+    image: "/images/UpsideDown/UpsideDownBG.png",
+    title: "Room 2:",
+    description: "Learn or fall",
+  },
+  {
+    image: "/images/UpsideDown/UpsideDownBG.png",
+    title: "Room 3:",
+    description: "A new partner",
+  },
+  {
+    image: "/images/UpsideDown/UpsideDownBG.png",
+    title: "Room 4:",
+    description: "Learn or fall",
+  },
+  {
+    image: "/images/UpsideDown/UpsideDownBG.png",
+    title: "Room 5:",
+    description: "Learn or fall",
+  },
+  {
+    image: "/images/UpsideDown/UpsideDownBG.png",
+    title: "Room 6:",
+    description: "The End",
+  },
 ];
 </script>
 

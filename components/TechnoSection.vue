@@ -41,11 +41,6 @@ function toggleViewAll() {
 <style scoped>
 * {
     --techno-width: 175px;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
 }
 
 .techno-section {
