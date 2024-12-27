@@ -17,6 +17,8 @@
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
     </iframe>
 
+    <TechnoSection :blocks="technoBlocks" />
+
     <PresentationSection imageSrc="/images/UpsideDown/drone.png" imageAlt="Image of a drone" overview="Overview"
       title="The beginning of a story." dir="left">
 
@@ -51,6 +53,7 @@
 import { onMounted } from 'vue';
 import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
+import TechnoSection from '~/components/TechnoSection.vue';
 
 onMounted(() => {
   const presentation = document.querySelector('.presentation');
@@ -68,6 +71,34 @@ onMounted(() => {
 
   observer.observe(presentation);
 });
+
+const technoBlocks = [
+    {
+        image: "/images/UpsideDown/plasmaOrb.png",
+        title: "Unreal Engine 5.5 is now available",
+        description: "Find out what's new and download the update today.",
+    },
+    {
+        image: "/images/UpsideDown/plasmaOrb.png",
+        title: "Fab, Epic’s new unified content marketplace, launches today!",
+        description: "Epic launches Fab, a one-stop destination where you can discover, buy, and sell digital assets.",
+    },
+    {
+        image: "/images/UpsideDown/plasmaOrb.png",
+        title: "Catch up on the big news from Unreal Fest Seattle 2024",
+        description: "Dive into Epic Games’ announcements from Unreal Fest Seattle 2024.",
+    },
+    {
+        image: "/images/UpsideDown/plasmaOrb.png",
+        title: "Unreal Engine 5.5 is now available",
+        description: "Find out what's new and download the update today.",
+    },
+    {
+        image: "/images/UpsideDown/plasmaOrb.png",
+        title: "Fab, Epic’s new unified content marketplace, launches today!",
+        description: "Epic launches Fab, a one-stop destination where you can discover, buy, and sell digital assets.",
+    }
+];
 </script>
 
 <style scoped>
