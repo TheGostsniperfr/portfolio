@@ -13,8 +13,9 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #141414;
   color: #fff;
-  overflow: hidden;
-}
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+ }
 
 .slide-up-leave-active {
   transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
