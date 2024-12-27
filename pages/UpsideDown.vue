@@ -44,13 +44,13 @@
 
       </template>
     </PresentationSection>
-
   </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
 import PresentationSection from '~/components/PresentationSection.vue';
+import BackBtn from '~/components/BackBtn.vue';
 
 onMounted(() => {
   const presentation = document.querySelector('.presentation');

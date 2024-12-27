@@ -18,9 +18,9 @@
       </div>
     </div>
 
-    <a id="back-btn" @click="goBack" v-bind:class="{ visible: fullscreenImage }">
-      Back
-    </a>
+    <div id="backBtn">
+      <MediumBtn :onclick="goBack" title="Back"/>
+    </div>
 
     <NuxtLink id="title-btn" :to="titleLink" v-bind:class="{ visible: fullscreenImage }" prefetch>
       {{ titleText }}
@@ -43,6 +43,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import NavBar from '~/components/NavBar.vue';
+import MediumBtn from '~/components/MediumBtn.vue';
 
 let carousel;
 let currentPercentage = 0.0;
@@ -63,7 +64,7 @@ onMounted(() => {
   images = carousel.getElementsByClassName("image");
   middleCross = document.getElementById("middle-cross");
 
-  
+
   if (carousel) {
     // init carousel start posision
     goToImg(2);
@@ -155,7 +156,7 @@ onMounted(() => {
         // const newPercentage = -(-minCarouselX + (20.44 * index));
         goToImg(index);
 
-        document.getElementById('back-btn').classList.add('visible');
+        document.getElementById('backBtn').classList.add('visible');
         document.getElementById('title-btn').classList.add('visible');
 
         // Add fullscreen class to the image container as well
@@ -230,7 +231,7 @@ function onCloseFullScreen() {
     }
 
     fullscreenImage.value = null;
-    document.getElementById('back-btn').classList.remove('visible');
+    document.getElementById('backBtn').classList.remove('visible');
     document.getElementById('title-btn').classList.remove('visible');
   }
 }
@@ -333,14 +334,14 @@ const goBack = (event) => {
   transition: transform 0.5s ease;
 }
 
-#back-btn,
+#backBtn,
 #title-btn {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0s 0.3s;
 }
 
-#back-btn.visible,
+#backBtn.visible,
 #title-btn.visible {
   opacity: 1;
   visibility: visible;
@@ -378,33 +379,11 @@ const goBack = (event) => {
   transition: 0.3s, background-size 0.3s 0.3s;
 }
 
-#back-btn {
-  --border-color: #fff;
-  --border-thickness: 3px;
-  --hover-gap: 5px;
-
+#backBtn {
   position: absolute;
   top: 2.5%;
   left: 2.5%;
-  padding: calc(var(--hover-gap) + var(--border-thickness));
-  border-radius: 3px;
-  font-size: 125%;
-  font-weight: 500;
-  text-decoration: none;
-  color: #fff;
-  background: #000;
-  cursor: pointer;
 
-  --gradient-color-stop: #0000 25%, var(--border-color) 0;
-  background:
-    conic-gradient(from 180deg at top var(--border-thickness) right var(--border-thickness), var(--gradient-color-stop)) var(--gradient-animation, 200%) 0 / 200% var(--gradient-animation, var(--border-thickness)) no-repeat,
-    conic-gradient(at bottom var(--border-thickness) left var(--border-thickness), var(--gradient-color-stop)) 0 var(--gradient-animation, 200%) / var(--gradient-animation, var(--border-thickness)) 200% no-repeat;
-  transition: 0.3s, background-position 0.3s 0.3s;
   z-index: 1;
-}
-
-#back-btn:hover {
-  --gradient-animation: 100%;
-  transition: 0.3s, background-size 0.3s 0.3s;
 }
 </style>
