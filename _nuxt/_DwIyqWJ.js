@@ -1,0 +1,1 @@
+import{_ as o,o as r,c as i,t as s}from"./wb4b3NMc.js";const a={__name:"MediumBtn",props:{title:{type:String,required:!0},onClick:{type:Function,required:!0}},setup(t){const c=t,n=e=>{c.onClick(e)};return(e,l)=>(r(),i("a",{class:"medium-btn",onClick:n},s(t.title),1))}},u=o(a,[["__scopeId","data-v-8bccfdf4"]]);export{u as M};
