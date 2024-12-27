@@ -6,7 +6,12 @@
         <img class="ud-logo" src="/images/UpsideDown/Logo_S2game.png" alt="">
         <p id="presentation-title" class="title">Take control of the gravity.</p>
         <p class="title-mini description text-less">Defy the laws of physics and bend reality to your will. Navigate
-          through intricate puzzle mazes, manipulate gravity, and uncover the secrets that will lead to your escape.</p>
+          through intricate puzzle mazes, manipulate gravity, and uncover the secrets that will lead to your escape.
+        </p>
+
+        <button class="redirectBtn" @click="onRedirectBtn()">
+          Github
+        </button>
       </div>
     </div>
 
@@ -46,8 +51,8 @@
 
       </template>
     </PresentationSection>
-      <GridSection title="Six Test Chambers Await You." description="Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes.
-  Stay alert — the test environments can be unforgiving, and mistakes can be costly." :blocks="MapGridBlocks"/>
+    <GridSection title="Six Test Chambers Await You." description="Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes.
+  Stay alert — the test environments can be unforgiving, and mistakes can be costly." :blocks="MapGridBlocks" />
   </div>
 </template>
 
@@ -135,9 +140,40 @@ const MapGridBlocks = [
     description: "The End",
   },
 ];
+
+function onRedirectBtn() {
+  const url = "https://github.com/TheGostsniperfr/UpsideDown";
+  window.open(url, '_blank', 'noopener,noreferrer');
+} 
 </script>
 
 <style scoped>
+.redirectBtn {
+  margin-top: 1.5em;
+  width: 18em;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.redirectBtn:hover {
+  background-color: #25cee9;
+  box-shadow: 0px 15px 20px rgba(46, 192, 229, 0.25);
+  color: #fff;
+  transform: translateY(-6px);
+}
+
 .ud-logo {
   max-height: 200px;
   transform: translate(-100px, 30px);
