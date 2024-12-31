@@ -12,6 +12,9 @@ import { useImagePreloader } from '~/composables/useImagePreloader.js';
 import { useRouter } from 'vue-router';
 
 const imageList = [
+  '/images/lang/C_Logo.png',
+  '/images/lang/CSharp_Logo.png',
+  '/images/lang/github-logo.png',
   '/images/other/test_image_16_9.jpg',
   '/images/Arffornia/launcher_homepage.png',
   '/images/Arffornia/launcher_homepageV4.png',
@@ -24,7 +27,10 @@ const imageList = [
   '/images/OCR/ArtificialNeuronModel_francais.png',
   '/images/OCR/hard_grid.jpg',
   '/images/OCR/image_04.jpg',
+  '/images/OCR/neural-network.png',
   '/images/OCR/MorphologyWithErode.jpg',
+  '/images/OCR/computer_vision.png',
+  '/images/OCR/computer_vision.png',
   '/images/UpsideDown/UpsideDownBG.png',
   '/images/UpsideDown/drone.png',
   '/images/UpsideDown/generator.png',
