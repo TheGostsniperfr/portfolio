@@ -2,7 +2,7 @@
     <div class="techno-section">
         <div class="info">
             <p class="title-midle">Technologies</p>
-            <MediumBtn :onclick="toggleViewAll" title="View All" weak-border="true" />
+            <MediumBtn v-if="props.blocks.length > 3" :onclick="toggleViewAll" title="View All" weak-border="true" />
         </div>
         <transition-group name="fade" mode="out-in" tag="div" class="content">
             <div v-for="(block, index) in displayedBlocks" :key="index" class="block">
@@ -23,10 +23,10 @@ import { ref, computed } from 'vue';
 import MediumBtn from './MediumBtn.vue';
 
 const props = defineProps({
-  blocks: {
-    type: Array,
-    required: true
-  }
+    blocks: {
+        type: Array,
+        required: true
+    }
 });
 
 const showAll = ref(false);
