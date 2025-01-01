@@ -51,7 +51,7 @@
 
       </template>
     </PresentationSection>
-    <GridSection title="Six Test Chambers Await You." description="Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes.
+    <GridSection title="15 Hours of Unforgettable Gameplay." description="Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes.
   Stay alert — the test environments can be unforgiving, and mistakes can be costly." :blocks="MapGridBlocks" />
   </div>
 </template>
@@ -110,34 +110,34 @@ const technoBlocks = [
 
 const MapGridBlocks = [
   {
-    image: "/images/UpsideDown/UpsideDownBG.png",
+    image: "/images/UpsideDown/map1_2.png",
     title: "Room 1:",
-    description: "Learn or fall",
+    description: "Learn or fall.",
   },
   {
     image: "/images/UpsideDown/UpsideDownBG.png",
     title: "Room 2:",
-    description: "Learn or fall",
+    description: "Keep in mind.",
   },
   {
-    image: "/images/UpsideDown/UpsideDownBG.png",
+    image: "/images/UpsideDown/map3_2.png",
     title: "Room 3:",
-    description: "A new partner",
+    description: "A real test.",
   },
   {
-    image: "/images/UpsideDown/UpsideDownBG.png",
+    image: "/images/UpsideDown/map4_2.png",
     title: "Room 4:",
-    description: "Learn or fall",
+    description: "Precision is key.",
   },
   {
-    image: "/images/UpsideDown/UpsideDownBG.png",
+    image: "/images/UpsideDown/map5.png",
     title: "Room 5:",
-    description: "Learn or fall",
+    description: "A new partner.",
   },
   {
-    image: "/images/UpsideDown/UpsideDownBG.png",
+    image: "/images/UpsideDown/map6.png",
     title: "Room 6:",
-    description: "The End",
+    description: "The End.",
   },
 ];
 
