@@ -82,29 +82,29 @@ onMounted(() => {
 
 const technoBlocks = [
   {
-    image: "/images/UpsideDown/plasmaOrb.png",
-    title: "Unreal Engine 5.5 is now available",
-    description: "Find out what's new and download the update today.",
+    image: "/images/UpsideDown/logo_unity.png",
+    title: "Build with Unity",
+    description: "Discover an immersive experience, leveraging cutting-edge technology to bring stunning visuals and fluid gameplay to life.",
   },
   {
-    image: "/images/UpsideDown/plasmaOrb.png",
-    title: "Fab, Epic’s new unified content marketplace, launches today!",
+    image: "/images/lang/CSharp_Logo.png",
+    title: "Developed entirely in C#",
     description: "Epic launches Fab, a one-stop destination where you can discover, buy, and sell digital assets.",
   },
   {
-    image: "/images/UpsideDown/plasmaOrb.png",
-    title: "Catch up on the big news from Unreal Fest Seattle 2024",
-    description: "Dive into Epic Games’ announcements from Unreal Fest Seattle 2024.",
+    image: "/images/lang/github-logo.png",
+    title: "Teamwork using Github",
+    description: "We used github to manage our entire project, team and website.",
   },
   {
     image: "/images/UpsideDown/plasmaOrb.png",
-    title: "Unreal Engine 5.5 is now available",
-    description: "Find out what's new and download the update today.",
+    title: "HDRP Technologie",
+    description: "HDRP offers breathtaking graphics, lighting and unparalleled visual fidelity that elevates every scene.",
   },
   {
-    image: "/images/UpsideDown/plasmaOrb.png",
-    title: "Fab, Epic’s new unified content marketplace, launches today!",
-    description: "Epic launches Fab, a one-stop destination where you can discover, buy, and sell digital assets.",
+    image: "/images/UpsideDown/rtx_logo.jpg",
+    title: "RTX compatibility",
+    description: "Experience the best possible visual experience you can have.",
   }
 ];
 
