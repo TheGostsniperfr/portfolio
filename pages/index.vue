@@ -46,6 +46,7 @@ const imageList = [
   '/images/UpsideDown/map4_2.png',
   '/images/UpsideDown/map5.png',
   '/images/UpsideDown/map6.png',
+  '/images/UpsideDown/agile_team.png',
   '/images/other/dline_1.png',
   '/images/other/dline_2.png',
   '/images/other/dline_3.png',
