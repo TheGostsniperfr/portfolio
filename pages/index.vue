@@ -50,7 +50,11 @@ const imageList = [
   '/images/other/dline_1.png',
   '/images/other/dline_2.png',
   '/images/other/dline_3.png',
-
+  '/images/TC/devops.png',
+  '/images/TC/logo_back.png',
+  '/images/TC/gitlab_cicd.png',
+  '/images/ACDC/teaching_logo.png',
+  '/images/ACDC/logo_tp.png',
 ];
 
 const { progress, loadImages } = useImagePreloader(imageList);

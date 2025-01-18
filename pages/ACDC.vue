@@ -3,47 +3,46 @@
         <BackBtn />
         <div class="presentation">
             <div class="content">
-                <p class="title-midle text-less">Toolchain — 2024-2025</p>
-                <p id="presentation-title" class="title">A Year of Challenges and Achievements</p>
+                <p class="title-midle text-less">ACDC — 2024-2025</p>
+                <p id="presentation-title" class="title">Assistants C <br /> Diese Caml</p>
                 <p class="title-mini description text-less">
-                    For a year. I worked in the Toolchain team. I had to manage all the infrastructure, deployment,
-                    maintenance and ensure that everything ran smoothly for the management of practicals and exams IT
-                    work for first and second year students at my IT school.
+                    For a year. I worked in the ACDC team. I've had the chance to pass on my passion for IT by giving C#
+                    lessons to first-year students.
+                    Helping them with classes and practicals.
                 </p>
             </div>
         </div>
 
         <TechnoSection :blocks="technoBlocks" />
 
-        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Overview"
-            title="Development & Maintenance." dir="left">
+        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="About my Job"
+            title="Teaching & Helping." dir="left">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    — I was responsible for developing and maintaining the auto-correction tools that had been created
-                    over the past year, as well as implementing new features for subject designers.<br/>
-                    
-                    — Another key part
-                    of my role was ensuring that practical exercises functioned correctly during both
-                    production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet blackout on all campuses during an exam..
+                    — For 1 year, I had the chance to teach a class of about fifty students. <br />
+                    I learned a lot about good teaching methods, in particular how to make a student learn from mistakes
+                    and progress. <br />
+
+                    — My work was divided into 2, with face-to-face sessions to answer questions and unblock the
+                    students
+                    on the practicalities of weeks in C#.
+
+                    The other part was to help them remotely during the week when they got stuck or had questions.
                 </p>
 
             </template>
         </PresentationSection>
 
         <PresentationSection imageSrc="/images/TC/gitlab_cicd.png" imageAlt="Before and After Post processing"
-            overview="Feedback" title="A Great and rewarding experience." dir="right">
+            overview="Designer Job Overview" title="Pratical Designer" dir="right">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    — This work allowed me to gain solid knowledge of various tools, such as Docker and GitLab CI/CD,
-                    which I use daily on large-scale production projects.<br/>
+                    Another big part of my job was to create the practical from start to finish that first-year students
+                    from all campuses would have to complete. <br/>
 
-                    — I also learned how to collaborate effectively within large teams, manage the challenges posed by
-                    individual members, and maintain clear communication to address unexpected issues.<br/>
-
-                    — Finally, it taught me how to handle emergencies, such as during exams or particularly busy periods
-                    with overlapping courses and projects.
+                    I was able to apply different methods to help them learn new concepts in the best possible way.
                 </p>
 
             </template>
@@ -76,39 +75,19 @@ onMounted(() => {
 
 const technoBlocks = [
     {
-        image: "/images/lang/docker_logo.png",
-        title: "Docker",
-        description: "I've extensively used Docker to maintain and develop tools and infra that rely on Docker images to run.",
-    },
-    {
-        image: "/images/lang/gitlab_logo.png",
-        title: "Gitlab CI/CD",
-        description: "Automated deployments and test pipelines were built using Gitlab CI/CD and formed the basis of our working method.",
-    },
-    {
-        image: "/images/lang/go_logo.png",
-        title: "Go",
-        description: "Efficient tools were created in Go to optimize performance and reliability for various backend services.",
-    },
-    {
-        image: "/images/lang/python_logo.png",
-        title: "Python",
-        description: "I had to use Python to develop and maintain various internal tools.",
+        image: "/images/ACDC/teaching_logo.png",
+        title: "Teaching",
+        description: "Learning the best way to transmit knowledge.",
     },
     {
         image: "/images/lang/CSharp_Logo.png",
         title: "C#",
-        description: "C# was one of the languages for which we needed to provide an auto-correction tool for practical.",
-    },
-    {
-        image: "/images/lang/C_Logo.png",
-        title: "C",
-        description: "C was one of the languages for which we needed to provide an auto-correction tool for practical.",
+        description: "Teaching and helping with C# practicals for first-year students.",
     },
     {
         image: "/images/lang/rust_logo.png",
         title: "Rust",
-        description: "Rust was one of the languages for which we needed to provide an auto-correction tool for practical.",
+        description: "Conception of a practical to teach rust.",
     }
 ];
 
@@ -189,7 +168,7 @@ function onRedirectBtn() {
     width: 100%;
     height: 100%;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%),
-        url('/images/TC/logo_back.png') center/cover no-repeat;
+        url('/images/ACDC/logo_tp.png') center/cover no-repeat;
     z-index: 1;
     transform: scale(1.2);
     transition: transform 3.5s cubic-bezier(0.04, 0.68, 0.15, 1);

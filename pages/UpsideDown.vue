@@ -39,32 +39,32 @@
       </template>
     </PresentationSection>
 
+    <GridSection title="15 Hours of Unforgettable Gameplay." description="Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes.
+  Stay alert — the test environments can be unforgiving, and mistakes can be costly." :blocks="MapGridBlocks" />
 
-
-    <PresentationSection imageSrc="/images/UpsideDown/agile_team.png" imageAlt="Image of a drone" overview="Working Method"
-      title="Agile Teamwork." dir="right">
+    <PresentationSection imageSrc="/images/UpsideDown/drone.png" imageAlt="Image of a drone" overview="Inside Overview — 2022-2023"
+      title="5 Months to Build a Game" dir="right">
 
       <template #description>
         <p class="title-mini description text-less">
-          This project was carried out by a team of 4 people as part of a 5-month school project. <br/>
-
-          We took the opportunity to put in place a whole series of teamwork methods and tools to learn what works and what
-          doesn't, in order to work efficiently while keeping the team together.
+          The game project was the first major project of my first year at my IT School. <br/>
+          As team leader and lead developer, I had to develop the features that game designers needed, while managing
+          the project and the cohesion of the group over time to achieve a very good result.
         </p>
 
       </template>
     </PresentationSection>
-    <GridSection title="15 Hours of Unforgettable Gameplay." description="Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes.
-  Stay alert — the test environments can be unforgiving, and mistakes can be costly." :blocks="MapGridBlocks" />
 
-    <PresentationSection imageSrc="/images/UpsideDown/drone.png" imageAlt="Image of a drone" overview="HDRP Technology"
-      title="Beautiful graphic details" dir="left">
+    <PresentationSection imageSrc="/images/UpsideDown/agile_team.png" imageAlt="Image of a drone"
+      overview="Working Method" title="Agile Teamwork." dir="left">
 
       <template #description>
         <p class="title-mini description text-less">
-          Leveraging the latest rendering technologies and RTX support, the game offers stunning details, realistic
-          lighting, and dynamic effects. Immerse yourself in a visually rich experience that pushes the boundaries of
-          what’s possible.
+          This project was carried out by a team of 4 people as part of a 5-month school project. <br />
+
+          We took the opportunity to put in place a whole series of teamwork methods and tools to learn what works and
+          what
+          doesn't, in order to work efficiently while keeping the team together.
         </p>
 
       </template>
@@ -100,17 +100,17 @@ const technoBlocks = [
   {
     image: "/images/UpsideDown/logo_unity.png",
     title: "Build with Unity",
-    description: "Discover an immersive experience, leveraging cutting-edge technology to bring stunning visuals and fluid gameplay to life.",
+    description: "We built the game using Unity Engine and its latest technologies.",
   },
   {
     image: "/images/UpsideDown/rtx_logo.jpg",
     title: "RTX compatibility",
-    description: "Experience the best possible visual experience you can have.",
+    description: "Experience the best possible visual experience you can have with RTX On.",
   },
   {
     image: "/images/lang/github-logo.png",
     title: "Teamwork using Github",
-    description: "We used github to manage our entire project, team and website.",
+    description: "We used github to manage our entire project, team management and website.",
   },
   {
     image: "/images/UpsideDown/plasmaOrb.png",
@@ -120,7 +120,7 @@ const technoBlocks = [
   {
     image: "/images/lang/CSharp_Logo.png",
     title: "Developed entirely in C#",
-    description: "Epic launches Fab, a one-stop destination where you can discover, buy, and sell digital assets.",
+    description: "Using C# to control, link and animate everything you can see in the game.",
   },
   {
     image: "/images/UpsideDown/blender_logo.png",
