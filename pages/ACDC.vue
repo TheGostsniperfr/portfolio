@@ -39,10 +39,13 @@
 
             <template #description>
                 <p class="title-mini description text-less">
-                    Another big part of my job was to create the practical from start to finish that first-year students
-                    from all campuses would have to complete. <br/>
-
-                    I was able to apply different methods to help them learn new concepts in the best possible way.
+                    — Another big part of my job was to create the practical from start to finish that first-year students
+                    from all campuses would have to complete. 
+                    I was able to apply different methods to help them learn new concepts in the best possible way.<br/>
+                    
+                    — A subject is calibrated over 12 hours, so that a lamdba student can finish it.
+                    The design period takes place in 3 stages, the design, 
+                    the review by other members of the ACDC team and then the production week during which the students complete the subject.
                 </p>
 
             </template>
