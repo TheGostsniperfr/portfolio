@@ -83,7 +83,7 @@ const technoBlocks = [
     {
         image: "/images/lang/kubernetes_logo.png",
         title: "Kubernetes",
-        description: "I've extensively used Docker to maintain and develop tools and infra that rely on Docker images to run.",
+        description: "I designed my infrastructure around Kubernetes for scalability and reliability, enabling seamless interconnection of independent modules.",
     },
     {
         image: "/images/lang/docker_logo.png",
@@ -93,52 +93,52 @@ const technoBlocks = [
     {
         image: "/images/lang/github-logo.png",
         title: "Github CI/CD",
-        description: "Automated deployments and test pipelines were built using Github CI/CD and formed the basis of our working method.",
+        description: "Automated deployments and test pipelines were built using Github CI/CD, connected to my k8s using ArgoCD.",
     },
     {
         image: "/images/lang/laravel_logo.svg",
         title: "Laravel",
-        description: "",
+        description: "Backend PHP framework, that I used to create my website and web API using MVC architectural pattern.",
     },
     {
         image: "/images/lang/electron_logo.svg",
         title: "Electron",
-        description: "",
+        description: "Cross-Platform Desktop Apps Framework, that I used to create my game launcher on: Windows, Mac and Linux.",
     },
     {
         image: "/images/lang/java_logo.png",
         title: "Java / JavaFX",
-        description: "",
+        description: "I develop Forge mods and Spigot/NMS plugins to directly integrate the environment into the game.",
     },
     {
         image: "/images/lang/php_logo.png",
         title: "PHP",
-        description: "",
+        description: "I used PHP extensively for the web API and the Laravel website.",
     },
     {
         image: "/images/lang/mysql_logo.png",
         title: "MySQL",
-        description: "",
+        description: "I used MySQL to manage all my databases.",
     },
     {
         image: "/images/lang/typescript_logo.png",
         title: "Typescript",
-        description: "",
+        description: "I extensively used TypeScript for developing the game launcher built on Electron.",
     },
     {
         image: "/images/lang/proxmox_logo.png",
         title: "Proxmox",
-        description: "",
+        description: "Manage all my VMs and interconnect them with several physical servers.",
     },
     {
         image: "/images/lang/argocd_logo.png",
         title: "ArgoCD",
-        description: "",
+        description: "I built my K8s infra around an ArgoCD controller to achieve deeper integration with the CI/CD pipeline.",
     },
     {
         image: "/images/lang/grafana_logo.png",
         title: "Grafana",
-        description: "",
+        description: "Have an overview of all my services and create new data by combining other statistics, so that I can anticipate and guide my next choices. ",
     }
 ];
 
