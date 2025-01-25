@@ -3,7 +3,7 @@
     <BackBtn />
     <div class="presentation">
       <div class="content">
-        <p class="title-midle text-less">Sudoku Forgers</p>
+        <p class="title-midle text-less">OCR Sudoku Forgers</p>
         <p id="presentation-title" class="title">Scan, Solve, Succeed.</p>
         <p class="title-mini description text-less">
           Solve all types of grid, did you say hexagonal grid?
@@ -51,7 +51,7 @@
 
       <template #description>
         <p class="title-mini description text-less">
-          The second major part of this project was to design a nueronne network from scratch, with no specific library
+          The second major part of this project was to design a neural network from scratch, with no specific library
           and no prior knowledge.
           After a long phase of reflection, calculation and design.
           We arrived at a very interesting and robust result.

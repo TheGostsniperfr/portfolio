@@ -6,7 +6,7 @@
                 <p class="title-midle text-less">Toolchain — 2024-2025</p>
                 <p id="presentation-title" class="title">A Year of Challenges and Achievements</p>
                 <p class="title-mini description text-less">
-                    For a year. I worked in the Toolchain team. I had to manage all the infrastructure, deployment,
+                    For a year. I worked in the Toolchain team at Epita. I had to manage all the infrastructure, deployment,
                     maintenance and ensure that everything ran smoothly for the management of practicals and exams IT
                     work for first and second year students at my IT school.
                 </p>

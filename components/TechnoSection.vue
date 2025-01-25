@@ -1,7 +1,7 @@
 <template>
     <div class="techno-section">
         <div class="info">
-            <p class="title-midle">Technologies</p>
+            <p class="title-midle">{{ title }}</p>
             <MediumBtn v-if="props.blocks.length > 3" :onclick="toggleViewAll" title="View All" weak-border="true" />
         </div>
         <transition-group name="fade" mode="out-in" tag="div" class="content">
@@ -26,6 +26,11 @@ const props = defineProps({
     blocks: {
         type: Array,
         required: true
+    },
+    title: {
+        type: String,
+        required: false,
+        default: 'Technologies'
     }
 });
 

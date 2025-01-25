@@ -3,56 +3,125 @@
         <BackBtn />
         <div class="presentation">
             <div class="content">
-                <p class="title-midle text-less">Arffornia — 2017-Today</p>
+                <p class="title-midle text-less">Arffornia — 2016-Today</p>
                 <p id="presentation-title" class="title">A Decade of Learning and Innovation</p>
                 <p class="title-mini description text-less">
-                    Arffornia is more than a Minecraft server.<br/>
+                    Arffornia is more than a Minecraft server.<br />
                     It's a whole ecosystem combining a <b>Laravel</b> website with
-                    MySQL, an <b>Electron</b> game launcher, interconnected server instances with a Velocity proxy, and a
-                    scalable <b>Kubernetes</b> (k8s) infrastructure for high availability. Built on <b>Proxmox</b>-managed
+                    <b>MySQL</b>, an <b>Electron</b> game launcher, interconnected server instances with a Velocity
+                    proxy, and
+                    a
+                    scalable <b>Kubernetes</b> (k8s) infrastructure for high availability. Built on
+                    <b>Proxmox</b>-managed
                     virtualization, this 9+ year project has been my playground for learning, innovation, and technical
-                    refinement.<br/>
+                    refinement.<br />
                     And much more.
                 </p>
             </div>
         </div>
 
-        <TechnoSection :blocks="technoBlocks" />
+        <TechnoSection :blocks="technoBlocksAll" title="Global Technologies" />
 
         <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Overview"
-            title="Development & Maintenance." dir="left">
+            title="Arffornia Project" dir="left">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    — I was responsible for developing and maintaining the auto-correction tools that had been created
-                    over the past year, as well as implementing new features for subject designers.<br />
+                    Arffornia is a Minecraft modded server where players can create technological, magical, and diverse
+                    cities, embark on adventures with friends, and share unforgettable moments with the
+                    community.<br /><br />
 
-                    — Another key part
-                    of my role was ensuring that practical exercises functioned correctly during both
-                    production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet
-                    blackout on all campuses during an exam..
+                    The 5th season, set to release in a few months, is currently in development and will feature major
+                    updates, including a new launcher, an improved website, and the introduction of a progression stage
+                    system across various mods.
                 </p>
 
             </template>
         </PresentationSection>
 
-        <PresentationSection imageSrc="/images/TC/gitlab_cicd.png" imageAlt="Before and After Post processing"
-            overview="Feedback" title="A Great and rewarding experience." dir="right">
+        <PresentationSection imageSrc="/images/Arffornia/launcher_homepage.png" imageAlt="Devops schema" overview="Electron App"
+            title="Arffornia Launcher" dir="right">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    — This work allowed me to gain solid knowledge of various tools, such as Docker and GitLab CI/CD,
-                    which I use daily on large-scale production projects.<br />
+                    The game launcher allows users with just two clicks to login (using Microsoft Account), download
+                    and install the game along
+                    with all its mods, configure settings, Java version and start playing all in a highly intuitive and
+                    user-friendly
+                    way on Windows, Mac and Linux. <br /><br />
 
-                    — I also learned how to collaborate effectively within large teams, manage the challenges posed by
-                    individual members, and maintain clear communication to address unexpected issues.<br />
-
-                    — Finally, it taught me how to handle emergencies, such as during exams or particularly busy periods
-                    with overlapping courses and projects.
+                    Initially developed using JavaFX, I switched to Electron to speed up development and leverage
+                    enhanced front-end capabilities using Vue.js. This transition allowed me to create a more modern and
+                    visually appealing application, simplifying tasks that would have been complex and time-consuming to
+                    achieve with JavaFX.
                 </p>
 
             </template>
         </PresentationSection>
+
+        <TechnoSection :blocks="technoBlocksLauncher" title="Launcher Technologies" />
+
+        <PresentationSection imageSrc="/images/Arffornia/website_homepage.png" imageAlt="Devops schema" overview="Laravel Website"
+            title="Arffornia Website" dir="left">
+            
+            <template #description>
+                <p class="title-mini description text-less">
+                    To ensure direct visibility on the internet and to centralize my services—such as Account
+                    Management, Downloads, API, and more—I developed a website using Laravel. Two years ago, I migrated
+                    to Laravel to enhance security, expand functionality, and stay up to date with modern web
+                    technologies.
+                </p>
+                
+            </template>
+        </PresentationSection>
+    
+        <TechnoSection :blocks="technoBlocksWebsite" title="Website Technologies" />
+
+        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Infrastructure"
+            title="Arffornia Infrastructure" dir="right">
+
+            <template #description>
+                <p class="title-mini description text-less">
+                    The high resource demands of multiple Minecraft server instances and additional services required a
+                    highly efficient and robust infrastructure to ensure smooth gameplay.
+
+                    The infrastructure is built around several interconnected physical machines, virtualized with
+                    Proxmox, and hosting a Kubernetes (k8s) cluster that runs and monitors all services.<br/>
+
+                    Above that, I use a Pterodactyl service to manage all Minecraft server instances, with a Velocity
+                    Proxy interconnecting them. To enable communication across all services, the
+                    Laravel website, featuring a custom API connected to a MySQL
+                    database. 
+                </p>
+
+            </template>
+        </PresentationSection>
+
+        <TechnoSection :blocks="technoBlocksDevOps" title="Infrastructure Technologies"/>
+
+        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="DevOps"
+            title="Philosophy of Process Automation." dir="left">
+
+            <template #description>
+                <p class="title-mini description text-less">
+                    Arffornia ecosystem is built with a modular design, allowing new features and
+                    functionalities to be seamlessly integrated through a <b>philosophy of process automation</b>.
+
+                    To achieve this, I leverage ArgoCD and a GitHub CI/CD pipeline to fully automate deployments. All
+                    configurations are managed within a Git repository, ensuring that every change is tested in a
+                    dedicated staging environment before being deployed to production.
+
+                    The infrastructure is designed to scale effortlessly based on current server load, dynamically
+                    allocating resources during peak usage.
+
+                    In the event of an issue, such as a server instance crash, the corresponding Kubernetes pod
+                    automatically initiates a restart, and I am immediately notified to ensure swift resolution.
+                </p>
+
+            </template>
+        </PresentationSection>
+
+        <TechnoSection :blocks="technoBlocksInfra" title="DevOps Technologies"/>
     </div>
 </template>
 
@@ -79,7 +148,81 @@ onMounted(() => {
     observer.observe(presentation);
 });
 
-const technoBlocks = [
+const technoBlocksWebsite = [
+    {
+        image: "/images/lang/laravel_logo.svg",
+        title: "Laravel",
+        description: "Backend PHP framework, that I used to create my website and web API using MVC architectural pattern.",
+    },
+    {
+        image: "/images/lang/php_logo.png",
+        title: "PHP",
+        description: "I used PHP extensively for the web API and the Laravel website.",
+    },
+    {
+        image: "/images/lang/mysql_logo.png",
+        title: "MySQL",
+        description: "I used MySQL to manage all my databases.",
+    },
+    {
+        image: "/images/lang/typescript_logo.png",
+        title: "Typescript",
+        description: "I extensively used TypeScript for developing the game launcher built on Electron.",
+    }
+];
+
+const technoBlocksLauncher = [
+    {
+        image: "/images/lang/electron_logo.svg",
+        title: "Electron",
+        description: "Cross-Platform Desktop Apps Framework, that I used to create my game launcher on: Windows, Mac and Linux.",
+    },
+    {
+        image: "/images/lang/typescript_logo.png",
+        title: "Typescript",
+        description: "I extensively used TypeScript for developing the game launcher built on Electron.",
+    },
+    {
+        image: "/images/lang/java_logo.png",
+        title: "Java / JavaFX",
+        description: "I develop the previous game launcher with Java & JavaFX.",
+    }
+];
+
+const technoBlocksInfra = [
+    {
+        image: "/images/lang/kubernetes_logo.png",
+        title: "Kubernetes",
+        description: "I designed my infrastructure around Kubernetes for scalability and reliability, enabling seamless interconnection of independent modules.",
+    },
+    {
+        image: "/images/lang/proxmox_logo.png",
+        title: "Proxmox",
+        description: "Manage all my VMs and interconnect them with several physical servers.",
+    },
+    {
+        image: "/images/lang/github-logo.png",
+        title: "Github CI/CD",
+        description: "Automated deployments and test pipelines were built using Github CI/CD, connected to my k8s using ArgoCD.",
+    },
+    {
+        image: "/images/lang/docker_logo.png",
+        title: "Docker",
+        description: "I've extensively used Docker to create independent modules for my k8s.",
+    },
+    {
+        image: "/images/lang/argocd_logo.png",
+        title: "ArgoCD",
+        description: "I built my K8s infra around an ArgoCD controller to achieve deeper integration with the CI/CD pipeline.",
+    },
+    {
+        image: "/images/lang/grafana_logo.png",
+        title: "Grafana",
+        description: "Have an overview of all my services and create new data by combining other statistics, so that I can anticipate and guide my next choices. ",
+    }
+];
+
+const technoBlocksDevOps = [
     {
         image: "/images/lang/kubernetes_logo.png",
         title: "Kubernetes",
@@ -88,12 +231,30 @@ const technoBlocks = [
     {
         image: "/images/lang/docker_logo.png",
         title: "Docker",
-        description: "I've extensively used Docker to maintain and develop tools and infra that rely on Docker images to run.",
+        description: "I've extensively used Docker to create independent modules for my k8s.",
+    },
+    {
+        image: "/images/lang/argocd_logo.png",
+        title: "ArgoCD",
+        description: "I built my K8s infra around an ArgoCD controller to achieve deeper integration with the CI/CD pipeline.",
     },
     {
         image: "/images/lang/github-logo.png",
         title: "Github CI/CD",
         description: "Automated deployments and test pipelines were built using Github CI/CD, connected to my k8s using ArgoCD.",
+    }
+];
+
+const technoBlocksAll = [
+    {
+        image: "/images/lang/kubernetes_logo.png",
+        title: "Kubernetes",
+        description: "I designed my infrastructure around Kubernetes for scalability and reliability, enabling seamless interconnection of independent modules.",
+    },
+    {
+        image: "/images/lang/electron_logo.svg",
+        title: "Electron",
+        description: "Cross-Platform Desktop Apps Framework, that I used to create my game launcher on: Windows, Mac and Linux.",
     },
     {
         image: "/images/lang/laravel_logo.svg",
@@ -101,10 +262,17 @@ const technoBlocks = [
         description: "Backend PHP framework, that I used to create my website and web API using MVC architectural pattern.",
     },
     {
-        image: "/images/lang/electron_logo.svg",
-        title: "Electron",
-        description: "Cross-Platform Desktop Apps Framework, that I used to create my game launcher on: Windows, Mac and Linux.",
+        image: "/images/lang/docker_logo.png",
+        title: "Docker",
+        description: "I've extensively used Docker to create independent modules for my k8s.",
     },
+    {
+        image: "/images/lang/github-logo.png",
+        title: "Github CI/CD",
+        description: "Automated deployments and test pipelines were built using Github CI/CD, connected to my k8s using ArgoCD.",
+    },
+    
+    
     {
         image: "/images/lang/java_logo.png",
         title: "Java / JavaFX",

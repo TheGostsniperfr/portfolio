@@ -6,7 +6,7 @@
                 <p class="title-midle text-less">ACDC — 2024-2025</p>
                 <p id="presentation-title" class="title">Assistants C <br /> Diese Caml</p>
                 <p class="title-mini description text-less">
-                    For a year. I worked in the ACDC team. I've had the chance to pass on my passion for IT by giving C#
+                    For a year. I worked in the ACDC team at Epita. I've had the chance to pass on my passion for IT by giving C#
                     lessons to first-year students.
                     Helping them with classes and practicals.
                 </p>
@@ -20,7 +20,7 @@
 
             <template #description>
                 <p class="title-mini description text-less">
-                    — For 1 year, I had the chance to teach a class of about fifty students. <br />
+                    — For one year, I had the chance to teach a class of about fifty students. <br />
                     I learned a lot about good teaching methods, in particular how to make a student learn from mistakes
                     and progress. <br />
 
