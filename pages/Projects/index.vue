@@ -199,7 +199,7 @@ onMounted(() => {
       currentImgIndex = newIndex;
 
       titleText.value = images[ newIndex ].dataset.title;
-      titleLink.value = `${titleText.value.replace(/ /g, "")}`;
+      titleLink.value = `/Projects/${titleText.value.replace(/ /g, "")}`;
     }
 
     for (const image of carousel.getElementsByClassName("image")) {

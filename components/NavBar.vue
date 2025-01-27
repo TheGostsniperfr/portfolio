@@ -1,37 +1,57 @@
-<!-- components/NavBar.vue -->
 <template>
   <div class="navbar-container">
     <!-- Projects -->
-    <a href="#Projects" class="link-container" :class="{ active: activeLink === '#Projects' }">Projects</a>
-    <div class="link-dot" :class="{ dim: activeLink !== '#About' && activeLink !== '#Projects' }">•</div>
+    <NuxtLink
+      to="/Projects"
+      class="link-container"
+      :class="{ active: activeLink === '/Projects' }"
+    >
+      Projects
+    </NuxtLink>
+    <div class="link-dot" :class="{ dim: activeLink !== '/About' && activeLink !== '/Projects' }">•</div>
 
     <!-- About -->
     <div class="ancre-wrapper">
-      <a href="#About" class="link-container" :class="{ active: activeLink === '#About' }">About</a>
+      <NuxtLink
+        to="/About"
+        class="link-container"
+        :class="{ active: activeLink === '/About' }"
+      >
+        About
+      </NuxtLink>
     </div>
-    <div class="link-dot" :class="{ dim: activeLink !== '#About' && activeLink !== '#Audiovisual' }">•</div>
+    <div class="link-dot" :class="{ dim: activeLink !== '/About' && activeLink !== '#Audiovisual' }">•</div>
 
     <!-- Audiovisual -->
-    <a href="#Audiovisual" class="link-container" :class="{ active: activeLink === '#Audiovisual' }">Audiovisual</a>
+    <NuxtLink
+      to="#Audiovisual"
+      class="link-container"
+      :class="{ active: activeLink === '#Audiovisual' }"
+    >
+      Audiovisual
+    </NuxtLink>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';
 
 const activeLink = ref('');
+const route = useRoute();
 
+// Met à jour `activeLink` avec le hash ou le path actuel
 const updateActiveLink = () => {
-  activeLink.value = window.location.hash || '#About';
+  activeLink.value = route.hash || route.path;
 };
 
 onMounted(() => {
-  updateActiveLink();
-  window.addEventListener('hashchange', updateActiveLink);
+  updateActiveLink(); // Initialise la valeur au montage
+  window.addEventListener('hashchange', updateActiveLink); // Écoute les changements d'ancre
 });
 
 onUnmounted(() => {
-  window.removeEventListener('hashchange', updateActiveLink);
+  window.removeEventListener('hashchange', updateActiveLink); // Nettoyage au démontage
 });
 </script>
 
