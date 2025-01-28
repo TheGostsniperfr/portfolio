@@ -16,10 +16,14 @@
           data-title="Toolchain"></div>
       <div class="imageContainer"><img class="image" src="/images/ACDC/logo_tp.png" draggable="false" data-title="ACDC">
       </div>
+
+      <!-- <div class="imageContainer"><img class="image" src="/images/Arffornia/launcher_homepage.png" draggable="false"
+          data-title="Portfolio">
+      </div> -->
     </div>
 
     <div id="backBtn">
-      <MediumBtn :onclick="goBack" title="Back"/>
+      <MediumBtn :onclick="goBack" title="Back" />
     </div>
 
     <NuxtLink id="title-btn" :to="titleLink" v-bind:class="{ visible: fullscreenImage }" prefetch>
@@ -33,6 +37,7 @@
         <p>3</p>
         <p>4</p>
         <p>5</p>
+        <!-- <p>6</p> -->
       </div>
       <p>—</p>
       <p>5</p>
@@ -58,6 +63,13 @@ const minCarouselX = -8.4;
 const maxCarouelX = -90.15;
 const titleText = ref("Upside Down");
 const titleLink = ref("#");
+
+useHead({
+  title: 'Projects',
+  meta: [
+    { name: 'description', content: 'Projects Overview' }
+  ]
+});
 
 onMounted(() => {
   carousel = document.getElementById("carousel");

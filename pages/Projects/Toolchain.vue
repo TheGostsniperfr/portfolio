@@ -57,6 +57,13 @@ import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 
+useHead({
+  title: 'Toolchain',
+  meta: [
+    { name: 'description', content: 'Toolchain Project Overview' }
+  ]
+});
+
 onMounted(() => {
     const presentation = document.querySelector('.presentation');
     const observer = new IntersectionObserver(

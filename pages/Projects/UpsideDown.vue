@@ -79,6 +79,13 @@ import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 import GridSection from '~/components/GridSection.vue';
 
+useHead({
+  title: 'Upside Down',
+  meta: [
+    { name: 'description', content: 'Upside Down Project Overview' }
+  ]
+});
+
 onMounted(() => {
   const presentation = document.querySelector('.presentation');
   const observer = new IntersectionObserver(

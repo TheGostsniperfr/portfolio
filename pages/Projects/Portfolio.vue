@@ -3,53 +3,20 @@
         <BackBtn />
         <div class="presentation">
             <div class="content">
-                <p class="title-midle text-less">ACDC — 2024-2025</p>
-                <p id="presentation-title" class="title">Assistants C <br /> Diese Caml</p>
+                <p class="title-midle text-less">Portfolio — 2025</p>
+                <p id="presentation-title" class="title">The Big Overview</p>
                 <p class="title-mini description text-less">
-                    For a year. I worked in the ACDC team at Epita. I've had the chance to pass on my passion for IT by giving C#
-                    lessons to first-year students.
-                    Helping them with classes and practicals.
+                    To show my work, my passion. I've created a portfolio website that you're looking at right now. I've
+                    carefully chosen specific tools to make it a modular project that's quick to develop.
                 </p>
+
+                <button class="redirectBtn" @click="onRedirectBtn()">
+                    Github
+                </button>
             </div>
         </div>
 
         <TechnoSection :blocks="technoBlocks" />
-
-        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="About my Job"
-            title="Teaching & Helping." dir="left">
-
-            <template #description>
-                <p class="title-mini description text-less">
-                    — For one year, I had the chance to teach a class of about fifty students. <br />
-                    I learned a lot about good teaching methods, in particular how to make a student learn from mistakes
-                    and progress. <br />
-
-                    — My work was divided into 2, with face-to-face sessions to answer questions and unblock the
-                    students
-                    on the practicalities of weeks in C#.
-
-                    The other part was to help them remotely during the week when they got stuck or had questions.
-                </p>
-
-            </template>
-        </PresentationSection>
-
-        <PresentationSection imageSrc="/images/TC/gitlab_cicd.png" imageAlt="Before and After Post processing"
-            overview="Designer Job Overview" title="Pratical Designer" dir="right">
-
-            <template #description>
-                <p class="title-mini description text-less">
-                    — Another big part of my job was to create the practical from start to finish that first-year students
-                    from all campuses would have to complete. 
-                    I was able to apply different methods to help them learn new concepts in the best possible way.<br/>
-                    
-                    — A subject is calibrated over 12 hours, so that a lamdba student can finish it.
-                    The design period takes place in 3 stages, the design, 
-                    the review by other members of the ACDC team and then the production week during which the students complete the subject.
-                </p>
-
-            </template>
-        </PresentationSection>
     </div>
 </template>
 
@@ -60,10 +27,10 @@ import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 
 useHead({
-  title: 'ACDC',
-  meta: [
-    { name: 'description', content: 'ACDC Project Overview' }
-  ]
+    title: 'Portfolio',
+    meta: [
+        { name: 'description', content: 'Upside Down Project Overview' }
+    ]
 });
 
 onMounted(() => {
@@ -85,24 +52,24 @@ onMounted(() => {
 
 const technoBlocks = [
     {
-        image: "/images/ACDC/teaching_logo.png",
-        title: "Teaching",
-        description: "Learning the best way to transmit knowledge.",
+        image: "/images/lang/nuxt_logo.svg",
+        title: "NuxtJS",
+        description: "NuxtJs is perfect for a simple site like this portfolio, providing a wide range of functions for fast, efficient development.",
     },
     {
-        image: "/images/lang/CSharp_Logo.png",
-        title: "C#",
-        description: "Teaching and helping with C# practicals for first-year students.",
+        image: "/images/lang/vuejs_logo.png",
+        title: "VusJS",
+        description: "Front end framework that I really like for its speed of development and functionality.",
     },
     {
-        image: "/images/lang/rust_logo.png",
-        title: "Rust",
-        description: "Conception of a practical to teach rust.",
+        image: "/images/lang/github-logo.png",
+        title: "Github Page & CI/CD",
+        description: "Automated website deployments using Github Page & Github CI/CD.",
     }
 ];
 
 function onRedirectBtn() {
-    const url = "https://github.com/TheGostsniperfr/OCR-Sudoku-Solver";
+    const url = "https://github.com/TheGostsniperfr/portfolio";
     window.open(url, '_blank', 'noopener,noreferrer');
 }
 </script>

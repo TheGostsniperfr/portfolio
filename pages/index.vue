@@ -11,6 +11,13 @@ import LoadingBar from '~/components/LoadingBar.vue';
 import { useImagePreloader } from '~/composables/useImagePreloader.js';
 import { useRouter } from 'vue-router';
 
+useHead({
+  title: 'Brian Perret',
+  meta: [
+    { name: 'description', content: 'Loading Brian\'s Portfolio' }
+  ]
+});
+
 const imageList = [
   '/images/lang/C_Logo.png',
   '/images/lang/CSharp_Logo.png',
@@ -30,6 +37,8 @@ const imageList = [
   '/images/lang/php_logo.png',
   '/images/lang/proxmox_logo.png',
   '/images/lang/typescript_logo.png',
+  '/images/lang/vuejs_logo.png',
+  '/images/lang/nuxt_logo.svg',
   '/images/other/test_image_16_9.jpg',
   '/images/Arffornia/launcher_homepage.png',
   '/images/Arffornia/launcher_homepageV4.png',

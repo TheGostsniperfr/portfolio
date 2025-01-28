@@ -131,6 +131,13 @@ import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 
+useHead({
+  title: 'Arffornia Project',
+  meta: [
+    { name: 'description', content: 'Arffornia Project Overview' }
+  ]
+});
+
 onMounted(() => {
     const presentation = document.querySelector('.presentation');
     const observer = new IntersectionObserver(

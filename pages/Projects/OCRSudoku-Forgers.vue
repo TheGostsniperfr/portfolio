@@ -69,6 +69,13 @@ import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 
+useHead({
+  title: 'OCR Sudoku Forgers',
+  meta: [
+    { name: 'description', content: 'OCR Sudoku Forgers Project Overview' }
+  ]
+});
+
 onMounted(() => {
   const presentation = document.querySelector('.presentation');
   const observer = new IntersectionObserver(
