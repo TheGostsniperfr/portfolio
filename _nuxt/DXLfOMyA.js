@@ -1,0 +1,1 @@
+import{M as e}from"./D2k8m_1d.js";import{_ as o,o as a,c as n,b as s}from"./BQfUEJBW.js";const _={class:"back-btn-content"},r={__name:"BackBtn",setup(i){const t=c=>{window.history.back()};return(c,B)=>(a(),n("div",_,[s(e,{onClick:t,title:"Back"})]))}},m=o(r,[["__scopeId","data-v-1331aae7"]]);export{m as B};
