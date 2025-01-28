@@ -34,25 +34,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 const activeLink = ref('');
 const route = useRoute();
 
-// Met à jour `activeLink` avec le hash ou le path actuel
 const updateActiveLink = () => {
   activeLink.value = route.hash || route.path;
 };
 
-onMounted(() => {
-  updateActiveLink(); // Initialise la valeur au montage
-  window.addEventListener('hashchange', updateActiveLink); // Écoute les changements d'ancre
+watch(route, () => {
+  updateActiveLink();
 });
 
-onUnmounted(() => {
-  window.removeEventListener('hashchange', updateActiveLink); // Nettoyage au démontage
-});
+updateActiveLink();
 </script>
 
 <style scoped>

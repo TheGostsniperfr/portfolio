@@ -1,11 +1,9 @@
 <template>
   <div class="ud-content">
-    <NavBar />
-
     <div class="presentation">
       <div class="content">
-        <p class="title-midle text-less">Brian Perret</p>
-        <p id="presentation-title" class="title">About Me</p>
+        <p class="title-midle text-less">About Me</p>
+        <p id="presentation-title" class="title">Brian Perret</p>
         <p class="title-mini description text-less">
           Hello everyone !
         </p>
@@ -16,15 +14,32 @@
       </div>
     </div>
 
-    <TechnoSection :blocks="technoBlocks" />
+    <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Presentation"
+      title="Development & Maintenance." dir="left">
+
+      <template #description>
+        <p class="title-mini description text-less">
+          — I was responsible for developing and maintaining the auto-correction tools that had been created
+          over the past year, as well as implementing new features for subject designers.<br />
+
+          — Another key part
+          of my role was ensuring that practical exercises functioned correctly during both
+          production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet blackout on
+          all campuses during an exam..
+        </p>
+
+      </template>
+    </PresentationSection>
+
+    <GridSection title="Projects & Works That Represents Me." description="" :blocks="MapGridBlocks" />
   </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
 import PresentationSection from '~/components/PresentationSection.vue';
-import NavBar from '~/components/NavBar.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
+import GridSection from '~/components/GridSection.vue';
 
 useHead({
   title: 'Brian Perret',
@@ -50,23 +65,23 @@ onMounted(() => {
   observer.observe(presentation);
 });
 
-const technoBlocks = [
+const MapGridBlocks = [
   {
-    image: "/images/lang/nuxt_logo.svg",
-    title: "NuxtJS",
-    description: "NuxtJs is perfect for a simple site like this portfolio, providing a wide range of functions for fast, efficient development.",
+    image: "/images/TC/logo_back.png",
+    title: "",
+    description: "Toolchain",
   },
   {
-    image: "/images/lang/vuejs_logo.png",
-    title: "VusJS",
-    description: "Front end framework that I really like for its speed of development and functionality.",
+    image: "/images/Arffornia/launcher_homepage.png",
+    title: "",
+    description: "Arffornia",
   },
   {
-    image: "/images/lang/github-logo.png",
-    title: "Github Page & CI/CD",
-    description: "Automated website deployments using Github Page & Github CI/CD.",
-  }
-];
+    image: "/images/UpsideDown/UpsideDownBG.png",
+    title: "",
+    description: "Upside Down",
+  },
+]
 
 function onRedirectBtn() {
   const url = "https://github.com/TheGostsniperfr";
@@ -106,18 +121,6 @@ function onRedirectBtn() {
   transform: translate(-100px, 30px);
 }
 
-.trailer {
-  border-radius: 10px;
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  transform: translateY(-50%);
-  width: 125vh;
-  height: 33vw;
-  z-index: 2;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 54px 55px, rgba(0, 0, 0, 0.25) 0px -12px 30px, rgba(0, 0, 0, 0.25) 0px 4px 6px, rgba(0, 0, 0, 0.34) 0px 12px 13px, rgba(0, 0, 0, 0.18) 0px -3px 5px;
-}
-
 .ud-content {
   margin: 0;
   padding: 0;
@@ -145,7 +148,7 @@ function onRedirectBtn() {
   width: 100%;
   height: 100%;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%),
-    url('/images/ACDC/logo_tp.png') center/cover no-repeat;
+    url('/images/TC/devops.png') center/cover no-repeat;
   z-index: 1;
   transform: scale(1.2);
   transition: transform 3.5s cubic-bezier(0.04, 0.68, 0.15, 1);
