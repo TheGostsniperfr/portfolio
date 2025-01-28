@@ -90,4 +90,8 @@ defineProps({
 #presentation-title {
     padding-bottom: 50px;
 }
+
+.text-less {
+  color: #c2c2c2d3;
+}
 </style>

@@ -12,26 +12,45 @@
           <i>“My Work is my Passion.”</i>
         </p>
 
-        <a href="https://www.linkedin.com/in/brian-perret" target="_blank" rel="noopener noreferrer">
-          <button class="redirectBtn">LinkedIn</button>
-        </a>
+        <div class="links-container">
+          <a class="link" href="https://www.linkedin.com/in/brian-perret" target="_blank" rel="noopener noreferrer">
+            <button class="redirectBtn">LinkedIn</button>
+          </a>
 
-        <a href="mailto:brianperret.pro@gmail.com" target="_blank" rel="noopener noreferrer">
-          <button class="redirectBtn">Email</button>
-        </a>
+          <a class="link" href="mailto:brianperret.pro@gmail.com" target="_blank" rel="noopener noreferrer">
+            <button class="redirectBtn">Email</button>
+          </a>
 
-        <a href="https://github.com/TheGostsniperfr" target="_blank" rel="noopener noreferrer">
-          <button class="redirectBtn">Github</button>
-        </a>
+          <a class="link" href="https://github.com/TheGostsniperfr" target="_blank" rel="noopener noreferrer">
+            <button class="redirectBtn">Github</button>
+          </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <button class="redirectBtn">CV</button>
-        </a>
+          <a class="link" href="#" target="_blank" rel="noopener noreferrer">
+            <button class="redirectBtn">CV</button>
+          </a>
+        </div>
       </div>
     </div>
 
     <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Presentation"
-      title="Development & Maintenance." dir="left">
+      title="What Drives Me." dir="left">
+
+      <template #description>
+        <p class="title-mini description text-less">
+          Passionate about creating new projects and tackling challenges
+          I thrive on designing scalable, modular systems from the ground up, focusing on infrastructure,
+          and full-stack development. By using new technologies, I enhance my projects through continuous learning
+          and personal growth.
+          I always give my best to achieve the highest quality results and deliver
+          innovative solutions.
+        </p>
+
+      </template>
+    </PresentationSection>
+
+    <!-- Edit the presentation section for a timeline section by replacing the image by a timeline -->
+    <TimelineSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Working Experience"
+      title="Working Experience" dir="right" :blocks="workBlocks">
 
       <template #description>
         <p class="title-mini description text-less">
@@ -45,17 +64,22 @@
         </p>
 
       </template>
-    </PresentationSection>
-
+    </TimelineSection>
+    
     <GridSection title="Projects & Works That Represents Me." description="" :blocks="MapGridBlocks" />
+
+    <!-- Create a Techno Section with square shape -->
+    <IconSection :blocks="languageBlocks" title="Languages that I use:" overview="Languages" />
+    <IconSection :blocks="frameworkAndToolsBlocks" title="Frameworks & Tools that I use:" overview="Frameworks" />
   </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
 import PresentationSection from '~/components/PresentationSection.vue';
-import TechnoSection from '~/components/TechnoSection.vue';
 import GridSection from '~/components/GridSection.vue';
+import IconSection from '~/components/IconSection.vue';
+import TimelineSection from '~/components/TimelineSection.vue';
 
 useHead({
   title: 'Brian Perret',
@@ -81,6 +105,33 @@ onMounted(() => {
   observer.observe(presentation);
 });
 
+const workBlocks = [
+  {
+    image: "/images/TC/logo_back.png",
+    alt: "Toolchain Logo",
+    title: "Toolchain",
+    date: "2024 — Today",
+    description: "Work as DevOps at Epita",
+    link: "/Projects/Toolchain",
+  },
+  {
+    image: "/images/ACDC/logo_tp.png",
+    alt: "ACDC Logo",
+    title: "ACDC",
+    date: "2024 — Today",
+    description: "Work as IT teacher for 1 & 2 years student at Epita",
+    link: "/Projects/ACDC"
+  },
+  {
+    image: "/images/ACDC/logo_tp.png",
+    alt: "",
+    title: "Cameraman — Video Editor",
+    date: "2022",
+    description: "Making Docomentary, Afterworks, Pubs.",
+    link: "",
+  }
+];
+
 const MapGridBlocks = [
   {
     image: "/images/TC/logo_back.png",
@@ -98,6 +149,87 @@ const MapGridBlocks = [
     description: "Upside Down",
   },
 ]
+
+const languageBlocks = [
+  {
+    image: "/images/lang/java_logo.png",
+    title: "Java",
+    description: "",
+  },
+  {
+    image: "/images/lang/C_Logo.png",
+    title: "C",
+    description: "",
+  },
+  {
+    image: "/images/lang/php_logo.png",
+    title: "Php",
+    description: "",
+  },
+  {
+    image: "/images/lang/typescript_logo.png",
+    title: "TypeScript",
+    description: "",
+  },
+  {
+    image: "/images/lang/CSharp_Logo.png",
+    title: "C#",
+    description: "",
+  },
+  {
+    image: "/images/lang/mysql_logo.png",
+    title: "SQL",
+    description: "",
+  },
+  {
+    image: "/images/lang/python_logo.png",
+    title: "Python",
+    description: "",
+  }
+];
+
+const frameworkAndToolsBlocks = [
+  {
+    image: "/images/lang/kubernetes_logo.png",
+    title: "Kubernetes",
+    description: "",
+  },
+  {
+    image: "/images/lang/docker_logo.png",
+    title: "Docker",
+    description: "",
+  },
+  {
+    image: "/images/lang/laravel_logo.svg",
+    title: "Laravel",
+    description: "",
+  },
+  {
+    image: "/images/lang/electron_logo.svg",
+    title: "Electron",
+    description: "",
+  },
+  {
+    image: "/images/lang/proxmox_logo.png",
+    title: "Proxmox",
+    description: "",
+  },
+  {
+    image: "/images/lang/linux_logo.png",
+    title: "Linux",
+    description: "",
+  },
+  {
+    image: "/images/lang/argocd_logo.png",
+    title: "ArgoCD",
+    description: "",
+  },
+  {
+    image: "/images/lang/github-logo.png",
+    title: "Git, Gitlab, Github CI/CD",
+    description: "",
+  },
+];
 
 </script>
 
@@ -211,5 +343,16 @@ const MapGridBlocks = [
 
 #presentation-title {
   padding-bottom: 50px;
+}
+
+.links-container {
+  display: grid;
+  grid-template-columns: repeat(2, 0fr);
+  gap: 10px;
+}
+
+.link:nth-child(3),
+.link:nth-child(4) {
+  transform: translateY(-10px);
 }
 </style>
