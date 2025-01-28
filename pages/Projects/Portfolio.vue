@@ -10,9 +10,9 @@
                     carefully chosen specific tools to make it a modular project that's quick to develop.
                 </p>
 
-                <button class="redirectBtn" @click="onRedirectBtn()">
-                    Github
-                </button>
+                <a href="https://github.com/TheGostsniperfr/portfolio" target="_blank" rel="noopener noreferrer">
+                    <button class="redirectBtn">Github</button>
+                </a>
             </div>
         </div>
 
@@ -68,10 +68,6 @@ const technoBlocks = [
     }
 ];
 
-function onRedirectBtn() {
-    const url = "https://github.com/TheGostsniperfr/portfolio";
-    window.open(url, '_blank', 'noopener,noreferrer');
-}
 </script>
 
 <style scoped>

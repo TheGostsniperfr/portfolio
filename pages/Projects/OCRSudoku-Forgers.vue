@@ -11,9 +11,9 @@
           Just take a photo of it and click to solve it!
         </p>
 
-        <button class="redirectBtn" @click="onRedirectBtn()">
-          Github
-        </button>
+        <a href="https://github.com/TheGostsniperfr/OCR-Sudoku-Solver" target="_blank" rel="noopener noreferrer">
+          <button class="redirectBtn">Github</button>
+        </a>
       </div>
     </div>
 
@@ -111,10 +111,6 @@ const technoBlocks = [
   }
 ];
 
-function onRedirectBtn() {
-  const url = "https://github.com/TheGostsniperfr/OCR-Sudoku-Solver";
-  window.open(url, '_blank', 'noopener,noreferrer');
-} 
 </script>
 
 <style scoped>

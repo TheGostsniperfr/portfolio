@@ -9,9 +9,9 @@
           through intricate puzzle mazes, manipulate gravity, and uncover the secrets that will lead to your escape.
         </p>
 
-        <button class="redirectBtn" @click="onRedirectBtn()">
-          Github
-        </button>
+        <a href="https://github.com/TheGostsniperfr/UpsideDown" target="_blank" rel="noopener noreferrer">
+          <button class="redirectBtn">Github</button>
+        </a>
       </div>
     </div>
 
@@ -42,12 +42,12 @@
     <GridSection title="15 Hours of Unforgettable Gameplay." description="Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes.
   Stay alert — the test environments can be unforgiving, and mistakes can be costly." :blocks="MapGridBlocks" />
 
-    <PresentationSection imageSrc="/images/UpsideDown/drone.png" imageAlt="Image of a drone" overview="Inside Overview — 2022-2023"
-      title="5 Months to Build a Game" dir="right">
+    <PresentationSection imageSrc="/images/UpsideDown/drone.png" imageAlt="Image of a drone"
+      overview="Inside Overview — 2022-2023" title="5 Months to Build a Game" dir="right">
 
       <template #description>
         <p class="title-mini description text-less">
-          The game project was the first major project of my first year at my IT School. <br/>
+          The game project was the first major project of my first year at my IT School. <br />
           As team leader and lead developer, I had to develop the features that game designers needed, while managing
           the project and the cohesion of the group over time to achieve a very good result.
         </p>
@@ -169,10 +169,6 @@ const MapGridBlocks = [
   },
 ];
 
-function onRedirectBtn() {
-  const url = "https://github.com/TheGostsniperfr/UpsideDown";
-  window.open(url, '_blank', 'noopener,noreferrer');
-} 
 </script>
 
 <style scoped>

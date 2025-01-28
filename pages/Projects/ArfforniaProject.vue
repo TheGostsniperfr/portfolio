@@ -6,17 +6,23 @@
                 <p class="title-midle text-less">Arffornia — 2016-Today</p>
                 <p id="presentation-title" class="title">A Decade of Learning and Innovation</p>
                 <p class="title-mini description text-less">
-                    Arffornia is more than a Minecraft server.<br />
+                    —Arffornia is more than a Minecraft server.<br />
                     It's a whole ecosystem combining a <b>Laravel</b> website with
                     <b>MySQL</b>, an <b>Electron</b> game launcher, interconnected server instances with a Velocity
                     proxy, and
                     a
                     scalable <b>Kubernetes</b> (k8s) infrastructure for high availability. Built on
                     <b>Proxmox</b>-managed
-                    virtualization, this 9+ year project has been my playground for learning, innovation, and technical
+                    virtualization. <br />
+
+                    —This 9+ year project has been my playground for learning, innovation, and technical
                     refinement.<br />
                     And much more.
                 </p>
+
+                <a href="https://github.com/Arffornia" target="_blank" rel="noopener noreferrer">
+                    <button class="redirectBtn">Github</button>
+                </a>
             </div>
         </div>
 
@@ -39,8 +45,8 @@
             </template>
         </PresentationSection>
 
-        <PresentationSection imageSrc="/images/Arffornia/launcher_homepage.png" imageAlt="Devops schema" overview="Electron App"
-            title="Arffornia Launcher" dir="right">
+        <PresentationSection imageSrc="/images/Arffornia/launcher_homepage.png" imageAlt="Devops schema"
+            overview="Electron App" title="Arffornia Launcher" dir="right">
 
             <template #description>
                 <p class="title-mini description text-less">
@@ -61,9 +67,9 @@
 
         <TechnoSection :blocks="technoBlocksLauncher" title="Launcher Technologies" />
 
-        <PresentationSection imageSrc="/images/Arffornia/website_homepage.png" imageAlt="Devops schema" overview="Laravel Website"
-            title="Arffornia Website" dir="left">
-            
+        <PresentationSection imageSrc="/images/Arffornia/website_homepage.png" imageAlt="Devops schema"
+            overview="Laravel Website" title="Arffornia Website" dir="left">
+
             <template #description>
                 <p class="title-mini description text-less">
                     To ensure direct visibility on the internet and to centralize my services—such as Account
@@ -71,10 +77,10 @@
                     to Laravel to enhance security, expand functionality, and stay up to date with modern web
                     technologies.
                 </p>
-                
+
             </template>
         </PresentationSection>
-    
+
         <TechnoSection :blocks="technoBlocksWebsite" title="Website Technologies" />
 
         <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Infrastructure"
@@ -86,18 +92,18 @@
                     highly efficient and robust infrastructure to ensure smooth gameplay.
 
                     The infrastructure is built around several interconnected physical machines, virtualized with
-                    Proxmox, and hosting a Kubernetes (k8s) cluster that runs and monitors all services.<br/>
+                    Proxmox, and hosting a Kubernetes (k8s) cluster that runs and monitors all services.<br />
 
                     Above that, I use a Pterodactyl service to manage all Minecraft server instances, with a Velocity
                     Proxy interconnecting them. To enable communication across all services, the
                     Laravel website, featuring a custom API connected to a MySQL
-                    database. 
+                    database.
                 </p>
 
             </template>
         </PresentationSection>
 
-        <TechnoSection :blocks="technoBlocksDevOps" title="Infrastructure Technologies"/>
+        <TechnoSection :blocks="technoBlocksDevOps" title="Infrastructure Technologies" />
 
         <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="DevOps"
             title="Philosophy of Process Automation." dir="left">
@@ -121,7 +127,7 @@
             </template>
         </PresentationSection>
 
-        <TechnoSection :blocks="technoBlocksInfra" title="DevOps Technologies"/>
+        <TechnoSection :blocks="technoBlocksInfra" title="DevOps Technologies" />
     </div>
 </template>
 
@@ -132,10 +138,10 @@ import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 
 useHead({
-  title: 'Arffornia Project',
-  meta: [
-    { name: 'description', content: 'Arffornia Project Overview' }
-  ]
+    title: 'Arffornia Project',
+    meta: [
+        { name: 'description', content: 'Arffornia Project Overview' }
+    ]
 });
 
 onMounted(() => {
@@ -278,8 +284,8 @@ const technoBlocksAll = [
         title: "Github CI/CD",
         description: "Automated deployments and test pipelines were built using Github CI/CD, connected to my k8s using ArgoCD.",
     },
-    
-    
+
+
     {
         image: "/images/lang/java_logo.png",
         title: "Java / JavaFX",
@@ -317,10 +323,6 @@ const technoBlocksAll = [
     }
 ];
 
-function onRedirectBtn() {
-    const url = "https://github.com/TheGostsniperfr/OCR-Sudoku-Solver";
-    window.open(url, '_blank', 'noopener,noreferrer');
-}
 </script>
 
 <style scoped>

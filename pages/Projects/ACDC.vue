@@ -101,10 +101,6 @@ const technoBlocks = [
     }
 ];
 
-function onRedirectBtn() {
-    const url = "https://github.com/TheGostsniperfr/OCR-Sudoku-Solver";
-    window.open(url, '_blank', 'noopener,noreferrer');
-}
 </script>
 
 <style scoped>

@@ -6,7 +6,8 @@
                 <p class="title-midle text-less">Toolchain — 2024-2025</p>
                 <p id="presentation-title" class="title">A Year of Challenges and Achievements</p>
                 <p class="title-mini description text-less">
-                    For a year. I worked in the Toolchain team at Epita. I had to manage all the infrastructure, deployment,
+                    For a year. I worked in the Toolchain team at Epita. I had to manage all the infrastructure,
+                    deployment,
                     maintenance and ensure that everything ran smoothly for the management of practicals and exams IT
                     work for first and second year students at my IT school.
                 </p>
@@ -21,11 +22,12 @@
             <template #description>
                 <p class="title-mini description text-less">
                     — I was responsible for developing and maintaining the auto-correction tools that had been created
-                    over the past year, as well as implementing new features for subject designers.<br/>
-                    
+                    over the past year, as well as implementing new features for subject designers.<br />
+
                     — Another key part
                     of my role was ensuring that practical exercises functioned correctly during both
-                    production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet blackout on all campuses during an exam..
+                    production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet
+                    blackout on all campuses during an exam..
                 </p>
 
             </template>
@@ -37,10 +39,10 @@
             <template #description>
                 <p class="title-mini description text-less">
                     — This work allowed me to gain solid knowledge of various tools, such as Docker and GitLab CI/CD,
-                    which I use daily on large-scale production projects.<br/>
+                    which I use daily on large-scale production projects.<br />
 
                     — I also learned how to collaborate effectively within large teams, manage the challenges posed by
-                    individual members, and maintain clear communication to address unexpected issues.<br/>
+                    individual members, and maintain clear communication to address unexpected issues.<br />
 
                     — Finally, it taught me how to handle emergencies, such as during exams or particularly busy periods
                     with overlapping courses and projects.
@@ -58,10 +60,10 @@ import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 
 useHead({
-  title: 'Toolchain',
-  meta: [
-    { name: 'description', content: 'Toolchain Project Overview' }
-  ]
+    title: 'Toolchain',
+    meta: [
+        { name: 'description', content: 'Toolchain Project Overview' }
+    ]
 });
 
 onMounted(() => {
@@ -119,10 +121,6 @@ const technoBlocks = [
     }
 ];
 
-function onRedirectBtn() {
-    const url = "https://github.com/TheGostsniperfr/OCR-Sudoku-Solver";
-    window.open(url, '_blank', 'noopener,noreferrer');
-}
 </script>
 
 <style scoped>

@@ -2,15 +2,31 @@
   <div class="ud-content">
     <div class="presentation">
       <div class="content">
-        <p class="title-midle text-less">About Me</p>
+        <p class="title-midle text-less">Hi! I'm</p>
         <p id="presentation-title" class="title">Brian Perret</p>
         <p class="title-mini description text-less">
-          Hello everyone !
+          I'm a 3rd-year student at <b><a id="epita-link" href="https://www.epita.fr">Epita</a></b>,
+          specializing in <b>DevOps</b> and <b>Infrastructure Engineering</b>, with <b>9+ years</b> of experience as a
+          developer and a passion for building modular and scalable systems.<br /><br />
+
+          <i>“My Work is my Passion.”</i>
         </p>
 
-        <button class="redirectBtn" @click="onRedirectBtn()">
-          My Github
-        </button>
+        <a href="https://www.linkedin.com/in/brian-perret" target="_blank" rel="noopener noreferrer">
+          <button class="redirectBtn">LinkedIn</button>
+        </a>
+
+        <a href="mailto:brianperret.pro@gmail.com" target="_blank" rel="noopener noreferrer">
+          <button class="redirectBtn">Email</button>
+        </a>
+
+        <a href="https://github.com/TheGostsniperfr" target="_blank" rel="noopener noreferrer">
+          <button class="redirectBtn">Github</button>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <button class="redirectBtn">CV</button>
+        </a>
       </div>
     </div>
 
@@ -83,13 +99,14 @@ const MapGridBlocks = [
   },
 ]
 
-function onRedirectBtn() {
-  const url = "https://github.com/TheGostsniperfr";
-  window.open(url, '_blank', 'noopener,noreferrer');
-}
 </script>
 
 <style scoped>
+#epita-link {
+  text-decoration: none;
+  color: #25cee9;
+}
+
 .redirectBtn {
   margin-top: 1.5em;
   width: 18em;
@@ -165,7 +182,7 @@ function onRedirectBtn() {
   padding-top: 6%;
   padding-left: 10%;
   max-width: 31%;
-  padding-bottom: 15%;
+  padding-bottom: 5%;
   width: 100%;
 }
 
