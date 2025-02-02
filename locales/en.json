@@ -1,6 +1,7 @@
 {
   "about": {
     "header": {
+      "hello": "Hi! I'm",
       "presentation": {
         "1": "I'm a 3rd-year student at {school}, specializing in {devops} and {ie}, with {xp} of experience as a developer and a passion for building modular and scalable systems.",
         "school": "Epita",
@@ -9,6 +10,56 @@
         "xp": "9+ years"
       },
       "quote": "“My Work is my Passion.”"
+    },
+    "presentation": {
+      "overlay": "Presentation",
+      "title": "What Drives Me.",
+      "body": "Passionate about creating new projects and tackling challenges I thrive on designing scalable, modular systems from the ground up, focusing on infrastructure, and full-stack development. By using new technologies, I enhance my projects through continuous learning and personal growth. I always give my best to achieve the highest quality results and deliver innovative solutions."
+    },
+    "workingXp": {
+      "overlay": "Working Experience",
+      "title": "My Experience.",
+      "body1": "— I was responsible for developing and maintaining the auto-correction tools that had been created over the past year, as well as implementing new features for subject designers.",
+      "body2": "— Another key part of my role was ensuring that practical exercises functioned correctly during both production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet blackout on all campuses during an exam..",
+      "blocks": {
+        "1": {
+          "title": "Toolchain",
+          "date": "2024 — Today",
+          "description": "Work as DevOps at Epita."
+        },
+        "2": {
+          "title": "ACDC",
+          "date": "2024 — Today",
+          "description": "Work as IT teacher for 1 & 2 years student at Epita"
+        },
+        "3": {
+          "title": "Cameraman — Video Editor",
+          "date": "2022",
+          "description": "Making Docomentary, Afterworks, Pubs."
+        }
+      }
+    },
+    "projects": {
+      "title": "Projects & Works That Represents Me.",
+      "blocks": {
+        "1": {
+          "description": ""
+        },
+        "2": {
+          "description": ""
+        },
+        "3": {
+          "description": ""
+        }
+      }
+    },
+    "language": {
+      "title": "Languages that I use:",
+      "overview": "Languages"
+    },
+    "tools": {
+      "title": "Frameworks & Tools that I use:",
+      "overview": "Frameworks"
     }
   }
 }

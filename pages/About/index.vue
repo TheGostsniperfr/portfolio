@@ -2,7 +2,7 @@
   <div class="ud-content">
     <div class="presentation">
       <div class="content">
-        <p class="title-midle text-less">Hi! I'm</p>
+        <p class="title-midle text-less">{{ $t("about.header.hello") }}</p>
         <p id="presentation-title" class="title">Brian Perret</p>
         <p class="title-mini description text-less">
           <i18n-t keypath="about.header.presentation.1">
@@ -20,7 +20,7 @@
             </template>
           </i18n-t>
 
-          <br/> <br/>
+          <br /> <br />
 
           <i>{{ $t("about.header.quote") }}</i>
         </p>
@@ -45,57 +45,50 @@
       </div>
     </div>
 
-    <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Presentation"
-      title="What Drives Me." dir="left">
+    <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema"
+      :overview="$t('about.presentation.overlay')" :title="$t('about.presentation.title')" dir="left">
 
       <template #description>
         <p class="title-mini description text-less">
-          Passionate about creating new projects and tackling challenges
-          I thrive on designing scalable, modular systems from the ground up, focusing on infrastructure,
-          and full-stack development. By using new technologies, I enhance my projects through continuous learning
-          and personal growth.
-          I always give my best to achieve the highest quality results and deliver
-          innovative solutions.
+          {{ $t("about.presentation.body") }}
         </p>
 
       </template>
     </PresentationSection>
 
-    <!-- Edit the presentation section for a timeline section by replacing the image by a timeline -->
-    <TimelineSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Working Experience"
-      title="Working Experience" dir="right" :blocks="workBlocks">
+    <TimelineSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" :overview="$t('about.workingXp.overlay')"
+      :title="$t('about.workingXp.title')" dir="right" :blocks="workBlocks">
 
       <template #description>
         <p class="title-mini description text-less">
-          — I was responsible for developing and maintaining the auto-correction tools that had been created
-          over the past year, as well as implementing new features for subject designers.<br />
+          {{ $t('about.workingXp.body1') }}
 
-          — Another key part
-          of my role was ensuring that practical exercises functioned correctly during both
-          production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet blackout on
-          all campuses during an exam..
+          <br />
+
+          {{ $t('about.workingXp.body2') }}
         </p>
 
       </template>
     </TimelineSection>
 
-    <GridSection title="Projects & Works That Represents Me." description="" :blocks="MapGridBlocks" />
+    <GridSection :title="$t('about.projects.title')" description="" :blocks="MapGridBlocks" />
 
-    <!-- Create a Techno Section with square shape -->
-    <IconSection :blocks="languageBlocks" title="Languages that I use:" overview="Languages" />
-    <IconSection :blocks="frameworkAndToolsBlocks" title="Frameworks & Tools that I use:" overview="Frameworks" />
+    <IconSection :blocks="languageBlocks" :title="$t('about.language.title')"
+      :overview="$t('about.language.overview')" />
+    <IconSection :blocks="frameworkAndToolsBlocks" :title="$t('about.tools.title')"
+      :overview="$t('about.tools.overview')" />
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import PresentationSection from '~/components/PresentationSection.vue';
 import GridSection from '~/components/GridSection.vue';
 import IconSection from '~/components/IconSection.vue';
 import TimelineSection from '~/components/TimelineSection.vue';
 
-const { locales, locale } = useI18n()
-const availableLocales = computed(() => locales.value)
+const { t } = useI18n(); 
 
 useHead({
   title: 'Brian Perret',
@@ -125,25 +118,25 @@ const workBlocks = [
   {
     image: "/images/TC/logo_back.png",
     alt: "Toolchain Logo",
-    title: "Toolchain",
-    date: "2024 — Today",
-    description: "Work as DevOps at Epita",
+    title: t('about.workingXp.blocks.1.title'),
+    date: t('about.workingXp.blocks.1.date'),
+    description: t('about.workingXp.blocks.1.description'),
     link: "/Projects/Toolchain",
   },
   {
     image: "/images/ACDC/logo_tp.png",
     alt: "ACDC Logo",
-    title: "ACDC",
-    date: "2024 — Today",
-    description: "Work as IT teacher for 1 & 2 years student at Epita",
+    title: t('about.workingXp.blocks.2.title'),
+    date: t('about.workingXp.blocks.2.date'),
+    description: t('about.workingXp.blocks.2.description'),
     link: "/Projects/ACDC"
   },
   {
     image: "/images/ACDC/logo_tp.png",
     alt: "",
-    title: "Cameraman — Video Editor",
-    date: "2022",
-    description: "Making Docomentary, Afterworks, Pubs.",
+    title: t('about.workingXp.blocks.3.title'),
+    date: t('about.workingXp.blocks.3.date'),
+    description: t('about.workingXp.blocks.3.description'),
     link: "",
   }
 ];
@@ -172,37 +165,37 @@ const MapGridBlocks = [
 const languageBlocks = [
   {
     image: "/images/lang/java_logo.png",
-    title: "Java",
+    title: t("about.language.java"),
     description: "",
   },
   {
     image: "/images/lang/C_Logo.png",
-    title: "C",
+    title: t("about.language.c"),
     description: "",
   },
   {
     image: "/images/lang/php_logo.png",
-    title: "Php",
+    title: t("about.language.php"),
     description: "",
   },
   {
     image: "/images/lang/typescript_logo.png",
-    title: "TypeScript",
+    title: t("about.language.typescript"),
     description: "",
   },
   {
     image: "/images/lang/CSharp_Logo.png",
-    title: "C#",
+    title: t("about.language.csharp"),
     description: "",
   },
   {
     image: "/images/lang/mysql_logo.png",
-    title: "SQL",
+    title: t("about.language.sql"),
     description: "",
   },
   {
     image: "/images/lang/python_logo.png",
-    title: "Python",
+    title: t("about.language.python"),
     description: "",
   }
 ];
@@ -210,42 +203,42 @@ const languageBlocks = [
 const frameworkAndToolsBlocks = [
   {
     image: "/images/lang/kubernetes_logo.png",
-    title: "Kubernetes",
+    title: t("about.tools.kubernetes"),
     description: "",
   },
   {
     image: "/images/lang/docker_logo.png",
-    title: "Docker",
+    title: t("about.tools.docker"),
     description: "",
   },
   {
     image: "/images/lang/laravel_logo.svg",
-    title: "Laravel",
+    title: t("about.tools.laravel"),
     description: "",
   },
   {
     image: "/images/lang/electron_logo.svg",
-    title: "Electron",
+    title: t("about.tools.electron"),
     description: "",
   },
   {
     image: "/images/lang/proxmox_logo.png",
-    title: "Proxmox",
+    title: t("about.tools.proxmox"),
     description: "",
   },
   {
     image: "/images/lang/linux_logo.png",
-    title: "Linux",
+    title: t("about.tools.linux"),
     description: "",
   },
   {
     image: "/images/lang/argocd_logo.png",
-    title: "ArgoCD",
+    title: t("about.tools.argocd"),
     description: "",
   },
   {
     image: "/images/lang/github-logo.png",
-    title: "Git, Gitlab, Github CI/CD",
+    title: t("about.tools.github"),
     description: "",
   },
 ];
