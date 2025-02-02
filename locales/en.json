@@ -1,0 +1,14 @@
+{
+  "about": {
+    "header": {
+      "presentation": {
+        "1": "I'm a 3rd-year student at {school}, specializing in {devops} and {ie}, with {xp} of experience as a developer and a passion for building modular and scalable systems.",
+        "school": "Epita",
+        "devops": "DevOps",
+        "ie": "Infrastructure Engineering",
+        "xp": "9+ years"
+      },
+      "quote": "“My Work is my Passion.”"
+    }
+  }
+}

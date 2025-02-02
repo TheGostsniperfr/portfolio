@@ -5,11 +5,24 @@
         <p class="title-midle text-less">Hi! I'm</p>
         <p id="presentation-title" class="title">Brian Perret</p>
         <p class="title-mini description text-less">
-          I'm a 3rd-year student at <b><a id="epita-link" href="https://www.epita.fr">Epita</a></b>,
-          specializing in <b>DevOps</b> and <b>Infrastructure Engineering</b>, with <b>9+ years</b> of experience as a
-          developer and a passion for building modular and scalable systems.<br /><br />
+          <i18n-t keypath="about.header.presentation.1">
+            <template #school>
+              <b><a id="epita-link" href="https://www.epita.fr">{{ $t("about.header.presentation.school") }}</a></b>
+            </template>
+            <template #devops>
+              <b>{{ $t("about.header.presentation.devops") }}</b>
+            </template>
+            <template #ie>
+              <b>{{ $t("about.header.presentation.ie") }}</b>
+            </template>
+            <template #xp>
+              <b>{{ $t("about.header.presentation.xp") }}</b>
+            </template>
+          </i18n-t>
 
-          <i>“My Work is my Passion.”</i>
+          <br/> <br/>
+
+          <i>{{ $t("about.header.quote") }}</i>
         </p>
 
         <div class="links-container">
@@ -65,7 +78,7 @@
 
       </template>
     </TimelineSection>
-    
+
     <GridSection title="Projects & Works That Represents Me." description="" :blocks="MapGridBlocks" />
 
     <!-- Create a Techno Section with square shape -->
@@ -80,6 +93,9 @@ import PresentationSection from '~/components/PresentationSection.vue';
 import GridSection from '~/components/GridSection.vue';
 import IconSection from '~/components/IconSection.vue';
 import TimelineSection from '~/components/TimelineSection.vue';
+
+const { locales, locale } = useI18n()
+const availableLocales = computed(() => locales.value)
 
 useHead({
   title: 'Brian Perret',
