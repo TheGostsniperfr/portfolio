@@ -31,11 +31,24 @@
       Audiovisual
     </NuxtLink>
   </div>
+
+  <!-- Language Selector -->
+  <div class="lang-selector">
+    <button @click="setLocale('fr')" :class="{ active: locale === 'fr' }" title="Switch to French">
+      <img src="/images/other/lang/fr.png" alt="French" />
+    </button>
+    <button @click="setLocale('en')" :class="{ active: locale === 'en' }" title="Switch to English">
+      <img src="/images/other/lang/en.png" alt="English" />
+    </button>
+  </div>
 </template>
 
 <script setup>
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+
+const { locale, setLocale } = useI18n();
 
 const activeLink = ref('');
 const route = useRoute();
@@ -90,4 +103,33 @@ updateActiveLink();
 .link-dot.dim {
   opacity: 0.3;
 }
+
+.lang-selector {
+  position: absolute;
+  top: 0%;
+  right: 2.5%;
+  z-index: 1000;
+}
+
+.lang-selector button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s ease;
+
+}
+
+.lang-selector img {
+  width: 28px;
+  height: 28px;
+  opacity: 0.7;
+  transition: opacity 0.25s ease;
+
+}
+
+.lang-selector img:hover {
+  opacity: 1;
+}
+
 </style>
