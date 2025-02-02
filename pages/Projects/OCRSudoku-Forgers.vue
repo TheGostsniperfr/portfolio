@@ -3,14 +3,20 @@
     <BackBtn />
     <div class="presentation">
       <div class="content">
-        <p class="title-midle text-less">OCR Sudoku Forgers</p>
-        <p id="presentation-title" class="title">Scan, Solve, Succeed.</p>
+        <p class="title-midle text-less">{{ $t("ocr.header.overlay") }}</p>
+        <p id="presentation-title" class="title">{{ $t("ocr.header.overlay") }}</p>
         <p class="title-mini description text-less">
-          This school project served as an introduction to <b>Neural Networks</b> and <b>Computer Vision</b>. Over the
-          course of 3
-          months, we worked in teams of 4 to build the project from scratch, without any libraries.
-          A key aspect of the project was independently researching the new knowledge necessary to
-          successfully implement concepts like <b>CNNs</b> (Convolutional Neural Networks) and <b>Computer Vision</b>.
+          <i18n-t keypath="ocr.header.description.body.1">
+            <template #nn>
+                <b>{{ $t("ocr.header.description.body.nn") }}</b>
+            </template>
+            <template #cv>
+              <b>{{ $t("ocr.header.description.body.cv") }}</b>
+          </template>
+          <template #cnn>
+            <b>{{ $t("ocr.header.description.body.cnn") }}</b>
+        </template>
+        </i18n-t>
         </p>
 
         <a href="https://github.com/TheGostsniperfr/OCR-Sudoku-Solver" target="_blank" rel="noopener noreferrer">
@@ -21,43 +27,35 @@
 
     <TechnoSection :blocks="technoBlocks" />
 
-    <PresentationSection imageSrc="/images/OCR/hard_grid.jpg" imageAlt="Image of a Sudoku Grid" overview="Overview"
-      title="The beginning of a story." dir="left">
+    <PresentationSection imageSrc="/images/OCR/hard_grid.jpg" imageAlt="Image of a Sudoku Grid" :overview="$t('ocr.overview.overlay')" :title="$t('ocr.overview.title')" dir="left">
 
       <template #description>
         <p class="title-mini description text-less">
-          Our application is capable of solving any type of sudoku grid, even when viewed from unusual perspectives or
-          angles. <br /><br />
-
-          On the left is one of the images used by our professor to evaluate the project.
+          {{ $t("ocr.overview.description.1") }}
+          <br /><br />
+          {{ $t("ocr.overview.description.2") }}
         </p>
 
       </template>
     </PresentationSection>
 
     <PresentationSection imageSrc="/images/OCR/computer_vision.png" imageAlt="Before and After Post processing"
-      overview="Post Processing" title="Highly effective treatment" dir="right">
+    :overview="$t('ocr.process.overlay')" :title="$t('ocr.process.title')" dir="right">
 
       <template #description>
         <p class="title-mini description text-less">
-          We have made a point of using highly efficient post-processing, both in terms of final rendering and
-          processing speed.
-          Whether the image is very blurry, with distorted perspectives or a crumpled newspaper page. That's not a
-          problem!
+          {{ $t("ocr.process.description.1") }}
         </p>
 
       </template>
     </PresentationSection>
 
     <PresentationSection imageSrc="/images/OCR/trainning.png" imageAlt="Image of the Neural Network Training"
-      overview="Neural Network" title="Neural Network from scratch" dir="left">
+    :overview="$t('ocr.nn.overlay')" :title="$t('ocr.nn.title')" dir="left">
 
       <template #description>
         <p class="title-mini description text-less">
-          The second major part of this project was to design a neural network from scratch, with no specific library
-          and no prior knowledge.
-          After a long phase of reflection, calculation and design.
-          We arrived at a very interesting and robust result.
+          {{ $t("ocr.nn.description.1") }}
         </p>
 
       </template>
@@ -68,14 +66,18 @@
 
 <script setup>
 import { onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 
+const { t } = useI18n();
+
+
 useHead({
   title: 'OCR Sudoku Forgers',
   meta: [
-    { name: 'description', content: 'OCR Sudoku Forgers Project Overview' }
+    { name: 'description', content: t('ocr.head.content') }
   ]
 });
 
@@ -99,18 +101,18 @@ onMounted(() => {
 const technoBlocks = [
   {
     image: "/images/OCR/neural-network.png",
-    title: "Neural Network Inside",
-    description: "We have built and trained a neural network specifically for this app.",
+    title: t('ocr.tech.blocks.nn.title'),
+    description: t('ocr.tech.blocks.nn.description'),
   },
   {
     image: "/images/lang/C_Logo.png",
-    title: "Entirely in C, for the best performance",
-    description: "This project was developed in pure C, without using any specific libraries.",
+    title: t('ocr.tech.blocks.c.title'),
+    description: t('ocr.tech.blocks.c.description'),
   },
   {
     image: "/images/lang/github-logo.png",
-    title: "Teamwork using Github",
-    description: "We used github to manage our entire project, team and website.",
+    title: t('ocr.tech.blocks.github.title'),
+    description: t('ocr.tech.blocks.github.description'),
   }
 ];
 

@@ -159,5 +159,61 @@
     "devopsTech": {
       "title": "DevOps Technologies"
     }
+  },
+  "ocr": {
+    "head": {
+      "content": "OCR Sudoku Forgers Project Overview"
+    },
+    "header": {
+      "overlay": "OCR Sudoku Forgers",
+      "title": "Scan, Solve, Succeed.",
+      "description": {
+        "body": {
+          "1": "This school project served as an introduction to {nn} and {cv}. Over the course of 3 months, we worked in teams of 4 to build the project from scratch, without any libraries. A key aspect of the project was independently researching the new knowledge necessary to successfully implement concepts like {cnn} (Convolutional Neural Networks) and {cv}.",
+          "nn": "Neural Networks",
+          "cv": "Computer Vision",
+          "cnn": "CNNs"
+        }
+      }
+    },
+    "tech": {
+      "blocks": {
+        "nn": {
+          "title": "Neural Network Inside",
+          "description": "We have built and trained a neural network specifically for this app."
+        },
+        "c": {
+          "title": "Entirely in C, for the best performance",
+          "description": "This project was developed in pure C, without using any specific libraries."
+        },
+        "github": {
+          "title": "Teamwork using Github",
+          "description": "We used github to manage our entire project, team and website."
+        }
+        
+      }
+    },
+    "overview": {
+      "overlay": "Overview",
+      "title": "The beginning of a story.",
+      "description": {
+        "1": "Our application is capable of solving any type of sudoku grid, even when viewed from unusual perspectives or angles.",
+        "2": " On the left is one of the images used by our professor to evaluate the project."
+      }
+    },
+    "process": {
+      "overlay": "Post Processing",
+      "title": "Highly effective treatment",
+      "description": {
+        "1": "We have made a point of using highly efficient post-processing, both in terms of final rendering and processing speed. Whether the image is very blurry, with distorted perspectives or a crumpled newspaper page. That's not a problem!"
+      }
+    },
+    "nn": {
+      "overlay": "Neural Network",
+      "title": "Neural Network from scratch",
+      "description": {
+        "1": "The second major part of this project was to design a neural network from scratch, with no specific library and no prior knowledge. After a long phase of reflection, calculation and design. We arrived at a very interesting and robust result."
+      }
+    }
   }
 }
