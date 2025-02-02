@@ -93,7 +93,7 @@ const { t } = useI18n();
 useHead({
   title: 'Brian Perret',
   meta: [
-    { name: 'description', content: 'About Me' }
+    { name: 'description', content: t('about.head.content') }
   ]
 });
 

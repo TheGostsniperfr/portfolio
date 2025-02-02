@@ -1,5 +1,8 @@
 {
   "about": {
+    "head": {
+      "content": "About Me"
+    },
     "header": {
       "hello": "Hi! I'm",
       "presentation": {
@@ -60,6 +63,101 @@
     "tools": {
       "title": "Frameworks & Tools that I use:",
       "overview": "Frameworks"
+    }
+  },
+  "arffornia": {
+    "head": {
+      "content": "Arffornia Project Overview"
+    },
+    "header": {
+      "overlay": "Arffornia — 2016-Today",
+      "title": "A Decade of Learning and Innovation.",
+      "description": {
+        "body": {
+          "1": "— Arffornia is more than a Minecraft server.",
+          "2": "It's a whole ecosystem combining a {Laravel} website with {MySQL}, an {Electron} game launcher, interconnected server instances with a Velocity proxy, and a scalable {Kubernetes} (k8s) infrastructure for high availability. Built on {Proxmox}-managed virtualization.",
+
+          "laravel": "Laravel",
+          "mysql": "MySQL",
+          "electron": "Electron",
+          "Kubernetes": "Kubernetes",
+          "Proxmox": "Proxmox",
+
+          "3": "— This 9+ year project has been my playground for learning, innovation, and technical refinement.",
+          "4": "And much more."
+        }
+      }
+    },
+    "globalTech": {
+      "title": "Global Technologies",
+      "blocks": {
+        "kubernetes": "I designed my infrastructure around Kubernetes for scalability and reliability, enabling seamless interconnection of independent modules.",
+        "electron": "Cross-Platform Desktop Apps Framework, that I used to create my game launcher on: Windows, Mac and Linux.",
+        "laravel": "Backend PHP framework, that I used to create my website and web API using MVC architectural pattern.",
+        "docker": "I've extensively used Docker to create independent modules for my k8s.",
+        "github": "Automated deployments and test pipelines were built using Github CI/CD, connected to my k8s using ArgoCD.",
+        "java": "I develop Forge mods and Spigot/NMS plugins to directly integrate the environment into the game.",
+        "php": "I used PHP extensively for the web API and the Laravel website.",
+        "mysql": "I used MySQL to manage all my databases.",
+        "typescript": "I extensively used TypeScript for developing the game launcher built on Electron.",
+        "proxmox": "Manage all my VMs and interconnect them with several physical servers.",
+        "argocd": "I built my K8s infra around an ArgoCD controller to achieve deeper integration with the CI/CD pipeline.",
+        "grafana": "Have an overview of all my services and create new data by combining other statistics, so that I can anticipate and guide my next choices. "
+      }
+    },
+    "overview": {
+      "overlay": "Overview",
+      "title": "Arffornia Project",
+      "description": {
+        "1": "Arffornia is a Minecraft modded server where players can create technological, magical, and diverse cities, embark on adventures with friends, and share unforgettable moments with the community.",
+        "2": "The 5th season, set to release in a few months, is currently in development and will feature major updates, including a new launcher, an improved website, and the introduction of a progression stage system across various mods."
+      }
+    },
+    "electron": {
+      "overlay": "Electron App",
+      "title": "Arffornia Launcher",
+      "description": {
+        "1": "The game launcher allows users with just two clicks to login (using Microsoft Account), download and install the game along with all its mods, configure settings, Java version and start playing all in a highly intuitive and user-friendly way on Windows, Mac and Linux. ",
+        "2": "Initially developed using JavaFX, I switched to Electron to speed up development and leverage enhanced front-end capabilities using Vue.js. This transition allowed me to create a more modern and visually appealing application, simplifying tasks that would have been complex and time-consuming to achieve with JavaFX."
+      }
+    },
+    "launcherTech": {
+      "title": "Launcher Technologies",
+      "blocks": {
+        "java": "I develop the previous game launcher with Java & JavaFX."
+      }
+    },
+    "website": {
+      "overlay": "Laravel Website",
+      "title": "Arffornia Website",
+      "description": {
+        "1": "To ensure direct visibility on the internet and to centralize my services—such as Account Management, Downloads, API, and more—I developed a website using Laravel. Two years ago, I migrated to Laravel to enhance security, expand functionality, and stay up to date with modern web technologies."
+      }
+    },
+    "websiteTech": {
+      "title": "Website Technologies"
+    },
+    "infra": {
+      "overlay": "Infrastructure",
+      "title": "Arffornia Infrastructure",
+      "description": {
+        "1": "The high resource demands of multiple Minecraft server instances and additional services required a highly efficient and robust infrastructure to ensure smooth gameplay. The infrastructure is built around several interconnected physical machines, virtualized with Proxmox, and hosting a Kubernetes (k8s) cluster that runs and monitors all services.",
+        "2": "Above that, I use a Pterodactyl service to manage all Minecraft server instances, with a Velocity Proxy interconnecting them. To enable communication across all services, the Laravel website, featuring a custom API connected to a MySQL database."
+      }
+    },
+    "infraTech": {
+      "title": "Infrastructure Technologies"
+    },
+    "devops": {
+      "overlay": "DevOps",
+      "title": "Philosophy of Process Automation.",
+      "description": {
+        "1": "Arffornia ecosystem is built with a modular design, allowing new features and functionalities to be seamlessly integrated through a {philosophy}. To achieve this, I leverage ArgoCD and a GitHub CI/CD pipeline to fully automate deployments. All configurations are managed within a Git repository, ensuring that every change is tested in a dedicated staging environment before being deployed to production. The infrastructure is designed to scale effortlessly based on current server load, dynamically allocating resources during peak usage. In the event of an issue, such as a server instance crash, the corresponding Kubernetes pod automatically initiates a restart, and I am immediately notified to ensure swift resolution.",
+        "philosophy": "philosophy of process automation"
+      }
+    },
+    "devopsTech": {
+      "title": "DevOps Technologies"
     }
   }
 }

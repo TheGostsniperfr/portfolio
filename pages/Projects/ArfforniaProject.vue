@@ -3,21 +3,33 @@
         <BackBtn />
         <div class="presentation">
             <div class="content">
-                <p class="title-midle text-less">Arffornia — 2016-Today</p>
-                <p id="presentation-title" class="title">A Decade of Learning and Innovation</p>
+                <p class="title-midle text-less">{{ $t("arffornia.header.overlay") }}</p>
+                <p id="presentation-title" class="title">{{ $t("arffornia.header.title") }}</p>
                 <p class="title-mini description text-less">
-                    —Arffornia is more than a Minecraft server.<br />
-                    It's a whole ecosystem combining a <b>Laravel</b> website with
-                    <b>MySQL</b>, an <b>Electron</b> game launcher, interconnected server instances with a Velocity
-                    proxy, and
-                    a
-                    scalable <b>Kubernetes</b> (k8s) infrastructure for high availability. Built on
-                    <b>Proxmox</b>-managed
-                    virtualization. <br />
+                    {{ $t("arffornia.header.description.body.1") }}
+                    <br />
+                    <i18n-t keypath="arffornia.header.description.body.2">
+                        <template #Laravel>
+                            <b>{{ $t("arffornia.header.description.body.laravel") }}</b>
+                        </template>
+                        <template #MySQL>
+                            <b>{{ $t("arffornia.header.description.body.mysql") }}</b>
+                        </template>
+                        <template #Electron>
+                            <b>{{ $t("arffornia.header.description.body.electron") }}</b>
+                        </template>
+                        <template #Kubernetes>
+                            <b>{{ $t("arffornia.header.description.body.Kubernetes") }}</b>
+                        </template>
+                        <template #Proxmox>
+                            <b>{{ $t("arffornia.header.description.body.Proxmox") }}</b>
+                        </template>
+                    </i18n-t>
 
-                    —This 9+ year project has been my playground for learning, innovation, and technical
-                    refinement.<br />
-                    And much more.
+                    <br />
+                    {{ $t("arffornia.header.description.body.3") }}
+                    <br />
+                    {{ $t("arffornia.header.description.body.4") }}
                 </p>
 
                 <a href="https://github.com/Arffornia" target="_blank" rel="noopener noreferrer">
@@ -26,121 +38,96 @@
             </div>
         </div>
 
-        <TechnoSection :blocks="technoBlocksAll" title="Global Technologies" />
+        <TechnoSection :blocks="technoBlocksAll" :title="$t('arffornia.globalTech.title')" />
 
-        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Overview"
-            title="Arffornia Project" dir="left">
+        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema"
+            :overview="$t('arffornia.overview.overlay')" :title="$t('arffornia.overview.title')" dir="left">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    Arffornia is a Minecraft modded server where players can create technological, magical, and diverse
-                    cities, embark on adventures with friends, and share unforgettable moments with the
-                    community.<br /><br />
-
-                    The 5th season, set to release in a few months, is currently in development and will feature major
-                    updates, including a new launcher, an improved website, and the introduction of a progression stage
-                    system across various mods.
+                    {{ $t('arffornia.overview.description.1') }}
+                    <br /><br />
+                    {{ $t('arffornia.overview.description.2') }}
                 </p>
 
             </template>
         </PresentationSection>
 
         <PresentationSection imageSrc="/images/Arffornia/launcher_homepage.png" imageAlt="Devops schema"
-            overview="Electron App" title="Arffornia Launcher" dir="right">
+            :overview="$t('arffornia.electron.overlay')" :title="$t('arffornia.electron.title')" dir="right">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    The game launcher allows users with just two clicks to login (using Microsoft Account), download
-                    and install the game along
-                    with all its mods, configure settings, Java version and start playing all in a highly intuitive and
-                    user-friendly
-                    way on Windows, Mac and Linux. <br /><br />
-
-                    Initially developed using JavaFX, I switched to Electron to speed up development and leverage
-                    enhanced front-end capabilities using Vue.js. This transition allowed me to create a more modern and
-                    visually appealing application, simplifying tasks that would have been complex and time-consuming to
-                    achieve with JavaFX.
+                    {{ $t('arffornia.electron.description.1') }}
+                    <br /><br />
+                    {{ $t('arffornia.electron.description.2') }}
                 </p>
 
             </template>
         </PresentationSection>
 
-        <TechnoSection :blocks="technoBlocksLauncher" title="Launcher Technologies" />
+        <TechnoSection :blocks="technoBlocksLauncher" :title="$t('arffornia.launcherTech.title')" />
 
         <PresentationSection imageSrc="/images/Arffornia/website_homepage.png" imageAlt="Devops schema"
-            overview="Laravel Website" title="Arffornia Website" dir="left">
+            :overview="$t('arffornia.website.overlay')" :title="$t('arffornia.website.title')" dir="left">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    To ensure direct visibility on the internet and to centralize my services—such as Account
-                    Management, Downloads, API, and more—I developed a website using Laravel. Two years ago, I migrated
-                    to Laravel to enhance security, expand functionality, and stay up to date with modern web
-                    technologies.
+                    {{ $t('arffornia.website.description.1') }}
                 </p>
 
             </template>
         </PresentationSection>
 
-        <TechnoSection :blocks="technoBlocksWebsite" title="Website Technologies" />
+        <TechnoSection :blocks="technoBlocksWebsite" :title="$t('arffornia.websiteTech.title')" />
 
-        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Infrastructure"
-            title="Arffornia Infrastructure" dir="right">
+        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema"
+            :overview="$t('arffornia.infra.overlay')" :title="$t('arffornia.infra.title')" dir="right">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    The high resource demands of multiple Minecraft server instances and additional services required a
-                    highly efficient and robust infrastructure to ensure smooth gameplay.
-
-                    The infrastructure is built around several interconnected physical machines, virtualized with
-                    Proxmox, and hosting a Kubernetes (k8s) cluster that runs and monitors all services.<br />
-
-                    Above that, I use a Pterodactyl service to manage all Minecraft server instances, with a Velocity
-                    Proxy interconnecting them. To enable communication across all services, the
-                    Laravel website, featuring a custom API connected to a MySQL
-                    database.
+                    {{ $t('arffornia.infra.description.1') }}
+                    <br /><br />
+                    {{ $t('arffornia.infra.description.2') }}
                 </p>
 
             </template>
         </PresentationSection>
 
-        <TechnoSection :blocks="technoBlocksDevOps" title="Infrastructure Technologies" />
+        <TechnoSection :blocks="technoBlocksDevOps" :title="$t('arffornia.infraTech.title')" />
 
-        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="DevOps"
-            title="Philosophy of Process Automation." dir="left">
+        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema"
+            :overview="$t('arffornia.devops.overlay')" :title="$t('arffornia.devops.title')" dir="left">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    Arffornia ecosystem is built with a modular design, allowing new features and
-                    functionalities to be seamlessly integrated through a <b>philosophy of process automation</b>.
-
-                    To achieve this, I leverage ArgoCD and a GitHub CI/CD pipeline to fully automate deployments. All
-                    configurations are managed within a Git repository, ensuring that every change is tested in a
-                    dedicated staging environment before being deployed to production.
-
-                    The infrastructure is designed to scale effortlessly based on current server load, dynamically
-                    allocating resources during peak usage.
-
-                    In the event of an issue, such as a server instance crash, the corresponding Kubernetes pod
-                    automatically initiates a restart, and I am immediately notified to ensure swift resolution.
+                    <i18n-t keypath="arffornia.devops.description.1">
+                        <template #philosophy>
+                            <b>{{ $t("arffornia.devops.description.philosophy") }}</b>
+                        </template>
+                    </i18n-t>
                 </p>
 
             </template>
         </PresentationSection>
 
-        <TechnoSection :blocks="technoBlocksInfra" title="DevOps Technologies" />
+        <TechnoSection :blocks="technoBlocksInfra" :title="$t('arffornia.devopsTech.title')" />
     </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 
+const { t } = useI18n();
+
 useHead({
     title: 'Arffornia Project',
     meta: [
-        { name: 'description', content: 'Arffornia Project Overview' }
+        { name: 'description', content: t('arffornia.head.content') }
     ]
 });
 
@@ -165,22 +152,22 @@ const technoBlocksWebsite = [
     {
         image: "/images/lang/laravel_logo.svg",
         title: "Laravel",
-        description: "Backend PHP framework, that I used to create my website and web API using MVC architectural pattern.",
+        description: t('arffornia.globalTech.blocks.laravel'),
     },
     {
         image: "/images/lang/php_logo.png",
         title: "PHP",
-        description: "I used PHP extensively for the web API and the Laravel website.",
+        description: t('arffornia.globalTech.blocks.php'),
     },
     {
         image: "/images/lang/mysql_logo.png",
         title: "MySQL",
-        description: "I used MySQL to manage all my databases.",
+        description: t('arffornia.globalTech.blocks.mysql'),
     },
     {
         image: "/images/lang/typescript_logo.png",
         title: "Typescript",
-        description: "I extensively used TypeScript for developing the game launcher built on Electron.",
+        description: t('arffornia.globalTech.blocks.typescript'),
     }
 ];
 
@@ -188,17 +175,17 @@ const technoBlocksLauncher = [
     {
         image: "/images/lang/electron_logo.svg",
         title: "Electron",
-        description: "Cross-Platform Desktop Apps Framework, that I used to create my game launcher on: Windows, Mac and Linux.",
+        description: t('arffornia.globalTech.blocks.electron'),
     },
     {
         image: "/images/lang/typescript_logo.png",
         title: "Typescript",
-        description: "I extensively used TypeScript for developing the game launcher built on Electron.",
+        description: t('arffornia.globalTech.blocks.typescript'),
     },
     {
         image: "/images/lang/java_logo.png",
         title: "Java / JavaFX",
-        description: "I develop the previous game launcher with Java & JavaFX.",
+        description: t('arffornia.launcherTech.blocks.java'),
     }
 ];
 
@@ -206,32 +193,32 @@ const technoBlocksInfra = [
     {
         image: "/images/lang/kubernetes_logo.png",
         title: "Kubernetes",
-        description: "I designed my infrastructure around Kubernetes for scalability and reliability, enabling seamless interconnection of independent modules.",
+        description: t('arffornia.globalTech.blocks.kubernetes'),
     },
     {
         image: "/images/lang/proxmox_logo.png",
         title: "Proxmox",
-        description: "Manage all my VMs and interconnect them with several physical servers.",
+        description: t('arffornia.globalTech.blocks.proxmox'),
     },
     {
         image: "/images/lang/github-logo.png",
         title: "Github CI/CD",
-        description: "Automated deployments and test pipelines were built using Github CI/CD, connected to my k8s using ArgoCD.",
+        description: t('arffornia.globalTech.blocks.github'),
     },
     {
         image: "/images/lang/docker_logo.png",
         title: "Docker",
-        description: "I've extensively used Docker to create independent modules for my k8s.",
+        description: t('arffornia.globalTech.blocks.docker'),
     },
     {
         image: "/images/lang/argocd_logo.png",
         title: "ArgoCD",
-        description: "I built my K8s infra around an ArgoCD controller to achieve deeper integration with the CI/CD pipeline.",
+        description: t('arffornia.globalTech.blocks.argocd'),
     },
     {
         image: "/images/lang/grafana_logo.png",
         title: "Grafana",
-        description: "Have an overview of all my services and create new data by combining other statistics, so that I can anticipate and guide my next choices. ",
+        description: t('arffornia.globalTech.blocks.grafana'),
     }
 ];
 
@@ -239,22 +226,22 @@ const technoBlocksDevOps = [
     {
         image: "/images/lang/kubernetes_logo.png",
         title: "Kubernetes",
-        description: "I designed my infrastructure around Kubernetes for scalability and reliability, enabling seamless interconnection of independent modules.",
+        description: t('arffornia.globalTech.blocks.kubernetes'),
     },
     {
         image: "/images/lang/docker_logo.png",
         title: "Docker",
-        description: "I've extensively used Docker to create independent modules for my k8s.",
+        description: t('arffornia.globalTech.blocks.docker'),
     },
     {
         image: "/images/lang/argocd_logo.png",
         title: "ArgoCD",
-        description: "I built my K8s infra around an ArgoCD controller to achieve deeper integration with the CI/CD pipeline.",
+        description: t('arffornia.globalTech.blocks.argocd'),
     },
     {
         image: "/images/lang/github-logo.png",
         title: "Github CI/CD",
-        description: "Automated deployments and test pipelines were built using Github CI/CD, connected to my k8s using ArgoCD.",
+        description: t('arffornia.globalTech.blocks.github'),
     }
 ];
 
@@ -262,64 +249,62 @@ const technoBlocksAll = [
     {
         image: "/images/lang/kubernetes_logo.png",
         title: "Kubernetes",
-        description: "I designed my infrastructure around Kubernetes for scalability and reliability, enabling seamless interconnection of independent modules.",
+        description: t('arffornia.globalTech.blocks.kubernetes'),
     },
     {
         image: "/images/lang/electron_logo.svg",
         title: "Electron",
-        description: "Cross-Platform Desktop Apps Framework, that I used to create my game launcher on: Windows, Mac and Linux.",
+        description: t('arffornia.globalTech.blocks.electron'),
     },
     {
         image: "/images/lang/laravel_logo.svg",
         title: "Laravel",
-        description: "Backend PHP framework, that I used to create my website and web API using MVC architectural pattern.",
+        description: t('arffornia.globalTech.blocks.laravel'),
     },
     {
         image: "/images/lang/docker_logo.png",
         title: "Docker",
-        description: "I've extensively used Docker to create independent modules for my k8s.",
+        description: t('arffornia.globalTech.blocks.docker'),
     },
     {
         image: "/images/lang/github-logo.png",
         title: "Github CI/CD",
-        description: "Automated deployments and test pipelines were built using Github CI/CD, connected to my k8s using ArgoCD.",
+        description: t('arffornia.globalTech.blocks.github'),
     },
-
-
     {
         image: "/images/lang/java_logo.png",
         title: "Java / JavaFX",
-        description: "I develop Forge mods and Spigot/NMS plugins to directly integrate the environment into the game.",
+        description: t('arffornia.globalTech.blocks.java'),
     },
     {
         image: "/images/lang/php_logo.png",
         title: "PHP",
-        description: "I used PHP extensively for the web API and the Laravel website.",
+        description: t('arffornia.globalTech.blocks.php'),
     },
     {
         image: "/images/lang/mysql_logo.png",
         title: "MySQL",
-        description: "I used MySQL to manage all my databases.",
+        description: t('arffornia.globalTech.blocks.mysql'),
     },
     {
         image: "/images/lang/typescript_logo.png",
         title: "Typescript",
-        description: "I extensively used TypeScript for developing the game launcher built on Electron.",
+        description: t('arffornia.globalTech.blocks.typescript'),
     },
     {
         image: "/images/lang/proxmox_logo.png",
         title: "Proxmox",
-        description: "Manage all my VMs and interconnect them with several physical servers.",
+        description: t('arffornia.globalTech.blocks.proxmox'),
     },
     {
         image: "/images/lang/argocd_logo.png",
         title: "ArgoCD",
-        description: "I built my K8s infra around an ArgoCD controller to achieve deeper integration with the CI/CD pipeline.",
+        description: t('arffornia.globalTech.blocks.argocd'),
     },
     {
         image: "/images/lang/grafana_logo.png",
         title: "Grafana",
-        description: "Have an overview of all my services and create new data by combining other statistics, so that I can anticipate and guide my next choices. ",
+        description: t('arffornia.globalTech.blocks.grafana'),
     }
 ];
 
