@@ -137,16 +137,19 @@ const MapGridBlocks = [
     image: "/images/TC/logo_back.png",
     title: "",
     description: "Toolchain",
+    link: "/Projects/Toolchain"
   },
   {
     image: "/images/Arffornia/launcher_homepage.png",
     title: "",
     description: "Arffornia",
+    link: "/Projects/ArfforniaProject"
   },
   {
     image: "/images/UpsideDown/UpsideDownBG.png",
     title: "",
     description: "Upside Down",
+    link: "/Projects/UpsideDown"
   },
 ]
 

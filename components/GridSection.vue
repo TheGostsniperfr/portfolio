@@ -4,13 +4,27 @@
         <p id="grid-description" class="text-less title-mini">{{ description }}</p>
 
         <div class="grids">
-            <div v-for="(block, index) in blocks" :key="index" class="test-chamber">
-                <div class="image-container">
-                    <img :src="block.image" :alt="block.title" />
-                    <div class="overlay">
-                        <p id="block-title" class="title-mini text-less">{{ block.title }}</p>
-                        <p id="block-description" class="title-midle">{{ block.description }}</p>
+            <div v-for="(block, index) in blocks" :key="index" >
+                <div v-if='block.link !== ""' class="test-chamber">
+                    <NuxtLink :to="block.link">
+                        <div class="image-container">
+                            <img :src="block.image" :alt="block.title" />
+                            <div class="overlay">
+                                <p id="block-title" class="title-mini text-less">{{ block.title }}</p>
+                                <p id="block-description" class="title-midle">{{ block.description }}</p>
+                            </div>
+                        </div>
+                    </NuxtLink>
+                </div>
+                <div v-else class="test-chamber">
+                    <div class="image-container">
+                        <img :src="block.image" :alt="block.title" />
+                        <div class="overlay">
+                            <p id="block-title" class="title-mini text-less">{{ block.title }}</p>
+                            <p id="block-description" class="title-midle">{{ block.description }}</p>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -22,7 +36,11 @@ export default {
     props: {
         title: String,
         description: String,
-        blocks: Array
+        blocks: Array,
+        link: {
+            type: String,
+            default: ''
+        }
     }
 };
 </script>
@@ -57,7 +75,7 @@ export default {
     font-size: 1.3em;
     font-weight: 500;
     margin: 0%;
-  }
+}
 
 .text-less {
     color: #c2c2c2d3;

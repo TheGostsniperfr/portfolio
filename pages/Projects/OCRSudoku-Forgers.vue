@@ -6,9 +6,11 @@
         <p class="title-midle text-less">OCR Sudoku Forgers</p>
         <p id="presentation-title" class="title">Scan, Solve, Succeed.</p>
         <p class="title-mini description text-less">
-          Solve all types of grid, did you say hexagonal grid?
-          Sure, we can solve it, just like any other grid you can think of. <br />
-          Just take a photo of it and click to solve it!
+          This school project served as an introduction to <b>Neural Networks</b> and <b>Computer Vision</b>. Over the
+          course of 3
+          months, we worked in teams of 4 to build the project from scratch, without any libraries.
+          A key aspect of the project was independently researching the new knowledge necessary to
+          successfully implement concepts like <b>CNNs</b> (Convolutional Neural Networks) and <b>Computer Vision</b>.
         </p>
 
         <a href="https://github.com/TheGostsniperfr/OCR-Sudoku-Solver" target="_blank" rel="noopener noreferrer">
@@ -24,9 +26,10 @@
 
       <template #description>
         <p class="title-mini description text-less">
-          This project was a school project that introduced us to computer vision and the neural network.
-          So we created an app that makes it easy to scan and solve any kind of sudoku grid on an image.
-          This also taught us to adapt to concepts with which we were unfamiliar in a very short time.
+          Our application is capable of solving any type of sudoku grid, even when viewed from unusual perspectives or
+          angles. <br /><br />
+
+          On the left is one of the images used by our professor to evaluate the project.
         </p>
 
       </template>

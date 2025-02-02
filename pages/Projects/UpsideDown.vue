@@ -6,7 +6,9 @@
         <img class="ud-logo" src="/images/UpsideDown/Logo_S2game.png" alt="">
         <p id="presentation-title" class="title">Take control of the gravity.</p>
         <p class="title-mini description text-less">Defy the laws of physics and bend reality to your will. Navigate
-          through intricate puzzle mazes, manipulate gravity, and uncover the secrets that will lead to your escape.
+          through intricate puzzle mazes, manipulate gravity, and uncover the secrets that will lead to your escape. <br/><br/>
+
+          Upside Down is a Unity game made as part of a 5-month study project in groups of 4.
         </p>
 
         <a href="https://github.com/TheGostsniperfr/UpsideDown" target="_blank" rel="noopener noreferrer">

@@ -20,7 +20,7 @@
 
             <template #description>
                 <p class="title-mini description text-less">
-                    — For one year, I had the chance to teach a class of about fifty students. <br />
+                    — For one year, I had the privilege to teach a class of about fifty students. <br />
                     I learned a lot about good teaching methods, in particular how to make a student learn from mistakes
                     and progress. <br />
 
