@@ -228,17 +228,29 @@
     },
     "tech": {
       "blocks": {
-        "nn": {
-          "title": "Neural Network Inside",
-          "description": "We have built and trained a neural network specifically for this app."
+        "1": {
+          "title": "Build with Unity",
+          "description": "We built the game using Unity Engine and its latest technologies."
         },
-        "c": {
-          "title": "Entirely in C, for the best performance",
-          "description": "This project was developed in pure C, without using any specific libraries."
+        "2": {
+          "title": "RTX compatibility",
+          "description": "Experience the best possible visual experience you can have with RTX On."
         },
-        "github": {
+        "3": {
           "title": "Teamwork using Github",
-          "description": "We used github to manage our entire project, team and website."
+          "description": "We used github to manage our entire project, team management and website."
+        },
+        "4": {
+          "title": "HDRP Technologie",
+          "description": "HDRP offers breathtaking graphics, lighting and unparalleled visual fidelity that elevates every scene."
+        },
+        "5": {
+          "title": "Developed entirely in C#",
+          "description": "Using C# to control, link and animate everything you can see in the game."
+        },
+        "6": {
+          "title": "3D modelling using Blender",
+          "description": "Many 3D models have been designed with Blender especially for this game. To create a real identity."
         }
       }
     },
@@ -255,7 +267,7 @@
       "map": {
         "1": {
           "title": "Room 1:",
-          "description": "Keep in mind."
+          "description": "Learn or fall."
         },
         "2": {
           "title": "Room 2:",

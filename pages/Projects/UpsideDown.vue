@@ -8,7 +8,7 @@
         <p class="title-mini description text-less">
 
           {{ $t("hd.header.description.body.1") }}
-          <br/><br/>
+          <br /><br />
           {{ $t("hd.header.description.body.2") }}
 
         </p>
@@ -28,8 +28,8 @@
 
     <TechnoSection :blocks="technoBlocks" />
 
-    <PresentationSection imageSrc="/images/UpsideDown/drone.png" imageAlt="Image of a drone" :overview="$t('ud.overview.overlay')"
-      :title="$t('ud.overview.title')" dir="left">
+    <PresentationSection imageSrc="/images/UpsideDown/drone.png" imageAlt="Image of a drone"
+      :overview="$t('ud.overview.overlay')" :title="$t('ud.overview.title')" dir="left">
 
       <template #description>
         <p class="title-mini description text-less">
@@ -106,66 +106,66 @@ onMounted(() => {
 const technoBlocks = [
   {
     image: "/images/UpsideDown/logo_unity.png",
-    title: "Build with Unity",
-    description: "We built the game using Unity Engine and its latest technologies.",
+    title: t('ud.tech.blocks.1.title'),
+    description: t('ud.tech.blocks.1.description'),
   },
   {
     image: "/images/UpsideDown/rtx_logo.jpg",
-    title: "RTX compatibility",
-    description: "Experience the best possible visual experience you can have with RTX On.",
+    title: t('ud.tech.blocks.2.title'),
+    description: t('ud.tech.blocks.2.description'),
   },
   {
     image: "/images/lang/github-logo.png",
-    title: "Teamwork using Github",
-    description: "We used github to manage our entire project, team management and website.",
+    title: t('ud.tech.blocks.3.title'),
+    description: t('ud.tech.blocks.3.description'),
   },
   {
     image: "/images/UpsideDown/plasmaOrb.png",
-    title: "HDRP Technologie",
-    description: "HDRP offers breathtaking graphics, lighting and unparalleled visual fidelity that elevates every scene.",
+    title: t('ud.tech.blocks.4.title'),
+    description: t('ud.tech.blocks.4.description'),
   },
   {
     image: "/images/lang/CSharp_Logo.png",
-    title: "Developed entirely in C#",
-    description: "Using C# to control, link and animate everything you can see in the game.",
+    title: t('ud.tech.blocks.5.title'),
+    description: t('ud.tech.blocks.5.description'),
   },
   {
     image: "/images/UpsideDown/blender_logo.png",
-    title: "3D modelling using Blender",
-    description: "Many 3D models have been designed with Blender especially for this game. To create a real identity.",
+    title: t('ud.tech.blocks.6.title'),
+    description: t('ud.tech.blocks.6.description'),
   }
 ];
 
 const MapGridBlocks = [
   {
     image: "/images/UpsideDown/map1_2.png",
-    title: "Room 1:",
-    description: "Learn or fall.",
+    title: t('ud.maps.map.1.title'),
+    description: t('ud.maps.map.1.description'),
   },
   {
     image: "/images/UpsideDown/UpsideDownBG.png",
-    title: "Room 2:",
-    description: "Keep in mind.",
+    title: t('ud.maps.map.2.title'),
+    description: t('ud.maps.map.2.description'),
   },
   {
     image: "/images/UpsideDown/map3_2.png",
-    title: "Room 3:",
-    description: "A real test.",
+    title: t('ud.maps.map.3.title'),
+    description: t('ud.maps.map.3.description'),
   },
   {
     image: "/images/UpsideDown/map4_2.png",
-    title: "Room 4:",
-    description: "Precision is key.",
+    title: t('ud.maps.map.4.title'),
+    description: t('ud.maps.map.4.description'),
   },
   {
     image: "/images/UpsideDown/map5.png",
-    title: "Room 5:",
-    description: "A new partner.",
+    title: t('ud.maps.map.5.title'),
+    description: t('ud.maps.map.5.description'),
   },
   {
     image: "/images/UpsideDown/map6.png",
-    title: "Room 6:",
-    description: "The End.",
+    title: t('ud.maps.map.6.title'),
+    description: t('ud.maps.map.6.description'),
   },
 ];
 
