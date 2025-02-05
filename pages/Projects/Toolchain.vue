@@ -3,49 +3,39 @@
         <BackBtn />
         <div class="presentation">
             <div class="content">
-                <p class="title-midle text-less">Toolchain — 2024-2025</p>
-                <p id="presentation-title" class="title">A Year of Challenges and Achievements</p>
+                <p class="title-midle text-less">{{ $t("tc.header.overlay") }}</p>
+                <p id="presentation-title" class="title">{{ $t("tc.header.title") }}</p>
                 <p class="title-mini description text-less">
-                    For a year. I worked in the Toolchain team at Epita. I had to manage all the infrastructure,
-                    deployment,
-                    maintenance and ensure that everything ran smoothly for the management of practicals and exams IT
-                    work for first and second year students at my IT school.
+                    {{ $t("tc.header.description.body.1") }}
                 </p>
             </div>
         </div>
 
         <TechnoSection :blocks="technoBlocks" />
 
-        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="Overview"
-            title="Development & Maintenance." dir="left">
+        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema"
+            :overview="$t('tc.devops.overlay')" :title="$t('tc.devops.title')" dir="left">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    — I was responsible for developing and maintaining the auto-correction tools that had been created
-                    over the past year, as well as implementing new features for subject designers.<br />
-
-                    — Another key part
-                    of my role was ensuring that practical exercises functioned correctly during both
-                    production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet
-                    blackout on all campuses during an exam..
+                    {{ $t("tc.devops.description.1") }}
+                    <br />
+                    {{ $t("tc.devops.description.2") }}
                 </p>
 
             </template>
         </PresentationSection>
 
         <PresentationSection imageSrc="/images/TC/gitlab_cicd.png" imageAlt="Before and After Post processing"
-            overview="Feedback" title="A Great and rewarding experience." dir="right">
+        :overview="$t('tc.feedback.overlay')" :title="$t('tc.feedback.title')" dir="right">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    — This work allowed me to gain solid knowledge of various tools, such as Docker and GitLab CI/CD,
-                    which I use daily on large-scale production projects.<br />
-
-                    — I also learned how to collaborate effectively within large teams, manage the challenges posed by
-                    individual members, and maintain clear communication to address unexpected issues.<br />
-
-                    — Finally, it taught me how to handle emergencies, such as during exams or particularly busy periods
-                    with overlapping courses and projects.
+                    {{ $t("tc.feedback.description.1") }}
+                    <br />
+                    {{ $t("tc.feedback.description.2") }}
+                    <br />
+                    {{ $t("tc.feedback.description.3") }}
                 </p>
 
             </template>
@@ -55,14 +45,18 @@
 
 <script setup>
 import { onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+
 import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 
+const { t } = useI18n();
+
 useHead({
     title: 'Toolchain',
     meta: [
-        { name: 'description', content: 'Toolchain Project Overview' }
+        { name: 'description', content: t('tc.head.content') }
     ]
 });
 
@@ -86,38 +80,38 @@ onMounted(() => {
 const technoBlocks = [
     {
         image: "/images/lang/docker_logo.png",
-        title: "Docker",
-        description: "I've extensively used Docker to maintain and develop tools and infra that rely on Docker images to run.",
+        title: t('tc.tech.blocks.1.title'),
+        description: t('tc.tech.blocks.1.description'),
     },
     {
         image: "/images/lang/gitlab_logo.png",
-        title: "Gitlab CI/CD",
-        description: "Automated deployments and test pipelines were built using Gitlab CI/CD and formed the basis of our working method.",
+        title: t('tc.tech.blocks.2.title'),
+        description: t('tc.tech.blocks.2.description'),
     },
     {
         image: "/images/lang/go_logo.png",
-        title: "Go",
-        description: "Efficient tools were created in Go to optimize performance and reliability for various backend services.",
+        title: t('tc.tech.blocks.3.title'),
+        description: t('tc.tech.blocks.3.description'),
     },
     {
         image: "/images/lang/python_logo.png",
-        title: "Python",
-        description: "I had to use Python to develop and maintain various internal tools.",
+        title: t('tc.tech.blocks.4.title'),
+        description: t('tc.tech.blocks.4.description'),
     },
     {
         image: "/images/lang/CSharp_Logo.png",
-        title: "C#",
-        description: "C# was one of the languages for which we needed to provide an auto-correction tool for practical.",
+        title: t('tc.tech.blocks.5.title'),
+        description: t('tc.tech.blocks.5.description'),
     },
     {
         image: "/images/lang/C_Logo.png",
-        title: "C",
-        description: "C was one of the languages for which we needed to provide an auto-correction tool for practical.",
+        title: t('tc.tech.blocks.6.title'),
+        description: t('tc.tech.blocks.6.description'),
     },
     {
         image: "/images/lang/rust_logo.png",
-        title: "Rust",
-        description: "Rust was one of the languages for which we needed to provide an auto-correction tool for practical.",
+        title: t('tc.tech.blocks.7.title'),
+        description: t('tc.tech.blocks.7.description'),
     }
 ];
 

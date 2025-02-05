@@ -307,5 +307,68 @@
         "2": "We took the opportunity to put in place a whole series of teamwork methods and tools to learn what works and what doesn't, in order to work efficiently while keeping the team together."
       }
     }
+  },
+  "tc": {
+    "head": {
+      "content": "Toolchain Project Overview"
+    },
+    "header": {
+      "overlay": "Toolchain — 2024-2025",
+      "title": "A Year of Challenges and Achievements",
+      "description": {
+        "body": {
+          "1": "For a year. I worked in the Toolchain team at Epita. I had to manage all the infrastructure, deployment, maintenance and ensure that everything ran smoothly for the management of practicals and exams IT work for first and second year students at my IT school."
+        }
+      }
+    },
+    "tech": {
+      "blocks": {
+        "1": {
+          "title": "Docker",
+          "description": "I've extensively used Docker to maintain and develop tools and infra that rely on Docker images to run."
+        },
+        "2": {
+          "title": "Gitlab CI/CD",
+          "description": "Automated deployments and test pipelines were built using Gitlab CI/CD and formed the basis of our working method."
+        },
+        "3": {
+          "title": "Go",
+          "description": "Efficient tools were created in Go to optimize performance and reliability for various backend services."
+        },
+        "4": {
+          "title": "Python",
+          "description": "I had to use Python to develop and maintain various internal tools."
+        },
+        "5": {
+          "title": "C#",
+          "description": "C# was one of the languages for which we needed to provide an auto-correction tool for practical."
+        },
+        "6": {
+          "title": "C",
+          "description": "C was one of the languages for which we needed to provide an auto-correction tool for practical."
+        },
+        "7": {
+          "title": "Rust",
+          "description": "Rust was one of the languages for which we needed to provide an auto-correction tool for practical."
+        }
+      }
+    },
+    "devops": {
+      "overlay": "Overview",
+      "title": "Development & Maintenance.",
+      "description": {
+        "1": "— I was responsible for developing and maintaining the auto-correction tools that had been created over the past year, as well as implementing new features for subject designers.",
+        "2": "— Another key part of my role was ensuring that practical exercises functioned correctly during both production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet blackout on all campuses during an exam.."
+      }
+    },
+    "feedback": {
+      "overlay": "Feedback",
+      "title": "A Great and rewarding experience.",
+      "description": {
+        "1": "— This work allowed me to gain solid knowledge of various tools, such as Docker and GitLab CI/CD, which I use daily on large-scale production projects.",
+        "2": "— I also learned how to collaborate effectively within large teams, manage the challenges posed by individual members, and maintain clear communication to address unexpected issues.",
+        "3": "— Finally, it taught me how to handle emergencies, such as during exams or particularly busy periods with overlapping courses and projects."
+      }
+    }
   }
 }
