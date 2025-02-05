@@ -370,5 +370,55 @@
         "3": "— Finally, it taught me how to handle emergencies, such as during exams or particularly busy periods with overlapping courses and projects."
       }
     }
+  },
+  "acdc": {
+    "head": {
+      "content": "ACDC Project Overview"
+    },
+    "header": {
+      "overlay": "ACDC — 2024-2025",
+      "title": {
+        "1": "Assistants C",
+        "2": "Diese Caml"
+      },
+      "description": {
+        "body": {
+          "1": "For a year. I worked in the ACDC team at Epita. I've had the chance to pass on my passion for IT by giving C# lessons to first-year students. Helping them with classes and practicals."
+        }
+      }
+    },
+    "tech": {
+      "blocks": {
+        "1": {
+          "title": "Teaching",
+          "description": "Learning the best way to transmit knowledge."
+        },
+        "2": {
+          "title": "C#",
+          "description": "Teaching and helping with C# practicals for first-year students."
+        },
+        "3": {
+          "title": "Rust",
+          "description": "Conception of a practical to teach rust."
+        }
+      }
+    },
+    "about": {
+      "overlay": "About my Job",
+      "title": "Teaching & Helping.",
+      "description": {
+        "1": "— For one year, I had the privilege to teach a class of about fifty students.",
+        "2": "I learned a lot about good teaching methods, in particular how to make a student learn from mistakes and progress.",
+        "3": "— My work was divided into 2, with face-to-face sessions to answer questions and unblock the students on the practicalities of weeks in C#. The other part was to help them remotely during the week when they got stuck or had questions. "
+      }
+    },
+    "designer": {
+      "overlay": "Designer Job Overview",
+      "title": "Pratical Designer.",
+      "description": {
+        "1": "— Another big part of my job was to create the practical from start to finish that first-year students from all campuses would have to complete. I was able to apply different methods to help them learn new concepts in the best possible way.",
+        "2": "— A subject is calibrated over 12 hours, so that a lamdba student can finish it. The design period takes place in 3 stages, the design, the review by other members of the ACDC team and then the production week during which the students complete the subject. "
+      }
+    }
   }
 }

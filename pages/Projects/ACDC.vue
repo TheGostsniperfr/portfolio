@@ -3,49 +3,43 @@
         <BackBtn />
         <div class="presentation">
             <div class="content">
-                <p class="title-midle text-less">ACDC — 2024-2025</p>
-                <p id="presentation-title" class="title">Assistants C <br /> Diese Caml</p>
+                <p class="title-midle text-less">{{ $t("acdc.header.overlay") }}</p>
+                <p id="presentation-title" class="title">
+                    {{ $t("acdc.header.title.1") }} 
+                    <br />
+                    {{ $t("acdc.header.title.2") }}
+                </p>
                 <p class="title-mini description text-less">
-                    For a year. I worked in the ACDC team at Epita. I've had the chance to pass on my passion for IT by giving C#
-                    lessons to first-year students.
-                    Helping them with classes and practicals.
+                    {{ $t("acdc.header.description.body.1") }}
                 </p>
             </div>
         </div>
 
         <TechnoSection :blocks="technoBlocks" />
 
-        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" overview="About my Job"
-            title="Teaching & Helping." dir="left">
+        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" 
+        :overview="$t('acdc.about.overlay')" :title="$t('acdc.about.title')" dir="left">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    — For one year, I had the privilege to teach a class of about fifty students. <br />
-                    I learned a lot about good teaching methods, in particular how to make a student learn from mistakes
-                    and progress. <br />
-
-                    — My work was divided into 2, with face-to-face sessions to answer questions and unblock the
-                    students
-                    on the practicalities of weeks in C#.
-
-                    The other part was to help them remotely during the week when they got stuck or had questions.
+                    {{ $t("acdc.about.description.1") }} 
+                    <br />
+                    {{ $t("acdc.about.description.2") }} 
+                    <br />
+                    {{ $t("acdc.about.description.3") }} 
                 </p>
 
             </template>
         </PresentationSection>
 
         <PresentationSection imageSrc="/images/TC/gitlab_cicd.png" imageAlt="Before and After Post processing"
-            overview="Designer Job Overview" title="Pratical Designer" dir="right">
+        :overview="$t('acdc.designer.overlay')" :title="$t('acdc.designer.title')" dir="right">
 
             <template #description>
                 <p class="title-mini description text-less">
-                    — Another big part of my job was to create the practical from start to finish that first-year students
-                    from all campuses would have to complete. 
-                    I was able to apply different methods to help them learn new concepts in the best possible way.<br/>
-                    
-                    — A subject is calibrated over 12 hours, so that a lamdba student can finish it.
-                    The design period takes place in 3 stages, the design, 
-                    the review by other members of the ACDC team and then the production week during which the students complete the subject.
+                    {{ $t("acdc.designer.description.1") }} 
+                    <br />
+                    {{ $t("acdc.designer.description.2") }} 
                 </p>
 
             </template>
@@ -55,14 +49,17 @@
 
 <script setup>
 import { onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 
+const { t } = useI18n();
+
 useHead({
   title: 'ACDC',
   meta: [
-    { name: 'description', content: 'ACDC Project Overview' }
+    { name: 'description', content: t('acdc.head.content') }
   ]
 });
 
@@ -86,18 +83,18 @@ onMounted(() => {
 const technoBlocks = [
     {
         image: "/images/ACDC/teaching_logo.png",
-        title: "Teaching",
-        description: "Learning the best way to transmit knowledge.",
+        title: t('acdc.tech.blocks.1.title'),
+        description: t('acdc.tech.blocks.1.description'),
     },
     {
         image: "/images/lang/CSharp_Logo.png",
-        title: "C#",
-        description: "Teaching and helping with C# practicals for first-year students.",
+        title: t('acdc.tech.blocks.2.title'),
+        description: t('acdc.tech.blocks.2.description'),
     },
     {
         image: "/images/lang/rust_logo.png",
-        title: "Rust",
-        description: "Conception of a practical to teach rust.",
+        title: t('acdc.tech.blocks.3.title'),
+        description: t('acdc.tech.blocks.3.description'),
     }
 ];
 
