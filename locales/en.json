@@ -76,13 +76,11 @@
         "body": {
           "1": "— Arffornia is more than a Minecraft server.",
           "2": "It's a whole ecosystem combining a {Laravel} website with {MySQL}, an {Electron} game launcher, interconnected server instances with a Velocity proxy, and a scalable {Kubernetes} (k8s) infrastructure for high availability. Built on {Proxmox}-managed virtualization.",
-
           "laravel": "Laravel",
           "mysql": "MySQL",
           "electron": "Electron",
           "Kubernetes": "Kubernetes",
           "Proxmox": "Proxmox",
-
           "3": "— This 9+ year project has been my playground for learning, innovation, and technical refinement.",
           "4": "And much more."
         }
@@ -190,7 +188,6 @@
           "title": "Teamwork using Github",
           "description": "We used github to manage our entire project, team and website."
         }
-        
       }
     },
     "overview": {
@@ -213,6 +210,89 @@
       "title": "Neural Network from scratch",
       "description": {
         "1": "The second major part of this project was to design a neural network from scratch, with no specific library and no prior knowledge. After a long phase of reflection, calculation and design. We arrived at a very interesting and robust result."
+      }
+    }
+  },
+  "ud": {
+    "head": {
+      "content": "Upside Down Project Overview"
+    },
+    "header": {
+      "overlay": "Take control of the gravity.",
+      "description": {
+        "body": {
+          "1": "Defy the laws of physics and bend reality to your will. Navigate through intricate puzzle mazes, manipulate gravity, and uncover the secrets that will lead to your escape.",
+          "2": "Upside Down is a Unity game made as part of a 5-month study project in groups of 4."
+        }
+      }
+    },
+    "tech": {
+      "blocks": {
+        "nn": {
+          "title": "Neural Network Inside",
+          "description": "We have built and trained a neural network specifically for this app."
+        },
+        "c": {
+          "title": "Entirely in C, for the best performance",
+          "description": "This project was developed in pure C, without using any specific libraries."
+        },
+        "github": {
+          "title": "Teamwork using Github",
+          "description": "We used github to manage our entire project, team and website."
+        }
+      }
+    },
+    "overview": {
+      "overlay": "Overview",
+      "title": "The beginning of a story.",
+      "description": {
+        "1": "Upside Down immerses you in a state-of-the-art laboratory, testing the very first prototype of the “GraviSphere”. A new scientific breakthrough that lets you manipulate the surrounding gravity. You're in charge of testing its potential via various tests to certify the user's integrity. "
+      }
+    },
+    "maps": {
+      "title": "15 Hours of Unforgettable Gameplay.",
+      "description": "Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes. Stay alert — the test environments can be unforgiving, and mistakes can be costly.",
+      "map": {
+        "1": {
+          "title": "Room 1:",
+          "description": "Keep in mind."
+        },
+        "2": {
+          "title": "Room 2:",
+          "description": "Keep in mind."
+        },
+        "3": {
+          "title": "Room 3:",
+          "description": "A real test."
+        },
+        "4": {
+          "title": "Room 4:",
+          "description": "Precision is key."
+        },
+        "5": {
+          "title": "Room 5:",
+          "description": "A new partner."
+        },
+        "6": {
+          "title": "Room 6:",
+          "description": "The End."
+        }
+      }
+    },
+    "inside": {
+      "overview": "Inside Overview — 2022-2023",
+      "title": "5 Months to Build a Game",
+      "description": {
+        "1": "The game project was the first major project of my first year at my IT School.",
+        "2": "As team leader and lead developer, I had to develop the features that game designers needed, while managing the project and the cohesion of the group over time to achieve a very good result."
+      }
+    },
+    "agile": {
+      "overlay": "Working Method",
+      "title": "Agile Teamwork.",
+      "description": {
+        "1": "This project was carried out by a team of 4 people as part of a 5-month school project. We took the opportunity to put in place a whole series of teamwork methods and tools to learn what works and what doesn't, in order to work efficiently while keeping the team together. ",
+        "2": "We took the opportunity to put in place a whole series of teamwork methods and tools to learn what works and what doesn't, in order to work efficiently while keeping the team together."
       }
     }
   }

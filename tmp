@@ -1,0 +1,13 @@
+
+    "presentation": {
+      "overlay": "",
+      "title": "",
+      "body":""
+    }
+
+
+<i18n-t keypath="about.">
+    <template #school>
+        {{ $t("about.") }}
+    </template>
+</i18n-t>

@@ -4,11 +4,13 @@
     <div class="presentation">
       <div class="content">
         <img class="ud-logo" src="/images/UpsideDown/Logo_S2game.png" alt="">
-        <p id="presentation-title" class="title">Take control of the gravity.</p>
-        <p class="title-mini description text-less">Defy the laws of physics and bend reality to your will. Navigate
-          through intricate puzzle mazes, manipulate gravity, and uncover the secrets that will lead to your escape. <br/><br/>
+        <p id="presentation-title" class="title">{{ $t("hd.header.overlay") }}</p>
+        <p class="title-mini description text-less">
 
-          Upside Down is a Unity game made as part of a 5-month study project in groups of 4.
+          {{ $t("hd.header.description.body.1") }}
+          <br/><br/>
+          {{ $t("hd.header.description.body.2") }}
+
         </p>
 
         <a href="https://github.com/TheGostsniperfr/UpsideDown" target="_blank" rel="noopener noreferrer">
@@ -26,47 +28,40 @@
 
     <TechnoSection :blocks="technoBlocks" />
 
-    <PresentationSection imageSrc="/images/UpsideDown/drone.png" imageAlt="Image of a drone" overview="Overview"
-      title="The beginning of a story." dir="left">
+    <PresentationSection imageSrc="/images/UpsideDown/drone.png" imageAlt="Image of a drone" :overview="$t('ud.overview.overlay')"
+      :title="$t('ud.overview.title')" dir="left">
 
       <template #description>
         <p class="title-mini description text-less">
-          Upside Down immerses you in a state-of-the-art laboratory, testing
-          the very first prototype of the “GraviSphere”. A new scientific
-          breakthrough that lets you manipulate the surrounding gravity. You're in
-          charge of testing its potential via various tests to certify the user's
-          integrity.
+          {{ $t('ud.overview.description.1') }}
         </p>
 
       </template>
     </PresentationSection>
 
-    <GridSection title="15 Hours of Unforgettable Gameplay." description="Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes.
-  Stay alert — the test environments can be unforgiving, and mistakes can be costly." :blocks="MapGridBlocks" />
+    <GridSection :title="$t('ud.maps.title')" :description="$t('ud.maps.description')" :blocks="MapGridBlocks" />
 
     <PresentationSection imageSrc="/images/UpsideDown/drone.png" imageAlt="Image of a drone"
-      overview="Inside Overview — 2022-2023" title="5 Months to Build a Game" dir="right">
+      :overview="$t('ud.inside.overview')" :title="$t('ud.inside.title')" dir="right">
 
       <template #description>
         <p class="title-mini description text-less">
-          The game project was the first major project of my first year at my IT School. <br />
-          As team leader and lead developer, I had to develop the features that game designers needed, while managing
-          the project and the cohesion of the group over time to achieve a very good result.
+          {{ $t('ud.inside.description.1') }}
+          <br />
+          {{ $t('ud.inside.description.2') }}
         </p>
 
       </template>
     </PresentationSection>
 
     <PresentationSection imageSrc="/images/UpsideDown/agile_team.png" imageAlt="Image of a drone"
-      overview="Working Method" title="Agile Teamwork." dir="left">
+      :overview="$t('ud.agile.overlay')" :title="$t('ud.agile.title')" dir="left">
 
       <template #description>
         <p class="title-mini description text-less">
-          This project was carried out by a team of 4 people as part of a 5-month school project. <br />
-
-          We took the opportunity to put in place a whole series of teamwork methods and tools to learn what works and
-          what
-          doesn't, in order to work efficiently while keeping the team together.
+          {{ $t('ud.agile.description.1') }}
+          <br />
+          {{ $t('ud.agile.description.2') }}
         </p>
 
       </template>
@@ -80,11 +75,14 @@ import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
 import TechnoSection from '~/components/TechnoSection.vue';
 import GridSection from '~/components/GridSection.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 useHead({
   title: 'Upside Down',
   meta: [
-    { name: 'description', content: 'Upside Down Project Overview' }
+    { name: 'description', content: t('ud.head.content') }
   ]
 });
 
