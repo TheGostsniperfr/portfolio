@@ -1,4 +1,12 @@
 {
+  "navbar": {
+    "links": {
+      "projects": "Projects",
+      "about": "About",
+      "audiovisual": "Audiovisual"
+    },
+    "backBtn": "Back"
+  },
   "about": {
     "head": {
       "content": "About Me"
@@ -293,7 +301,7 @@
     },
     "inside": {
       "overview": "Inside Overview — 2022-2023",
-      "title": "5 Months to Build a Game",
+      "title": "5 Months to Build a Game.",
       "description": {
         "1": "The game project was the first major project of my first year at my IT School.",
         "2": "As team leader and lead developer, I had to develop the features that game designers needed, while managing the project and the cohesion of the group over time to achieve a very good result."
@@ -303,7 +311,7 @@
       "overlay": "Working Method",
       "title": "Agile Teamwork.",
       "description": {
-        "1": "This project was carried out by a team of 4 people as part of a 5-month school project. We took the opportunity to put in place a whole series of teamwork methods and tools to learn what works and what doesn't, in order to work efficiently while keeping the team together. ",
+        "1": "This project was carried out by a team of 4 people as part of a 5-month school project.",
         "2": "We took the opportunity to put in place a whole series of teamwork methods and tools to learn what works and what doesn't, in order to work efficiently while keeping the team together."
       }
     }

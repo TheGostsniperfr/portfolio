@@ -1,10 +1,12 @@
 <template>
     <div class="back-btn-content">
-        <MediumBtn :onClick="goBack" title="Back"/>
+        <MediumBtn :onClick="goBack" :title="$t('navbar.backBtn')"/>
     </div>
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n';
+
 import MediumBtn from './MediumBtn.vue';
 
 const goBack = (event) => {

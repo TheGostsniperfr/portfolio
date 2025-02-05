@@ -6,7 +6,7 @@
       class="link-container"
       :class="{ active: activeLink === '/Projects' }"
     >
-      Projects
+    {{ $t("navbar.links.projects") }}
     </NuxtLink>
     <div class="link-dot" :class="{ dim: activeLink !== '/About' && activeLink !== '/Projects' }">•</div>
 
@@ -17,7 +17,7 @@
         class="link-container"
         :class="{ active: activeLink === '/About' }"
       >
-        About
+      {{ $t("navbar.links.about") }}
       </NuxtLink>
     </div>
     <div class="link-dot" :class="{ dim: activeLink !== '/About' && activeLink !== '#Audiovisual' }">•</div>
@@ -28,7 +28,7 @@
       class="link-container"
       :class="{ active: activeLink === '#Audiovisual' }"
     >
-      Audiovisual
+      {{ $t("navbar.links.audiovisual") }}
     </NuxtLink>
   </div>
 

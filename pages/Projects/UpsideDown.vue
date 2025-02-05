@@ -4,12 +4,12 @@
     <div class="presentation">
       <div class="content">
         <img class="ud-logo" src="/images/UpsideDown/Logo_S2game.png" alt="">
-        <p id="presentation-title" class="title">{{ $t("hd.header.overlay") }}</p>
+        <p id="presentation-title" class="title">{{ $t("ud.header.overlay") }}</p>
         <p class="title-mini description text-less">
 
-          {{ $t("hd.header.description.body.1") }}
+          {{ $t("ud.header.description.body.1") }}
           <br /><br />
-          {{ $t("hd.header.description.body.2") }}
+          {{ $t("ud.header.description.body.2") }}
 
         </p>
 
