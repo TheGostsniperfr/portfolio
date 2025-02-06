@@ -38,7 +38,7 @@
             <button class="redirectBtn">Github</button>
           </a>
 
-          <a class="link" href="#" target="_blank" rel="noopener noreferrer">
+          <a class="link" href="/documents/cv_Brian_Perret_2025_fr_en.pdf" target="_blank" rel="noopener noreferrer">
             <button class="redirectBtn">CV</button>
           </a>
         </div>
@@ -132,7 +132,7 @@ const workBlocks = [
     link: "/Projects/ACDC"
   },
   {
-    image: "/images/ACDC/logo_tp.png",
+    image: "/images/other/camera-operator.png",
     alt: "",
     title: t('about.workingXp.blocks.3.title'),
     date: t('about.workingXp.blocks.3.date'),

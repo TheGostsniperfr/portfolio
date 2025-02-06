@@ -40,7 +40,7 @@
 
         <TechnoSection :blocks="technoBlocksAll" :title="$t('arffornia.globalTech.title')" />
 
-        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema"
+        <PresentationSection imageSrc="/images/other/dynmap.png" imageAlt="Devops schema"
             :overview="$t('arffornia.overview.overlay')" :title="$t('arffornia.overview.title')" dir="left">
 
             <template #description>

@@ -17,7 +17,7 @@
 
         <TechnoSection :blocks="technoBlocks" />
 
-        <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema" 
+        <PresentationSection imageSrc="/images/ACDC/teaching.jpg" imageAlt="Devops schema" 
         :overview="$t('acdc.about.overlay')" :title="$t('acdc.about.title')" dir="left">
 
             <template #description>
