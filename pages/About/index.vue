@@ -309,7 +309,7 @@ const frameworkAndToolsBlocks = [
   width: 100%;
   height: 100%;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%),
-    url('/images/TC/devops.png') center/cover no-repeat;
+    url('/images/other/me.png') center/cover no-repeat;
   z-index: 1;
   transform: scale(1.2);
   transition: transform 3.5s cubic-bezier(0.04, 0.68, 0.15, 1);

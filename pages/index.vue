@@ -76,6 +76,7 @@ const imageList = [
   '/images/TC/gitlab_cicd.png',
   '/images/ACDC/teaching_logo.png',
   '/images/ACDC/logo_tp.png',
+  '/images/other/me.png'
 ];
 
 const { progress, loadImages } = useImagePreloader(imageList);
