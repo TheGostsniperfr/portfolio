@@ -29,9 +29,9 @@
     },
     "workingXp": {
       "overlay": "Working Experience",
-      "title": "My Experience.",
-      "body1": "— I was responsible for developing and maintaining the auto-correction tools that had been created over the past year, as well as implementing new features for subject designers.",
-      "body2": "— Another key part of my role was ensuring that practical exercises functioned correctly during both production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet blackout on all campuses during an exam..",
+      "title": "Working Experience.",
+      "body1": "During my studies, I had the opportunity to work as a DevOps engineer and as part of the teaching team as a C# instructor. This experience allowed me to develop strong technical skills, gain hands-on experience in system automation and deployment, and improve my ability to work in a team-oriented environment.",
+      "body2": "Teaching also strengthened my communication, adaptability, and problem-solving skills, as I had to explain complex concepts in an accessible way.",
       "blocks": {
         "1": {
           "title": "Toolchain",
@@ -41,7 +41,7 @@
         "2": {
           "title": "ACDC",
           "date": "2024 — Today",
-          "description": "Work as IT teacher for 1 & 2 years student at Epita"
+          "description": "Work as IT teacher for 1 year student at Epita."
         },
         "3": {
           "title": "Cameraman — Video Editor",

@@ -33,14 +33,14 @@
   </div>
 
   <!-- Language Selector -->
-  <div class="lang-selector">
+  <!-- <div class="lang-selector">
     <button @click="setLocale('fr')" :class="{ active: locale === 'fr' }" title="Switch to French">
       <img src="/images/other/lang/fr.png" alt="French" />
     </button>
     <button @click="setLocale('en')" :class="{ active: locale === 'en' }" title="Switch to English">
       <img src="/images/other/lang/en.png" alt="English" />
     </button>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
