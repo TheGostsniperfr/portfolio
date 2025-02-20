@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <PresentationSection imageSrc="/images/TC/devops.png" imageAlt="Devops schema"
+    <PresentationSection imageSrc="/images/other/me2.jpg" imageAlt="Devops schema"
       :overview="$t('about.presentation.overlay')" :title="$t('about.presentation.title')" dir="left">
 
       <template #description>
