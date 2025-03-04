@@ -1,15 +1,5 @@
 <template>
   <div class="navbar-container">
-    <!-- Projects -->
-    <NuxtLink
-      to="/Projects"
-      class="link-container"
-      :class="{ active: activeLink === '/Projects' }"
-    >
-    {{ $t("navbar.links.projects") }}
-    </NuxtLink>
-    <div class="link-dot" :class="{ dim: activeLink !== '/About' && activeLink !== '/Projects' }">•</div>
-
     <!-- About -->
     <div class="ancre-wrapper">
       <NuxtLink
@@ -20,7 +10,18 @@
       {{ $t("navbar.links.about") }}
       </NuxtLink>
     </div>
-    <div class="link-dot" :class="{ dim: activeLink !== '/About' && activeLink !== '#Audiovisual' }">•</div>
+    <div class="link-dot" :class="{ dim: activeLink === '/#Audiovisual' }">•</div>
+
+    <!-- Projects -->
+    <NuxtLink
+      to="/Projects"
+      class="link-container"
+      :class="{ active: activeLink === '/Projects' }"
+    >
+    {{ $t("navbar.links.projects") }}
+    </NuxtLink>
+
+    <div class="link-dot" :class="{ dim: activeLink === '/About' }">•</div> 
 
     <!-- Audiovisual -->
     <NuxtLink

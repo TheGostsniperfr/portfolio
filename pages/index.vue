@@ -89,7 +89,7 @@ const router = useRouter()
 
 onMounted(async () => {
   await loadImages();
-  router.push('/About');
+  router.push('/Projects');
 });
 </script>
 
