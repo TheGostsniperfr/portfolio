@@ -7,6 +7,9 @@
     },
     "backBtn": "Back"
   },
+  "utils": {
+    "btn": "View All"
+  },
   "about": {
     "head": {
       "content": "About Me"
@@ -30,7 +33,7 @@
     "workingXp": {
       "overlay": "Working Experience",
       "title": "Working Experience.",
-      "body1": "During my studies, I had the opportunity to work as a DevOps engineer and as part of the teaching team as a C# instructor. This experience allowed me to develop strong technical skills, gain hands-on experience in system automation and deployment, and improve my ability to work in a team-oriented environment.",
+      "body1": "During my studies, I had the opportunity to work as a DevOps engineer and as part of the teaching team as a C# teacher. This experience allowed me to develop strong technical skills, gain hands-on experience in system automation and deployment, and improve my ability to work in a team-oriented environment.",
       "body2": "Teaching also strengthened my communication, adaptability, and problem-solving skills, as I had to explain complex concepts in an accessible way.",
       "blocks": {
         "1": {
@@ -137,7 +140,7 @@
       "overlay": "Laravel Website",
       "title": "Arffornia Website",
       "description": {
-        "1": "To ensure direct visibility on the internet and to centralize my services—such as Account Management, Downloads, API, and more—I developed a website using Laravel. Two years ago, I migrated to Laravel to enhance security, expand functionality, and stay up to date with modern web technologies."
+        "1": "To ensure direct visibility on the internet and to centralize my services—such as Account Management, Downloads, API, and more—I developed a website using Laravel. In 2023, I migrated to Laravel to enhance security, expand functionality, and stay up to date with modern web technologies."
       }
     },
     "websiteTech": {

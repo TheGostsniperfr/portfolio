@@ -5,7 +5,7 @@
                 <p class="title-mini text-less">{{ overview }}</p>
                 <p class="title-midle">{{ title }}</p>
             </div>
-            <MediumBtn v-if="props.blocks.length > 7" :onclick="toggleViewAll" title="View All" weak-border="true" />
+            <MediumBtn v-if="props.blocks.length > 7" :onclick="toggleViewAll" :title="$t('utils.btn')" weak-border="true" />
         </div>
         <transition-group name="fade" mode="out-in" tag="div" class="content">
             <div v-for="(block, index) in displayedBlocks" :key="index" class="block">
