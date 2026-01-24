@@ -17,11 +17,11 @@
     "header": {
       "hello": "Salut ! Je suis",
       "presentation": {
-        "1": "Je suis un étudiant de 3ème année à {school}, spécialisé en {devops} et {ie}, avec {xp} d'expérience en tant que développeur et une passion pour la construction de systèmes modulaires et évolutifs.",
+        "1": "Je suis un étudiant de 4ème année à {school}, spécialisé en {devops} et {ie}, avec {xp} d'expérience en tant que développeur et une passion pour la construction de systèmes modulaires et évolutifs.",
         "school": "Epita",
         "devops": "DevOps",
         "ie": "Ingénierie des infrastructures",
-        "xp": "9+ ans"
+        "xp": "10+ ans"
       },
       "quote": "“Mon travail est ma passion.”"
     },
@@ -97,7 +97,7 @@
           "electron": "Electron",
           "Kubernetes": "Kubernetes",
           "Proxmox": "Proxmox",
-          "3": "— Ce projet de plus de 9 ans a été mon terrain de jeu pour l'apprentissage, l'innovation et l'affinement technique.",
+          "3": "— Ce projet de plus de 10 ans a été mon terrain de jeu pour l'apprentissage, l'innovation et l'affinement technique.",
           "4": "Et bien plus encore."
         }
       }

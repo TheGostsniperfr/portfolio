@@ -17,11 +17,11 @@
     "header": {
       "hello": "Hi! I'm",
       "presentation": {
-        "1": "I'm a 3rd-year student at {school}, specializing in {devops} and {ie}, with {xp} of experience as a developer and a passion for building modular and scalable systems.",
+        "1": "I'm a 4th-year student at {school}, specializing in {devops} and {ie}, with {xp} of experience as a developer and a passion for building modular and scalable systems.",
         "school": "Epita",
         "devops": "DevOps",
         "ie": "Infrastructure Engineering",
-        "xp": "9+ years"
+        "xp": "10+ years"
       },
       "quote": "“My Work is my Passion.”"
     },
@@ -97,7 +97,7 @@
           "electron": "Electron",
           "Kubernetes": "Kubernetes",
           "Proxmox": "Proxmox",
-          "3": "— This 9+ year project has been my playground for learning, innovation, and technical refinement.",
+          "3": "— This 10+ year project has been my playground for learning, innovation, and technical refinement.",
           "4": "And much more."
         }
       }
