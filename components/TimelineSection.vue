@@ -6,12 +6,21 @@
         <div class="timeline">
 
           <div v-for="(block, index) in blocks" :key="index" class="timeline-items">
-            <div class="timeline-item">
-              <div v-if='block.link !== ""' class="link-container">
-                <NuxtLink :to="block.link">
-                  <img src="/images/other/external-link-blue.png" alt="" class="link-img">
-                </NuxtLink>
+            <NuxtLink v-if="block.link !== ''" :to="block.link" class="timeline-item">
+              <div class="link-container">
+                <img src="/images/other/external-link-blue.png" alt="" class="link-img">
               </div>
+              <img :src="block.image" :alt="block.alt" class="ti-image">
+              <div class="ti-text">
+                <div class="ti-text-up">
+                  <p class="timeline-item-date text-less">{{ block.date }}</p>
+                  <p class="timeline-item-title title-midle">{{ block.title }}</p>
+                </div>
+                <p class="timeline-item-description text-less">{{ block.description }}</p>
+              </div>
+            </NuxtLink>
+
+            <div v-else class="timeline-item">
               <img :src="block.image" :alt="block.alt" class="ti-image">
               <div class="ti-text">
                 <div class="ti-text-up">
@@ -42,12 +51,21 @@
         <div class="timeline">
 
           <div v-for="(block, index) in blocks" :key="index" class="timeline-items">
-            <div class="timeline-item">
-              <div v-if='block.link !== ""' class="link-container">
-                <NuxtLink :to="block.link">
-                  <img src="/images/other/external-link-blue.png" alt="" class="link-img">
-                </NuxtLink>
+            <NuxtLink v-if="block.link !== ''" :to="block.link" class="timeline-item">
+              <div class="link-container">
+                <img src="/images/other/external-link-blue.png" alt="" class="link-img">
               </div>
+              <img :src="block.image" :alt="block.alt" class="ti-image">
+              <div class="ti-text">
+                <div class="ti-text-up">
+                  <p class="timeline-item-date text-less">{{ block.date }}</p>
+                  <p class="timeline-item-title title-midle ">{{ block.title }}</p>
+                </div>
+                <p class="timeline-item-description text-less">{{ block.description }}</p>
+              </div>
+            </NuxtLink>
+
+            <div v-else class="timeline-item">
               <img :src="block.image" :alt="block.alt" class="ti-image">
               <div class="ti-text">
                 <div class="ti-text-up">
@@ -122,6 +140,13 @@ defineProps({
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-top: 2.5%;
   margin-bottom: 2.5%;
+  text-decoration: none;
+  color: inherit;
+  cursor: default; 
+}
+
+a.timeline-item {
+  cursor: pointer;
 }
 
 .link-container {

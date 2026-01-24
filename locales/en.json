@@ -38,18 +38,23 @@
       "blocks": {
         "1": {
           "title": "Toolchain",
-          "date": "2024 — Today",
+          "date": "2024 — 2025",
           "description": "Work as DevOps at Epita."
         },
         "2": {
           "title": "ACDC",
-          "date": "2024 — Today",
+          "date": "2024 — 2025",
           "description": "Work as IT teacher for 1 year student at Epita."
         },
         "3": {
           "title": "Cameraman — Video Editor",
           "date": "2023",
           "description": "Making Docomentary, Afterworks, Ads."
+        },
+        "4": {
+          "title": "DevOps Intern",
+          "date": "2025 - 2026",
+          "description": "Crafting K8s & Network Automation Tool at Rakuten."
         }
       }
     },

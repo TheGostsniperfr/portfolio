@@ -116,6 +116,14 @@ onMounted(() => {
 
 const workBlocks = [
   {
+    image: "/images/Rakuten/Rakuten_logo.svg",
+    alt: "Rakuten Logo",
+    title: t('about.workingXp.blocks.4.title'),
+    date: t('about.workingXp.blocks.4.date'),
+    description: t('about.workingXp.blocks.4.description'),
+    link: "",
+  },
+  {
     image: "/images/TC/logo_back.png",
     alt: "Toolchain Logo",
     title: t('about.workingXp.blocks.1.title'),
