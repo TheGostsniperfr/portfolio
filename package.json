@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/bridge": "^3.3.1",
+    "@nuxt/bridge": "^3.6.1",
     "@nuxtjs/i18n": "^9.1.4",
     "nuxt": "^3.14.159",
     "vue": "latest",
