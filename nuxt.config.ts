@@ -14,9 +14,6 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    // Opted out explicitly: the module warns that this optimisation causes issues and is
-    // deprecated in v10. Setting it either way silences the warning.
-    bundle: { optimizeTranslationDirective: false },
     locales: [
       { code: 'fr', name: 'Français', file: 'fr.json' },
       { code: 'en', name: 'English', file: 'en.json' },
