@@ -9,9 +9,14 @@ function isTyping(target: EventTarget | null) {
   return !!el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))
 }
 
+/** GitHub Pages serves directory routes with a trailing slash; the router does not. */
+function normalize(path: string) {
+  return path.length > 1 ? path.replace(/\/+$/, '') : path
+}
+
 /** Index of the project page currently shown, or -1 anywhere else. */
 function projectIndexFor(path: string) {
-  const slug = path.replace(/^\/Projects\//, '')
+  const slug = normalize(path).replace(/^\/Projects\//, '')
   return projects.findIndex((p) => p.slug === slug)
 }
 
@@ -41,9 +46,10 @@ export function useAppShortcuts() {
     if (document.querySelector('[role="dialog"]')) return
 
     if (event.key === 'Escape') {
-      if (route.path === CAROUSEL_ROUTE || route.path === '/') return
+      const path = normalize(route.path)
+      if (path === CAROUSEL_ROUTE || path === '/') return
       event.preventDefault()
-      if (route.path.startsWith('/Projects/')) router.push(CAROUSEL_ROUTE)
+      if (path.startsWith('/Projects/')) router.push(CAROUSEL_ROUTE)
       else router.back()
       return
     }

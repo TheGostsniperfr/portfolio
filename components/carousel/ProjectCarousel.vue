@@ -8,7 +8,6 @@
       :aria-label="$t('projects.ariaLabel')"
       :aria-activedescendant="`carousel-slide-${activeIndex}`"
       tabindex="0"
-      @keydown="onKeydown"
     >
       <div ref="track" class="track">
         <CarouselSlide
@@ -60,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import CarouselSlide from './CarouselSlide.vue'
@@ -172,8 +171,15 @@ async function close() {
   viewport.value?.focus({ preventScroll: true })
 }
 
+function isTyping(target: EventTarget | null) {
+  const el = target as HTMLElement | null
+  return !!el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))
+}
+
 function onKeydown(event: KeyboardEvent) {
   if (openIndex.value !== null || isPortrait.value) return
+  if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey) return
+  if (isTyping(event.target)) return
 
   const actions: Record<string, () => void> = {
     ArrowLeft: () => goTo(activeIndex.value - 1),
@@ -190,6 +196,9 @@ function onKeydown(event: KeyboardEvent) {
   }
 
   if (event.key === 'Enter' || event.key === ' ') {
+    const focused = document.activeElement
+    if (focused && focused !== document.body && focused !== viewport.value) return
+
     const slide = track.value?.children[ activeIndex.value ]
     const frame = slide?.querySelector<HTMLElement>('.slide-frame')
     const media = slide?.querySelector<HTMLElement>('.slide-media')
@@ -200,6 +209,9 @@ function onKeydown(event: KeyboardEvent) {
     }
   }
 }
+
+onMounted(() => window.addEventListener('keydown', onKeydown))
+onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 
 // Portrait has no engine loop: the native scroller is the source of truth for the active index.
 let scrollObserver: IntersectionObserver | null = null
