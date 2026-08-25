@@ -18,7 +18,7 @@ const manifestPath = join(root, 'data', 'image-manifest.json')
 
 const TARGET_WIDTHS = [ 640, 1280, 1920 ]
 /** The <img src> fallback only has to look right; the variants carry the quality. */
-const FALLBACK_WIDTH = 1600
+const FALLBACK_WIDTH = 1200
 const FORMATS = [
   { ext: 'avif', encode: (pipe) => pipe.avif({ quality: 55, effort: 4 }) },
   { ext: 'webp', encode: (pipe) => pipe.webp({ quality: 78 }) },
