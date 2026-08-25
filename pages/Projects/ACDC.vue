@@ -1,14 +1,14 @@
 <template>
-    <div class="ud-content">
+    <article class="ud-content">
         <BackBtn />
         <div class="presentation" :style="{ '--hero': 'url(/images/ACDC/logo_tp.png)' }">
             <div class="content">
                 <p class="title-midle text-less">{{ $t("acdc.header.overlay") }}</p>
-                <p class="title presentation-title">
-                    {{ $t("acdc.header.title.1") }} 
+                <h1 class="title presentation-title">
+                    {{ $t("acdc.header.title.1") }}
                     <br />
                     {{ $t("acdc.header.title.2") }}
-                </p>
+                </h1>
                 <p class="title-mini description text-less">
                     {{ $t("acdc.header.description.body.1") }}
                 </p>
@@ -44,7 +44,7 @@
 
             </template>
         </PresentationSection>
-    </div>
+    </article>
 </template>
 
 <script setup>
@@ -59,8 +59,26 @@ const { t } = useI18n();
 useHead({
   title: () => t('projects.acdc.title'),
   meta: [
-    { name: 'description', content: () => t('acdc.head.content') }
-  ]
+    { name: 'description', content: () => t('acdc.head.content') },
+    { property: 'og:title', content: () => t('projects.acdc.title') },
+    { property: 'og:description', content: () => t('acdc.head.content') },
+    { property: 'og:image', content: '/images/ACDC/logo_tp.png' },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: () => JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: t('projects.acdc.title'),
+        description: t('acdc.head.content'),
+        url: 'https://about.arffornia.com/Projects/ACDC',
+        dateCreated: '2024',
+        keywords: [ 'Teaching', 'Design', 'Community' ],
+        author: { '@type': 'Person', name: 'Brian Perret' },
+      }),
+    },
+  ],
 });
 
 onMounted(() => {

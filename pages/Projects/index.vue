@@ -1,4 +1,5 @@
 <template>
+  <h1 class="sr-only">{{ t('projects.head.content') }}</h1>
   <ProjectCarousel />
 </template>
 
@@ -10,6 +11,10 @@ const { t } = useI18n()
 
 useHead({
   title: 'Projects',
-  meta: [ { name: 'description', content: t('projects.head.content') } ],
+  meta: [
+    { name: 'description', content: t('projects.head.content') },
+    { property: 'og:title', content: 'Brian Perret — Projects' },
+    { property: 'og:description', content: t('projects.head.content') },
+  ],
 })
 </script>

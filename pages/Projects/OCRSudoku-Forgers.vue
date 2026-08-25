@@ -1,10 +1,10 @@
 <template>
-  <div class="ud-content">
+  <article class="ud-content">
     <BackBtn />
     <div class="presentation" :style="{ '--hero': 'url(/images/OCR/ArtificialNeuronModel_francais.png)' }">
       <div class="content">
         <p class="title-midle text-less">{{ $t("ocr.header.overlay") }}</p>
-        <p class="title presentation-title">{{ $t("ocr.header.overlay") }}</p>
+        <h1 class="title presentation-title">{{ $t("ocr.header.overlay") }}</h1>
         <p class="title-mini description text-less">
           <i18n-t keypath="ocr.header.description.body.1">
             <template #nn>
@@ -61,7 +61,7 @@
       </template>
     </PresentationSection>
 
-  </div>
+  </article>
 </template>
 
 <script setup>
@@ -77,8 +77,27 @@ const { t } = useI18n();
 useHead({
   title: () => t('projects.ocr.title'),
   meta: [
-    { name: 'description', content: () => t('ocr.head.content') }
-  ]
+    { name: 'description', content: () => t('ocr.head.content') },
+    { property: 'og:title', content: () => t('projects.ocr.title') },
+    { property: 'og:description', content: () => t('ocr.head.content') },
+    { property: 'og:image', content: '/images/OCR/logo.png' },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: () => JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: t('projects.ocr.title'),
+        description: t('ocr.head.content'),
+        url: 'https://about.arffornia.com/Projects/OCRSudoku-Forgers',
+        codeRepository: 'https://github.com/TheGostsniperfr/OCR-Sudoku-Solver',
+        dateCreated: '2023',
+        keywords: [ 'C', 'Neural Network', 'Computer Vision' ],
+        author: { '@type': 'Person', name: 'Brian Perret' },
+      }),
+    },
+  ],
 });
 
 onMounted(() => {

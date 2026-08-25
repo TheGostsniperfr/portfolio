@@ -4,9 +4,11 @@
     <Transition name="fade" >
       <NavBar v-if='route.path !== "/"' />
     </Transition>
-    <transition name="slide-up" mode="out-in">
-      <NuxtPage />
-    </transition>
+    <main>
+      <transition name="slide-up" mode="out-in">
+        <NuxtPage />
+      </transition>
+    </main>
   </div>
 </template>
 
