@@ -1,6 +1,6 @@
 <template>
     <div class="presentation-section">
-        <div class="overview" :class="imagePositionClass">
+        <div class="overview">
             <!-- Left img -->
             <template v-if="dir === 'left'">
                 <img class="overview-image" :src="imageSrc" :alt="imageAlt" />
@@ -39,10 +39,6 @@ defineProps({
     required: true,
   },
   title: {
-    type: String,
-    required: true,
-  },
-  description: {
     type: String,
     required: true,
   },

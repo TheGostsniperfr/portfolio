@@ -2,7 +2,7 @@
     <div class="techno-section">
         <div class="info">
             <p class="title-midle">{{ title }}</p>
-            <MediumBtn v-if="props.blocks.length > 3" :onClick="toggleViewAll" :title="$t('utils.btn')" weak-border="true" />
+            <MediumBtn v-if="props.blocks.length > 3" :onClick="toggleViewAll" :title="$t('utils.btn')" weak-border />
         </div>
         <transition-group name="fade" mode="out-in" tag="div" class="content">
             <div v-for="(block, index) in displayedBlocks" :key="index" class="block">
