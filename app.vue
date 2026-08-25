@@ -5,7 +5,7 @@
       <NavBar v-if='route.path !== "/"' />
     </Transition>
     <main>
-      <transition name="slide-up" mode="out-in">
+      <transition name="slide-up">
         <NuxtPage />
       </transition>
     </main>
