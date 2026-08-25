@@ -1,0 +1,31 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    # Sans regroupement, une seule montée de Nuxt ouvre une dizaine de PR liées
+    # qui ne peuvent de toute façon être mergées qu'ensemble.
+    groups:
+      nuxt:
+        patterns:
+          - nuxt
+          - '@nuxt/*'
+          - '@nuxtjs/*'
+      autres:
+        patterns:
+          - '*'
+        exclude-patterns:
+          - nuxt
+          - '@nuxt/*'
+          - '@nuxtjs/*'
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns:
+          - '*'

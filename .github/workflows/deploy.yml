@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  # Les PR Dependabot doivent prouver qu'elles compilent avant d'être mergées.
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -11,10 +15,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '24'
 
@@ -23,7 +27,7 @@ jobs:
 
       # AVIF encoding costs a few minutes, so only redo it when a source image changes.
       - name: Restore optimized images
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: public/images
           key: images-${{ hashFiles('source-images/**', 'scripts/optimize-images.mjs') }}
@@ -38,7 +42,8 @@ jobs:
       # remplace tout le contenu de la branche website, le fichier CNAME disparaît et GitHub
       # Pages perd le domaine custom à chaque déploiement.
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./.output/public
