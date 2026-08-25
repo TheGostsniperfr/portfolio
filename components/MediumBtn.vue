@@ -37,11 +37,16 @@ const handleClick = (event) => {
     --border-thickness: 3px;
     --hover-gap: 5px;
 
-    padding: calc(var(--hover-gap) + var(--border-thickness));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: calc(var(--hover-gap) + var(--border-thickness)) calc(var(--hover-gap) + var(--border-thickness) + 0.5em);
     border-radius: 3px;
-    font-size: 125%;
+    font-size: clamp(0.95rem, 0.85rem + 0.4vw, 1.25rem);
     font-weight: 500;
     text-decoration: none;
+    white-space: nowrap;
     color: #fff;
     background: #000;
     cursor: pointer;
@@ -55,9 +60,18 @@ const handleClick = (event) => {
         conic-gradient(at bottom var(--border-thickness) left var(--border-thickness), var(--gradient-color-stop)) 0 var(--gradient-animation, 200%) / var(--gradient-animation, var(--border-thickness)) 200% no-repeat;
 }
 
-.medium-btn:hover {
+.medium-btn:hover,
+.medium-btn:focus-visible {
     --gradient-animation: 100%;
     transition: 0.3s, background-size 0.3s 0.3s;
+    outline: none;
+}
+
+/* Touch devices get no hover, so the border animation was the only affordance and never fired. */
+@media (hover: none) {
+    .medium-btn {
+        --gradient-animation: 100%;
+    }
 }
 
 .medium-btn.has-weak-border {

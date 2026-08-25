@@ -5,7 +5,7 @@
                 <p class="title-mini text-less">{{ overview }}</p>
                 <p class="title-midle">{{ title }}</p>
             </div>
-            <MediumBtn v-if="props.blocks.length > 7" :onclick="toggleViewAll" :title="$t('utils.btn')" weak-border="true" />
+            <MediumBtn v-if="props.blocks.length > 7" :onClick="toggleViewAll" :title="$t('utils.btn')" weak-border="true" />
         </div>
         <transition-group name="fade" mode="out-in" tag="div" class="content">
             <div v-for="(block, index) in displayedBlocks" :key="index" class="block">
@@ -49,7 +49,8 @@ function toggleViewAll() {
 
 <style scoped>
 * {
-    --techno-width: 175px;
+    /* Was a flat 175px, which with 7 fixed columns needed 1465px just to fit. */
+    --techno-width: clamp(84px, 13vw, 175px);
 }
 
 .icon-section {
@@ -59,25 +60,29 @@ function toggleViewAll() {
 }
 
 .info {
-    padding: 2% 5% 0% 5%;
+    padding: 2% var(--page-gutter) 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .title-midle {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 1rem + 1.8vw, 2.5rem);
     font-weight: 650;
     margin: 0%;
 }
 
+/* auto-fit lets the row reflow from 7 tiles down to 2 instead of overflowing. */
 .content {
     display: grid;
-    grid-template-columns: repeat(7, 0fr);
-    justify-content: space-between;
-    margin: 20px 5%;
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(var(--techno-width), 1fr));
+    justify-items: center;
+    margin: 20px var(--page-gutter);
+    gap: clamp(12px, 2.5vw, 40px);
 }
 
 .block {

@@ -47,54 +47,45 @@ export default {
 
 <style scoped>
 #grid-title {
-    padding-bottom: 50px;
+    padding-bottom: clamp(1.5rem, 4vw, 3.125rem);
 }
 
 #grid-description {
-    max-width: 70%;
+    max-width: 70ch;
 }
 
 .grid-section {
-    padding: 2% 5% 0% 5%;
-}
-
-.title {
-    font-size: 3.7rem;
-    font-weight: 600;
-    margin: 0%;
+    padding: 2% var(--page-gutter) 0;
 }
 
 .title-midle {
-    font-size: 2.5rem;
+    font-size: clamp(1.25rem, 0.9rem + 1.4vw, 2.5rem);
     font-weight: 650;
     margin: 0%;
 }
 
-.title-mini {
-    line-height: 150%;
-    font-size: 1.3em;
-    font-weight: 500;
-    margin: 0%;
-}
-
-.text-less {
-    color: #c2c2c2d3;
-}
-
+/* A 19:9 tile inside a 110px column was a 52px-tall sliver; 16:9 survives a narrow column. */
 .test-chamber {
-    margin: 10% 10% 0% 0%;
+    margin-top: clamp(1rem, 5vw, 3rem);
     border-radius: 10px;
     overflow: hidden;
-    aspect-ratio: 19 /9;
+    aspect-ratio: 19 / 9;
     position: relative;
-
 }
 
+/* Was repeat(3, 1fr) at every width, which squeezed three tiles onto a phone. */
 .grids {
     margin: 0%;
     padding: 0%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+    gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+@media (max-width: 720px) {
+    .test-chamber {
+        aspect-ratio: 16 / 9;
+    }
 }
 
 .test-chamber img {
@@ -119,15 +110,13 @@ export default {
     border-radius: 10px;
 }
 
+/* width: 100% with left: 5% pushed the caption 5% outside the card and clipped the text. */
 .overlay {
     position: absolute;
-    bottom: 5%;
-    left: 5%;
-    width: 100%;
+    inset: auto 5% 5% 5%;
     color: white;
     padding: 10px;
     box-sizing: border-box;
-
     transition: transform ease 0.3s;
 }
 

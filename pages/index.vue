@@ -8,8 +8,10 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import LoadingBar from '~/components/LoadingBar.vue';
-import { useImagePreloader } from '~/composables/useImagePreloader.js';
+import { useImagePreloader, type PreloadTarget } from '~/composables/useImagePreloader';
 import { useRouter } from 'vue-router';
+import { projects } from '~/data/projects';
+import manifest from '~/data/image-manifest.json';
 
 useHead({
   title: 'Brian Perret',
@@ -18,70 +20,22 @@ useHead({
   ]
 });
 
-const imageList = [
-  '/images/lang/C_Logo.png',
-  '/images/lang/CSharp_Logo.png',
-  '/images/lang/github-logo.png',
-  '/images/lang/docker_logo.png',
-  '/images/lang/gitlab_logo.png',
-  '/images/lang/go_logo.png',
-  '/images/lang/python_logo.png',
-  '/images/lang/rust_logo.png',
-  '/images/lang/argocd_logo.png',
-  '/images/lang/electron_logo.svg',
-  '/images/lang/grafana_logo.png',
-  '/images/lang/java_logo.png',
-  '/images/lang/kubernetes_logo.png',
-  '/images/lang/laravel_logo.svg',
-  '/images/lang/mysql_logo.png',
-  '/images/lang/php_logo.png',
-  '/images/lang/proxmox_logo.png',
-  '/images/lang/typescript_logo.png',
-  '/images/lang/vuejs_logo.png',
-  '/images/lang/nuxt_logo.svg',
-  '/images/lang/linux_logo.png',
-  '/images/other/test_image_16_9.jpg',
-  '/images/Arffornia/launcher_homepage.png',
-  '/images/Arffornia/launcher_homepageV4.png',
-  '/images/Arffornia/website_homepage.png',
-  '/images/Arffornia/map/v.2 (1).png',
-  '/images/Arffornia/map/v.2 (2).png',
-  '/images/Arffornia/map/v.4 (1).png',
-  '/images/Arffornia/map/v.4 (2).png',
-  '/images/Arffornia/lobby_arfforniaV4.png',
-  '/images/OCR/logo.png',
-  '/images/OCR/ArtificialNeuronModel_francais.png',
-  '/images/OCR/hard_grid.jpg',
-  '/images/OCR/image_04.jpg',
-  '/images/OCR/neural-network.png',
-  '/images/OCR/MorphologyWithErode.jpg',
-  '/images/OCR/computer_vision.png',
-  '/images/OCR/computer_vision.png',
-  '/images/UpsideDown/UpsideDownBG.png',
-  '/images/UpsideDown/drone.png',
-  '/images/UpsideDown/generator.png',
-  '/images/UpsideDown/Logo_S2game.png',
-  '/images/UpsideDown/plasmaOrb.png',
-  '/images/UpsideDown/map1_2.png',
-  '/images/UpsideDown/map3_2.png',
-  '/images/UpsideDown/map4_2.png',
-  '/images/UpsideDown/map5.png',
-  '/images/UpsideDown/map6.png',
-  '/images/UpsideDown/agile_team.png',
-  '/images/other/dline_1.png',
-  '/images/other/dline_2.png',
-  '/images/other/dline_3.png',
-  '/images/TC/devops.png',
-  '/images/TC/logo_back.png',
-  '/images/TC/gitlab_cicd.png',
-  '/images/ACDC/teaching_logo.png',
-  '/images/ACDC/logo_tp.png',
-  '/images/other/me.png',
-  '/images/other/me2.jpg',
-  '/images/other/dynmap.png',
-  '/images/ACDC/teaching.jpg',
-  '/images/other/camera-operator.png'
-];
+interface ManifestEntry { width: number; height: number; widths: number[]; base: string }
+
+// Only the carousel covers: this page used to block on 63 full-size PNGs (~77 MB) before it
+// would even redirect. Everything else is fetched by the page that actually needs it.
+const CAROUSEL_SIZES = '(orientation: portrait) 100vw, 40vw';
+const encodePath = (path: string) => encodeURI(path).replace(/,/g, '%2C');
+
+const imageList: PreloadTarget[] = projects.map((project) => {
+  const entry = (manifest as Record<string, ManifestEntry>)[ project.cover ];
+  if (!entry) return { src: project.cover };
+  return {
+    src: project.cover,
+    srcset: entry.widths.map((w) => `${encodePath(`${entry.base}-${w}.avif`)} ${w}w`).join(', '),
+    sizes: CAROUSEL_SIZES,
+  };
+});
 
 const { progress, loadImages } = useImagePreloader(imageList);
 
@@ -101,7 +55,7 @@ onMounted(async () => {
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #141414;
-  height: 100vh;
+  min-height: 100dvh;
   color: #fff;
 }
 </style>

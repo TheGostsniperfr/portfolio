@@ -10,6 +10,18 @@
   "utils": {
     "btn": "View All"
   },
+  "projects": {
+    "ariaLabel": "Projects carousel",
+    "head": {
+      "content": "Projects Overview"
+    },
+    "arffornia": { "title": "Arffornia Project" },
+    "ocr": { "title": "OCR Sudoku-Forgers" },
+    "ud": { "title": "Upside Down" },
+    "tc": { "title": "Toolchain" },
+    "acdc": { "title": "ACDC" },
+    "portfolio": { "title": "Portfolio" }
+  },
   "about": {
     "head": {
       "content": "About Me"
@@ -384,6 +396,32 @@
         "1": "— This work allowed me to gain solid knowledge of various tools, such as Docker and GitLab CI/CD, which I use daily on large-scale production projects.",
         "2": "— I also learned how to collaborate effectively within large teams, manage the challenges posed by individual members, and maintain clear communication to address unexpected issues.",
         "3": "— Finally, it taught me how to handle emergencies, such as during exams or particularly busy periods with overlapping courses and projects."
+      }
+    }
+  },
+  "portfolio": {
+    "head": {
+      "content": "Portfolio Project Overview"
+    },
+    "header": {
+      "overlay": "Portfolio — 2025",
+      "title": "The Big Overview",
+      "description": "To show my work and my passion, I built the portfolio website you are looking at right now. I picked specific tools to make it a modular project that is quick to develop."
+    },
+    "tech": {
+      "blocks": {
+        "1": {
+          "title": "NuxtJS",
+          "description": "Nuxt is perfect for a simple site like this portfolio, providing a wide range of features for fast, efficient development."
+        },
+        "2": {
+          "title": "VueJS",
+          "description": "A front-end framework I really like for its speed of development and its features."
+        },
+        "3": {
+          "title": "GitHub Pages & CI/CD",
+          "description": "Automated website deployments using GitHub Pages and GitHub Actions."
+        }
       }
     }
   },

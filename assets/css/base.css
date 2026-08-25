@@ -1,0 +1,225 @@
+/*
+ * Shared shell for the About page and every project page. These rules used to be copy-pasted
+ * into each page's <style scoped> block, which is why nothing was ever responsive: a fix had
+ * to be applied seven times. Page-specific bits (logos, link grids) stay in their own files.
+ */
+
+:root {
+  --page-gutter: clamp(1.25rem, 5vw, 5rem);
+  --section-gap: clamp(2rem, 5vw, 3.5rem);
+  --hero-gradient: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.9) 30%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Safety net: a single missed width elsewhere shouldn't produce a horizontal scrollbar. */
+img,
+iframe {
+  max-width: 100%;
+}
+
+/* ---------- Fluid type scale ---------- */
+
+.title {
+  font-size: clamp(2rem, 1.1rem + 3.1vw, 3.7rem);
+  font-weight: 600;
+  margin: 0;
+}
+
+.title-midle {
+  font-size: clamp(1.5rem, 1rem + 2vw, 3rem);
+  font-weight: 550;
+  margin: 0;
+}
+
+.title-mini {
+  line-height: 150%;
+  font-size: clamp(1rem, 0.92rem + 0.4vw, 1.3rem);
+  font-weight: 500;
+  margin: 0;
+}
+
+.text-less {
+  color: #c2c2c2d3;
+}
+
+.presentation-title {
+  padding-bottom: clamp(1.5rem, 4vw, 3.125rem);
+}
+
+.description {
+  padding-top: clamp(1.5rem, 4vw, 3.125rem);
+}
+
+/* ---------- Page shell ---------- */
+
+/* width: 100% not 100vw — 100vw includes the scrollbar and forced a horizontal scroll. */
+.ud-content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100dvh;
+  overflow-x: clip;
+  color: #fff;
+  font-family: 'WF Visual Sans', Arial, sans-serif;
+  letter-spacing: 0.01em;
+  line-height: 1.04;
+}
+
+/* ---------- Hero ---------- */
+
+.presentation {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  color: #fff;
+  overflow: hidden;
+}
+
+.presentation::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hero-gradient), var(--hero, none) center / cover no-repeat;
+  z-index: 1;
+  transform: scale(1.2);
+  transition: transform 3.5s cubic-bezier(0.04, 0.68, 0.15, 1);
+  filter: blur(3px);
+}
+
+.presentation.visible::before {
+  transform: scale(1);
+}
+
+/* Reproduces the original desktop framing (max-width 31%, padding-left 10%) while adding a
+   readable floor: the ch cap stops the measure growing past ~44 characters on ultrawide. */
+.presentation .content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: min(44ch, 40%);
+  padding: clamp(4.5rem, 6vw, 7.5rem) var(--page-gutter) clamp(3rem, 8vw, 7rem)
+    clamp(1.25rem, 10vw, 12rem);
+}
+
+/* Was a hard translate(-100px, 30px), which pushed the logo off-screen on a phone. */
+.ud-logo {
+  max-height: clamp(80px, 18vw, 200px);
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Call to action ---------- */
+
+.redirectBtn {
+  margin-top: 1.5em;
+  width: min(18em, 100%);
+  min-height: 44px;
+  padding: 0 1.5em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.redirectBtn:hover,
+.redirectBtn:focus-visible {
+  background-color: #25cee9;
+  box-shadow: 0 15px 20px rgba(46, 192, 229, 0.25);
+  color: #fff;
+  transform: translateY(-6px);
+}
+
+/* ---------- Video embed ---------- */
+
+/*
+ * Was width: 125vh / height: 33vw — the axes were swapped, so in portrait it rendered several
+ * times wider than the screen. Narrow screens now get a plain 16/9 block under the copy;
+ * wide ones keep the original look, floating over the right of the hero.
+ */
+/* Below .presentation .content (z-index 10) on purpose: the hero copy has to stay readable
+   where the video overlaps it, exactly as it did originally. */
+.trailer {
+  display: block;
+  position: relative;
+  z-index: 2;
+  flex: 1 1 100%;
+  width: calc(100% - 2 * var(--page-gutter));
+  aspect-ratio: 16 / 9;
+  height: auto;
+  margin: 0 auto var(--section-gap);
+  border: 0;
+  border-radius: 10px;
+  box-shadow:
+    rgba(0, 0, 0, 0.5) 0 54px 55px,
+    rgba(0, 0, 0, 0.25) 0 -12px 30px,
+    rgba(0, 0, 0, 0.25) 0 4px 6px,
+    rgba(0, 0, 0, 0.34) 0 12px 13px,
+    rgba(0, 0, 0, 0.18) 0 -3px 5px;
+}
+
+/* min(70vw, 1350px) at right: 10% reproduces the original geometry within a few pixels at
+   both 1366 and 1920, without the swapped-axis sizing. */
+@media (min-width: 1025px) {
+  .trailer {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: min(70vw, 1350px);
+    margin: 0;
+  }
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 1024px) {
+  :root {
+    /* A horizontal fade would leave the text on the bright half once the column spans the
+       screen, so the scrim becomes vertical instead. */
+    --hero-gradient: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.6) 45%,
+      rgba(0, 0, 0, 0.88) 100%
+    );
+  }
+
+  .presentation .content {
+    max-width: none;
+    padding-left: var(--page-gutter);
+  }
+}
+
+/* Matches the NavBar breakpoint: the links drop to a second row there, so the hero has to
+   start lower to clear them. */
+@media (max-width: 680px) {
+  .presentation .content {
+    padding-top: 9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .presentation::before {
+    transition: none;
+    transform: scale(1);
+  }
+
+  .redirectBtn:hover,
+  .redirectBtn:focus-visible {
+    transform: none;
+  }
+}

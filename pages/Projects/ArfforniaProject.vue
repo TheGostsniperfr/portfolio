@@ -1,10 +1,10 @@
 <template>
     <div class="ud-content">
         <BackBtn />
-        <div class="presentation">
+        <div class="presentation" :style="{ '--hero': 'url(/images/Arffornia/lobby_arfforniaV4.png)' }">
             <div class="content">
                 <p class="title-midle text-less">{{ $t("arffornia.header.overlay") }}</p>
-                <p id="presentation-title" class="title">{{ $t("arffornia.header.title") }}</p>
+                <p class="title presentation-title">{{ $t("arffornia.header.title") }}</p>
                 <p class="title-mini description text-less">
                     {{ $t("arffornia.header.description.body.1") }}
                     <br />
@@ -116,7 +116,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import PresentationSection from '~/components/PresentationSection.vue';
 import BackBtn from '~/components/BackBtn.vue';
@@ -125,9 +125,9 @@ import TechnoSection from '~/components/TechnoSection.vue';
 const { t } = useI18n();
 
 useHead({
-    title: 'Arffornia Project',
+    title: () => t('projects.arffornia.title'),
     meta: [
-        { name: 'description', content: t('arffornia.head.content') }
+        { name: 'description', content: () => t('arffornia.head.content') }
     ]
 });
 
@@ -142,13 +142,13 @@ onMounted(() => {
                 }
             });
         },
-        { threshold: 0.5 }
+        { threshold: 0.15 }
     );
 
     observer.observe(presentation);
 });
 
-const technoBlocksWebsite = [
+const technoBlocksWebsite = computed(() => ([
     {
         image: "/images/lang/laravel_logo.svg",
         title: "Laravel",
@@ -169,9 +169,9 @@ const technoBlocksWebsite = [
         title: "Typescript",
         description: t('arffornia.globalTech.blocks.typescript'),
     }
-];
+]));
 
-const technoBlocksLauncher = [
+const technoBlocksLauncher = computed(() => ([
     {
         image: "/images/lang/electron_logo.svg",
         title: "Electron",
@@ -187,9 +187,9 @@ const technoBlocksLauncher = [
         title: "Java / JavaFX",
         description: t('arffornia.launcherTech.blocks.java'),
     }
-];
+]));
 
-const technoBlocksInfra = [
+const technoBlocksInfra = computed(() => ([
     {
         image: "/images/lang/kubernetes_logo.png",
         title: "Kubernetes",
@@ -220,9 +220,9 @@ const technoBlocksInfra = [
         title: "Grafana",
         description: t('arffornia.globalTech.blocks.grafana'),
     }
-];
+]));
 
-const technoBlocksDevOps = [
+const technoBlocksDevOps = computed(() => ([
     {
         image: "/images/lang/kubernetes_logo.png",
         title: "Kubernetes",
@@ -243,9 +243,9 @@ const technoBlocksDevOps = [
         title: "Github CI/CD",
         description: t('arffornia.globalTech.blocks.github'),
     }
-];
+]));
 
-const technoBlocksAll = [
+const technoBlocksAll = computed(() => ([
     {
         image: "/images/lang/kubernetes_logo.png",
         title: "Kubernetes",
@@ -306,126 +306,9 @@ const technoBlocksAll = [
         title: "Grafana",
         description: t('arffornia.globalTech.blocks.grafana'),
     }
-];
+]));
 
 </script>
 
 <style scoped>
-.redirectBtn {
-    margin-top: 1.5em;
-    width: 18em;
-    height: 45px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-}
-
-.redirectBtn:hover {
-    background-color: #25cee9;
-    box-shadow: 0px 15px 20px rgba(46, 192, 229, 0.25);
-    color: #fff;
-    transform: translateY(-6px);
-}
-
-.ud-logo {
-    max-height: 200px;
-    transform: translate(-100px, 30px);
-}
-
-.trailer {
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    transform: translateY(-50%);
-    width: 125vh;
-    height: 33vw;
-    z-index: 2;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 54px 55px, rgba(0, 0, 0, 0.25) 0px -12px 30px, rgba(0, 0, 0, 0.25) 0px 4px 6px, rgba(0, 0, 0, 0.34) 0px 12px 13px, rgba(0, 0, 0, 0.18) 0px -3px 5px;
-}
-
-.ud-content {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    color: #fff;
-    font-family: WF Visual Sans, Arial, sans-serif;
-    letter-spacing: .01em;
-    line-height: 1.04;
-}
-
-.presentation {
-    position: relative;
-    width: 100vw;
-    display: flex;
-    color: white;
-    overflow: hidden;
-}
-
-.presentation::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%),
-        url('/images/Arffornia/lobby_arfforniaV4.png') center/cover no-repeat;
-    z-index: 1;
-    transform: scale(1.2);
-    transition: transform 3.5s cubic-bezier(0.04, 0.68, 0.15, 1);
-    filter: blur(3px);
-}
-
-.presentation.visible::before {
-    transform: scale(1);
-}
-
-.presentation .content {
-    position: relative;
-    z-index: 10;
-    padding-top: 6%;
-    padding-left: 10%;
-    max-width: 32%;
-    padding-bottom: 15%;
-    width: 100%;
-}
-
-.title {
-    font-size: 3.7rem;
-    font-weight: 600;
-    margin: 0%;
-}
-
-.title-midle {
-    font-size: 3rem;
-    font-weight: 550;
-    margin: 0%;
-}
-
-.title-mini {
-    line-height: 150%;
-    font-size: 1.3em;
-    font-weight: 500;
-    margin: 0%;
-}
-
-.text-less {
-    color: #c2c2c2d3;
-}
-
-#presentation-title {
-    padding-bottom: 50px;
-}
 </style>

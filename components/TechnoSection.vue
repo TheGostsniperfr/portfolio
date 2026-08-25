@@ -2,7 +2,7 @@
     <div class="techno-section">
         <div class="info">
             <p class="title-midle">{{ title }}</p>
-            <MediumBtn v-if="props.blocks.length > 3" :onclick="toggleViewAll" :title="$t('utils.btn')" weak-border="true" />
+            <MediumBtn v-if="props.blocks.length > 3" :onClick="toggleViewAll" :title="$t('utils.btn')" weak-border="true" />
         </div>
         <transition-group name="fade" mode="out-in" tag="div" class="content">
             <div v-for="(block, index) in displayedBlocks" :key="index" class="block">
@@ -45,7 +45,7 @@ function toggleViewAll() {
 
 <style scoped>
 * {
-    --techno-width: 175px;
+    --techno-width: clamp(96px, 12vw, 175px);
 }
 
 .techno-section {
@@ -54,22 +54,25 @@ function toggleViewAll() {
 }
 
 .info {
-    padding: 2% 5% 0% 5%;
+    padding: 2% var(--page-gutter) 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .title-midle {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 1rem + 1.8vw, 2.5rem);
     font-weight: 650;
     margin: 0%;
 }
 
 .title-mini {
     line-height: 100%;
-    font-size: 1.1em;
+    font-size: clamp(1rem, 0.95rem + 0.3vw, 1.1rem);
     font-weight: 600;
     margin: 0%;
 }
@@ -78,11 +81,12 @@ function toggleViewAll() {
     color: #c2c2c2d3;
 }
 
+/* minmax(30%) forced three columns forever; a px floor lets it drop to one on a phone. */
 .content {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-    gap: 40px;
-    margin: 20px 5%;
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+    gap: clamp(16px, 2.5vw, 40px);
+    margin: 20px var(--page-gutter);
 }
 
 .block {
@@ -90,7 +94,7 @@ function toggleViewAll() {
     background: #1e1e1e;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    height: var(--techno-width);
+    min-height: var(--techno-width);
     transition: transform 0.3s, opacity 0.3s;
 }
 
@@ -109,11 +113,14 @@ function toggleViewAll() {
 
 .img-container {
     overflow: hidden;
+    flex: 0 0 auto;
 }
 
+/* min-width: 0 lets the text shrink instead of pushing the card past its column. */
 .block-text {
     flex: 1;
-    padding: 25px;
+    min-width: 0;
+    padding: clamp(12px, 2vw, 25px);
     align-content: center;
     margin: 0%;
 }

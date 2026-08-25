@@ -36,7 +36,7 @@
 
         <div class="section-ti-sep">
           <p class="title-mini text-less">{{ overview }}</p>
-          <p id="presentation-title" class="title">{{ title }}</p>
+          <p class="title presentation-title">{{ title }}</p>
           <slot name="description"></slot>
         </div>
       </template>
@@ -45,7 +45,7 @@
       <template v-else>
         <div class="section-ti-sep">
           <p class="title-mini text-less">{{ overview }}</p>
-          <p id="presentation-title" class="title">{{ title }}</p>
+          <p class="title presentation-title">{{ title }}</p>
           <slot name="description"></slot>
         </div>
         <div class="timeline">
@@ -108,16 +108,11 @@ defineProps({
 
 <style scoped>
 * {
-  --img-width: 125px;
-}
-
-.title {
-  font-size: 3.7rem;
-  font-weight: 600;
-  margin: 0%;
+  --img-width: clamp(72px, 10vw, 125px);
 }
 
 .ti-image {
+  flex: 0 0 auto;
   width: var(--img-width);
   height: var(--img-width);
   border-radius: 50px;
@@ -134,6 +129,9 @@ defineProps({
   position: relative;
   align-items: center;
   display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
   transition: transform 0.25s ease;
   background-color: #1e1e1e;
   border-radius: 15px;
@@ -161,7 +159,8 @@ a.timeline-item {
 }
 
 .timeline {
-  width: 40%;
+  flex: 1 1 20rem;
+  min-width: 0;
 }
 
 .timeline-item:hover {
@@ -169,6 +168,7 @@ a.timeline-item {
 }
 
 .ti-text {
+  min-width: 0;
   padding-top: 20px;
 }
 
@@ -177,44 +177,46 @@ a.timeline-item {
   margin: 0%;
 }
 
-.timeline-item-description {
-  font-size: 1.3em;
-}
-
 .overview {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 5%;
-  gap: 5%;
-}
-
-.description {
-  padding-top: 50px;
-}
-
-.overview-image {
-  width: 40%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: var(--page-gutter);
+  gap: clamp(1.5rem, 4vw, 3rem);
 }
 
 .section-ti-sep {
-  width: 45%;
+  flex: 1 1 22rem;
+  min-width: 0;
   padding-top: 0%;
 }
 
-#presentation-title {
-  padding-bottom: 50px;
-}
-
-.text-less {
-  color: #c2c2c2d3;
-}
-
 .title-midle {
-  font-size: 1.5rem;
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
   font-weight: 600;
   margin: 0%;
+}
+
+.timeline-item-description {
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.3em);
+}
+
+@media (max-width: 720px) {
+  .overview {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* The absolute link icon sat on top of the title once the card got narrow. */
+  .link-container {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media (hover: none) {
+  .timeline-item:hover {
+    transform: none;
+  }
 }
 </style>

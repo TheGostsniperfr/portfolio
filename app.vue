@@ -13,6 +13,8 @@
 <script setup>
 import NavBar from './components/NavBar.vue';
 const route = useRoute();
+
+useAppShortcuts();
 </script>
 
 <style>

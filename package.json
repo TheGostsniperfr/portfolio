@@ -3,17 +3,23 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "images": "node scripts/optimize-images.mjs",
+    "prebuild": "npm run images",
     "build": "nuxt build",
+    "predev": "npm run images",
     "dev": "nuxt dev",
+    "pregenerate": "npm run images",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/bridge": "^3.6.1",
     "@nuxtjs/i18n": "^9.1.4",
     "nuxt": "^3.14.159",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
   }
 }
