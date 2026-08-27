@@ -84,6 +84,7 @@ useHead({
   ],
   script: [
     {
+      key: 'schema-org-creativework',
       type: 'application/ld+json',
       innerHTML: () => JSON.stringify({
         '@context': 'https://schema.org',
