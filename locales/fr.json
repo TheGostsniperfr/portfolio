@@ -15,12 +15,30 @@
     "head": {
       "content": "Aperçu des projets"
     },
-    "arffornia": { "title": "Arffornia Project" },
-    "ocr": { "title": "OCR Sudoku-Forgers" },
-    "ud": { "title": "Upside Down" },
-    "tc": { "title": "Toolchain" },
-    "acdc": { "title": "ACDC" },
-    "portfolio": { "title": "Portfolio" }
+    "arffornia": {
+      "title": "Arffornia Project"
+    },
+    "ocr": {
+      "title": "OCR Sudoku-Forgers"
+    },
+    "ud": {
+      "title": "Upside Down"
+    },
+    "tc": {
+      "title": "Toolchain"
+    },
+    "acdc": {
+      "title": "ACDC"
+    },
+    "portfolio": {
+      "title": "Portfolio"
+    },
+    "cnp": {
+      "title": "Cloud Native Platform"
+    },
+    "offhoursguard": {
+      "title": "Offhours-Guard"
+    }
   },
   "about": {
     "head": {
@@ -472,6 +490,206 @@
       "description": {
         "1": "— Une autre grande partie de mon travail consistait à créer un TP de A à Z que les étudiants de première année de tous les campus devaient réaliser. J'ai pu appliquer différentes méthodes pour les aider à apprendre de nouveaux concepts de la meilleure manière possible.",
         "2": "— Un sujet est calibré sur 12 heures, de sorte qu'un étudiant moyen puisse le terminer. La période de conception se déroule en 3 étapes : la conception, la revue par les autres membres de l'équipe ACDC, puis la semaine de production pendant laquelle les étudiants réalisent le sujet."
+      }
+    }
+  },
+  "cnp": {
+    "head": {
+      "content": "Plateforme de développement interne auto-hébergée : provisioning self-service, GitOps, multi-tenancy stricte, sur un cluster Kubernetes privé (HomeLab OpenStack)."
+    },
+    "header": {
+      "overlay": "Cloud Native Platform — 2026",
+      "title": "Rendre le cloud invisible aux développeurs.",
+      "description": {
+        "1": "CNP est une plateforme de développement interne (IDP) que j'ai conçue et implémentée en tant que lead technique, avec une équipe de 6 personnes sur 5 mois (février-juillet 2026, EPITA SIGL). J'ai porté la quasi-totalité de l'infrastructure — les 4 plans fonctionnels, le cluster Kubernetes et son GitOps, ainsi que le HomeLab OpenStack privé — pendant que le reste de l'équipe travaillait sur le dashboard CMP et quelques briques non-critiques.",
+        "2": "Résultat concret : un développeur, junior ou expert, déploie une application complète — dépôt Git, CI/CD, base de données, secrets, SSO, DNS — en 3 minutes en autonomie, sans jamais recevoir d'accès direct au cluster."
+      }
+    },
+    "context": {
+      "overview": "Contexte & Contraintes",
+      "title": "Pourquoi construire une plateforme cloud native ?",
+      "description": {
+        "1": "4 réalités ont guidé nos choix d'architecture :",
+        "2": "— Productivité & Time-to-Market : déploiement en autonomie en 3 minutes au lieu de plusieurs jours, avec un onboarding accéléré (moins d'une heure, assisté par IA).",
+        "3": "— Atténuation des risques : la sécurité est appliquée par défaut à tous les projets, avec un RBAC strict (owner / admin / guest).",
+        "4": "— Maîtrise des coûts (FinOps) : chaque équipe voit ce que lui coûte réellement son application et peut fixer un budget.",
+        "5": "— Gouvernance & auditabilité : toute action de déploiement est tracée (qui, quoi, quand) pour faciliter les audits sans ralentir les équipes.",
+        "6": "Donner à nos développeurs l'autonomie, à l'entreprise la sécurité, et aux équipes finance la maîtrise des coûts — dans une seule plateforme."
+      }
+    },
+    "architecture": {
+      "overview": "Architecture technique",
+      "title": "Un orchestrateur d'orchestrateurs, Git comme source de vérité",
+      "description": {
+        "1": "La CMP ne parle jamais directement à l'API Kubernetes pour déployer une app. Elle orchestre 4 plans fonctionnels bien séparés :",
+        "2": "— Control Plane (Next.js + FastAPI) : capte l'intention du développeur et orchestre les tâches via un pattern Saga.",
+        "3": "— Provisioning Plane (Terraform) : isole le contexte, génère un jeton GitHub éphémère, configure Keycloak, Vault et DNS.",
+        "4": "— Delivery Plane (ArgoCD + Helm) : synchronise en continu le cluster K3s depuis les dépôts Git applicatifs.",
+        "5": "— Security & Network Plane (Cilium, Envoy Gateway, Vault) : impose l'isolation réseau et l'authentification à chaque requête.",
+        "6": "Chaque plan écrit son état dans Git, qui reste l'unique source de vérité de la plateforme : un simple commit suffit pour un déploiement reproductible, sans accès cluster ni ticket d'infrastructure."
+      }
+    },
+    "security": {
+      "overview": "Sécurité & isolation multi-tenant",
+      "title": "Isolation Zero-Trust au niveau réseau, identité et secrets",
+      "description": {
+        "1": "4 niveaux de sécurité indépendants, chacun avec ses propres frontières :",
+        "2": "— Réseau : Cilium en default-deny, seul le trafic intra-projet et la Gateway peuvent passer.",
+        "3": "— Edge : Envoy Gateway vérifie les groupes du token JWT avant même de router la requête.",
+        "4": "— Identité : SSO Keycloak avec MFA obligatoire dès la première connexion.",
+        "5": "— Secrets : policy Vault scopée par projet, liée au rôle Kubernetes Auth du namespace.",
+        "6": "Une tentative d'un tenant d'atteindre un autre est bloquée par Cilium au niveau réseau, avant même d'atteindre l'application visée."
+      }
+    },
+    "isolation": {
+      "overview": "Isolation logique",
+      "title": "Un groupe Keycloak, une frontière partout",
+      "description": {
+        "1": "Le groupe Keycloak d'un projet se propage jusqu'à la policy Vault, l'AppProject ArgoCD et l'organisation Grafana — un seul point de vérité pour toute la chaîne d'isolation.",
+        "2": "100% des modifications sont auditables et tracées : même un accès légitime à un projet n'ouvre aucune porte vers un autre."
+      }
+    },
+    "selfservice": {
+      "overview": "Self-service",
+      "title": "Un parcours pour chaque niveau, sans jamais perdre personne",
+      "description": {
+        "1": "Chaque équipe est un projet isolé (Keycloak, Vault, ArgoCD) avec des rôles clairs :",
+        "2": "— Chef de projet (Owner) : crée le projet, gère les membres, suit les coûts de déploiement de son équipe.",
+        "3": "— Développeur (Admin) : SSO + MFA, déploie via le catalogue ou en Git direct, assistance IA via MCP.",
+        "4": "— Invité (Viewer) : lecture seule sur les ressources dont il a besoin.",
+        "5": "Templates applicatifs, identité & SSO, base managée, secrets zero-plaintext, sauvegardes S3 continues et auto-sleep FinOps sont prêts dès le Day-0 — rien ne s'improvise en prod."
+      }
+    },
+    "homelab": {
+      "overview": "Infrastructure",
+      "title": "Le HomeLab : un vrai cluster OpenStack, chez moi",
+      "description": {
+        "1": "Le cluster Kubernetes de CNP ne tourne pas sur un cloud public : il tourne sur un cluster OpenStack privé que j'héberge et j'administre personnellement, chez moi — facture d'électricité et abonnement compris, environ 200$/an tout compris.",
+        "2": "OpenStack permet la migration à chaud d'une VM d'un nœud à un autre sans interrompre le service : c'est ce qui a permis d'ajouter de la RAM ou de faire de la maintenance matérielle sans jamais couper la plateforme.",
+        "3": "Le Provisioning Plane reste agnostique du provider (pattern Strategy) : le même modèle Terraform sait cibler ce K3s auto-hébergé aussi bien que des VMs AWS ou OpenStack legacy. Chantier en cours pour le prochain semestre : étendre cette indépendance à AWS et GCP, pour ne plus dépendre d'un site unique."
+      }
+    },
+    "offhoursguard": {
+      "overview": "Initiative personnelle",
+      "title": "Offhours-Guard",
+      "description": {
+        "1": "Un opérateur Kubernetes que j'ai développé de ma propre initiative pour arrêter automatiquement les environnements hors-production la nuit et le week-end, avec un réveil manuel en un clic. Déployé sur la majorité des applications non-critiques de la plateforme."
+      },
+      "link": "Voir le projet en détail →"
+    },
+    "results": {
+      "overview": "Fiabilité",
+      "title": "2 incidents réels, et un plan pour quand ça casse",
+      "description": {
+        "1": "Une canicule a provoqué une surcharge du cluster : infrastructure down ≤1h, corrigée par ajout de RAM et nettoyage des flux de refroidissement.",
+        "2": "Une migration à chaud OpenStack a ensuite été menée sans coupure de service.",
+        "3": "Dépendance assumée aujourd'hui : un site unique chez moi, avec Bouygues Telecom et EDF comme points de défaillance uniques — c'est précisément l'enjeu du chantier multi-cloud."
+      },
+      "tech": {
+        "blocks": {
+          "1": {
+            "title": "99,7%",
+            "description": "de disponibilité cible (SLA interne assumé)."
+          },
+          "2": {
+            "title": "≤1h",
+            "description": "de temps de reprise engagé par incident, grâce à la reconstruction GitOps depuis Git."
+          },
+          "3": {
+            "title": "100%",
+            "description": "des modifications sont auditables et tracées, chaque déploiement passant par un commit."
+          },
+          "4": {
+            "title": "-70%",
+            "description": "de coûts sur les environnements hors-production grâce à l'auto-sleep (Offhours-Guard)."
+          },
+          "5": {
+            "title": "0,12€",
+            "description": "par node et par jour en interne, soit ~1€ économisé par jour face à une solution cloud public équivalente."
+          },
+          "6": {
+            "title": "~200$/an",
+            "description": "tout compris (électricité + abonnement) pour héberger le HomeLab physique."
+          }
+        },
+        "title": "Chiffres clés"
+      }
+    },
+    "decisions": {
+      "overview": "Choix techniques assumés",
+      "title": "Ce qu'on aurait pu faire autrement, et pourquoi on ne l'a pas fait",
+      "description": {
+        "1": "— GitOps intégral plutôt qu'un contrôleur Kubernetes direct : plus lent à écrire, mais la traçabilité complète et la capacité à tout reconstruire depuis Git seul l'ont emporté.",
+        "2": "— Isolation Project > Application plutôt qu'un simple namespace : un namespace par app aurait suffi techniquement, mais ne collait pas à l'organisation réelle des équipes.",
+        "3": "— Stratégie multi-provider (pattern Strategy) plutôt qu'un provider unique : coder en dur pour K3s aurait été plus simple à court terme, mais empêchait de migrer une VM legacy sans rien casser côté développeur."
+      }
+    },
+    "outcome": {
+      "overview": "Bilan",
+      "title": "Plus qu'un outil technique : un standard d'entreprise",
+      "description": {
+        "1": "— Vitesse & autonomie : de plusieurs jours d'attente à 3 minutes, sur tout le cycle de vie (Day-0 et Day-2).",
+        "2": "— Sécurité & gouvernance : 100% des modifications auditables et tracées, dans un cadre Zero-Trust standardisé.",
+        "3": "— Maîtrise financière : jusqu'à -70% de coûts sur les environnements hors-production.",
+        "4": "On a construit bien plus qu'un outil technique : un véritable standard d'entreprise, prêt à passer à l'échelle et à intégrer les innovations de demain (IA/MCP)."
+      }
+    }
+  },
+  "offhoursguard": {
+    "head": {
+      "content": "Opérateur Kubernetes personnel qui met en veille automatiquement les environnements hors-production, avec des chiffres d'efficacité réels."
+    },
+    "header": {
+      "overlay": "Offhours-Guard — Outil personnel, 2026",
+      "title": "Un opérateur Kubernetes qui ne paie que pour ce qui sert.",
+      "description": {
+        "1": "En observant que la majorité des environnements hors-production du cluster CNP tournaient 24h/24 pour rien, j'ai construit Offhours-Guard de ma propre initiative : un opérateur Kubernetes écrit en Go, avec sa propre CRD OffhoursSchedule.",
+        "2": "Anecdote assumée : à l'origine, ce n'était pas vraiment un projet FinOps. Je voulais surtout m'empêcher de coder jusqu'à pas d'heure — la fenêtre par défaut arrête les services non-prod de 1h à 5h du matin, bien trop étroite pour être une vraie politique d'économie d'énergie, largement suffisante pour me forcer à fermer le laptop. Le vrai bénéfice sur les coûts est venu après, en l'appliquant aux environnements hors-production de toute la plateforme CNP."
+      }
+    },
+    "tech": {
+      "blocks": {
+        "1": {
+          "title": "Go",
+          "description": "Écrit avec le SDK controller-runtime standard des opérateurs Kubernetes."
+        },
+        "2": {
+          "title": "CRD & Reconciler",
+          "description": "OffhoursSchedule est une vraie ressource Kubernetes : chaque app déclare son horaire de sommeil et de réveil en cron + fuseau horaire."
+        },
+        "3": {
+          "title": "Image & Helm Chart",
+          "description": "Publié en open-source, image et chart Helm livrés en continu par CI."
+        },
+        "4": {
+          "title": "CI GitHub Actions",
+          "description": "Build, push et publication automatisés à chaque évolution du projet."
+        }
+      }
+    },
+    "how": {
+      "overview": "Comment ça marche",
+      "title": "Un reconciler qui mémorise l'état, pas un simple cron",
+      "description": {
+        "1": "Le reconciler scale les déploiements à 0 replica à l'heure dite, en mémorisant le nombre de replicas d'origine pour restaurer l'état exact au réveil — pas un simple « 1 replica » par défaut.",
+        "2": "Un tableau de bord web (Tailwind + HTMX) liste chaque application gérée avec son état (Actif / Endormi), le nombre de replicas courant vs. d'origine et le détail des horaires cron — avec un bouton pour forcer un réveil ou un endormissement manuel en un clic, rafraîchi automatiquement toutes les 15 secondes."
+      }
+    },
+    "outcome": {
+      "overview": "Résultats & suite",
+      "title": "Déjà déployé, pensé pour aller plus loin",
+      "description": {
+        "1": "Aujourd'hui déployé sur la majorité des applications non-critiques de la plateforme CNP, avec jusqu'à -70% de coûts sur les environnements hors-production et une activité nocturne réduite de 24h/24 à 1h-7h.",
+        "2": "Prochaine étape : un moteur de recommandation, à la fois statistique et assisté par IA, pour proposer dynamiquement de meilleurs horaires aux gestionnaires de cluster et aux utilisateurs eux-mêmes."
+      },
+      "link": "Voir le projet Cloud Native Platform →"
+    },
+    "monitoring": {
+      "overview": "Monitoring",
+      "title": "Ne pas confondre « éteint exprès » et « en panne »",
+      "description": {
+        "1": "Un service volontairement arrêté ne doit pas déclencher d'alerte comme s'il était tombé en panne. Offhours-Guard expose un endpoint que Gatus, l'outil de health-check de CNP, interroge à la place du vrai service.",
+        "2": "Pendant la fenêtre de sommeil, cet endpoint répond directement 200 OK avec un statut « SLEEPING (managed by Offhours-Guard) ». En dehors de cette fenêtre, il relaie fidèlement le vrai statut de l'application. Le monitoring reste honnête, sans jamais confondre une extinction planifiée avec un incident."
       }
     }
   }

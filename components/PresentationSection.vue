@@ -3,7 +3,7 @@
         <div class="overview">
             <!-- Left img -->
             <template v-if="dir === 'left'">
-                <img class="overview-image" :src="imageSrc" :alt="imageAlt" />
+                <img class="overview-image" :class="{ 'is-diagram': imageFit === 'contain' }" :src="imageSrc" :alt="imageAlt" />
                 <div class="section-ti-sep">
                     <p class="title-mini text-less">{{ overview }}</p>
                     <p class="title presentation-title">{{ title }}</p>
@@ -18,7 +18,7 @@
                     <p class="title presentation-title">{{ title }}</p>
                     <slot name="description"></slot>
                 </div>
-                <img class="overview-image" :src="imageSrc" :alt="imageAlt" />
+                <img class="overview-image" :class="{ 'is-diagram': imageFit === 'contain' }" :src="imageSrc" :alt="imageAlt" />
             </template>
         </div>
     </div>
@@ -47,6 +47,13 @@ defineProps({
     default: 'left',
     validator: value => ['left', 'right'].includes(value),
   },
+  /** 'cover' crops to fill (photos); 'contain' shows the whole image on a card backdrop —
+      diagrams carry text and arrows to the edge, so cropping them loses information. */
+  imageFit: {
+    type: String,
+    default: 'cover',
+    validator: value => ['cover', 'contain'].includes(value),
+  },
 });
 
 </script>
@@ -72,6 +79,14 @@ defineProps({
     aspect-ratio: 16/9;
     object-fit: cover;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.overview-image.is-diagram {
+    object-fit: contain;
+    background: #1e1e1e;
+    border-radius: 6px;
+    padding: 0.75rem;
+    box-sizing: border-box;
 }
 
 .section-ti-sep {

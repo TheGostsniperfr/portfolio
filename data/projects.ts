@@ -68,4 +68,22 @@ export const projects: Project[] = [
     tags: [ 'Nuxt', 'Vue', 'TypeScript' ],
     accent: '#38bdf8',
   },
+  {
+    slug: 'CNP',
+    titleKey: 'projects.cnp.title',
+    fallbackTitle: 'Cloud Native Platform',
+    cover: '/images/CNP/homelab.png',
+    year: 2026,
+    tags: [ 'Kubernetes', 'GitOps', 'Platform Engineering' ],
+    accent: '#25cee9',
+  },
+  {
+    slug: 'OffhoursGuard',
+    titleKey: 'projects.offhoursguard.title',
+    fallbackTitle: 'Offhours-Guard',
+    cover: '/images/lang/kubernetes_logo.png',
+    year: 2026,
+    tags: [ 'Go', 'Kubernetes Operator', 'FinOps' ],
+    accent: '#facc15',
+  },
 ]
