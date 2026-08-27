@@ -1,10 +1,10 @@
 <template>
-    <div class="ud-content">
+    <article class="ud-content">
         <BackBtn />
         <div class="presentation" :style="{ '--hero': 'url(/images/TC/logo_back.png)' }">
             <div class="content">
                 <p class="title-midle text-less">{{ $t("tc.header.overlay") }}</p>
-                <p class="title presentation-title">{{ $t("tc.header.title") }}</p>
+                <h1 class="title presentation-title">{{ $t("tc.header.title") }}</h1>
                 <p class="title-mini description text-less">
                     {{ $t("tc.header.description.body.1") }}
                 </p>
@@ -40,7 +40,7 @@
 
             </template>
         </PresentationSection>
-    </div>
+    </article>
 </template>
 
 <script setup>
@@ -56,8 +56,26 @@ const { t } = useI18n();
 useHead({
     title: () => t('projects.tc.title'),
     meta: [
-        { name: 'description', content: () => t('tc.head.content') }
-    ]
+        { name: 'description', content: () => t('tc.head.content') },
+        { property: 'og:title', content: () => t('projects.tc.title') },
+        { property: 'og:description', content: () => t('tc.head.content') },
+        { property: 'og:image', content: '/images/TC/logo_back.png' },
+    ],
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: () => JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'CreativeWork',
+                name: t('projects.tc.title'),
+                description: t('tc.head.content'),
+                url: 'https://about.arffornia.com/Projects/Toolchain',
+                dateCreated: '2024',
+                keywords: [ 'Docker', 'GitLab CI', 'DevOps' ],
+                author: { '@type': 'Person', name: 'Brian Perret' },
+            }),
+        },
+    ],
 });
 
 onMounted(() => {

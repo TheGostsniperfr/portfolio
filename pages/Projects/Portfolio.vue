@@ -1,10 +1,10 @@
 <template>
-    <div class="ud-content">
+    <article class="ud-content">
         <BackBtn />
         <div class="presentation" :style="{ '--hero': 'url(/images/other/portfolio_home.png)' }">
             <div class="content">
                 <p class="title-midle text-less">{{ $t("portfolio.header.overlay") }}</p>
-                <p class="title presentation-title">{{ $t("portfolio.header.title") }}</p>
+                <h1 class="title presentation-title">{{ $t("portfolio.header.title") }}</h1>
                 <p class="title-mini description text-less">
                     {{ $t("portfolio.header.description") }}
                 </p>
@@ -16,7 +16,7 @@
         </div>
 
         <TechnoSection :blocks="technoBlocks" />
-    </div>
+    </article>
 </template>
 
 <script setup>
@@ -30,8 +30,27 @@ const { t } = useI18n();
 useHead({
     title: () => t('projects.portfolio.title'),
     meta: [
-        { name: 'description', content: () => t('portfolio.head.content') }
-    ]
+        { name: 'description', content: () => t('portfolio.head.content') },
+        { property: 'og:title', content: () => t('projects.portfolio.title') },
+        { property: 'og:description', content: () => t('portfolio.head.content') },
+        { property: 'og:image', content: '/images/other/portfolio_home.png' },
+    ],
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: () => JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'CreativeWork',
+                name: t('projects.portfolio.title'),
+                description: t('portfolio.head.content'),
+                url: 'https://about.arffornia.com/Projects/Portfolio',
+                codeRepository: 'https://github.com/TheGostsniperfr/portfolio',
+                dateCreated: '2025',
+                keywords: [ 'Nuxt', 'Vue', 'TypeScript' ],
+                author: { '@type': 'Person', name: 'Brian Perret' },
+            }),
+        },
+    ],
 });
 
 onMounted(() => {

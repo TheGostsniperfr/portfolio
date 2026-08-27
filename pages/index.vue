@@ -2,6 +2,15 @@
 <template>
   <div class="index-content">
     <LoadingBar :progress="progress" />
+    <!-- The redirect to /Projects only happens in onMounted (client-only), so a crawler that
+         doesn't run JS needs a real link to find the rest of the site. -->
+    <noscript>
+      <p>
+        <a href="/About">About Brian Perret</a>
+        &mdash;
+        <a href="/Projects">Projects</a>
+      </p>
+    </noscript>
   </div>
 </template>
 
@@ -10,13 +19,19 @@ import { onMounted } from 'vue';
 import LoadingBar from '~/components/LoadingBar.vue';
 import { useImagePreloader, type PreloadTarget } from '~/composables/useImagePreloader';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import { projects } from '~/data/projects';
 import manifest from '~/data/image-manifest.json';
+
+const { t } = useI18n();
 
 useHead({
   title: 'Brian Perret',
   meta: [
-    { name: 'description', content: 'Loading Brian\'s Portfolio' }
+    { name: 'description', content: () => t('about.head.content') },
+    { property: 'og:title', content: 'Brian Perret' },
+    { property: 'og:description', content: () => t('about.head.content') },
+    { property: 'og:image', content: '/images/other/me.png' },
   ]
 });
 

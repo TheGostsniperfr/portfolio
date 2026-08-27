@@ -36,7 +36,7 @@ jobs:
         run: npm run images
 
       - name: Build static site
-        run: npx nuxt build --preset github_pages
+        run: npx nuxt generate
 
       # public/CNAME est copié verbatim dans .output/public par Nuxt. Sans lui, cette action
       # remplace tout le contenu de la branche website, le fichier CNAME disparaît et GitHub

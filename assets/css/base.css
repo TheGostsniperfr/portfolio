@@ -21,6 +21,20 @@ iframe {
   max-width: 100%;
 }
 
+/* For headings needed by screen readers / crawlers on pages where the visual design has
+   no room for a visible title (e.g. the carousel-only Projects page). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- Fluid type scale ---------- */
 
 .title {

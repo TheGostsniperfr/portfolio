@@ -1,0 +1,21 @@
+# Brian Perret
+
+> Software Engineer / DevOps & Infrastructure. Portfolio site (Nuxt + Vue) presenting professional experience, skills, and personal/school projects. Available in French and English.
+
+## Profile
+
+- About / bio / work experience: https://about.arffornia.com/About
+- LinkedIn: https://www.linkedin.com/in/brian-perret
+- GitHub: https://github.com/TheGostsniperfr
+- Email: brianperret.pro@gmail.com
+- CV (PDF, FR/EN): https://about.arffornia.com/documents/cv_Brian_Perret_2025_fr_en.pdf
+
+## Projects
+
+- Projects overview: https://about.arffornia.com/Projects
+- Arffornia Project (Kubernetes, Laravel, Electron): https://about.arffornia.com/Projects/ArfforniaProject
+- OCR Sudoku-Forgers (C, Neural Network, Computer Vision): https://about.arffornia.com/Projects/OCRSudoku-Forgers
+- Upside Down (Unity, C#, Game Design): https://about.arffornia.com/Projects/UpsideDown
+- Toolchain (Docker, GitLab CI, DevOps): https://about.arffornia.com/Projects/Toolchain
+- ACDC (Teaching, Design, Community): https://about.arffornia.com/Projects/ACDC
+- This Portfolio (Nuxt, Vue, TypeScript): https://about.arffornia.com/Projects/Portfolio

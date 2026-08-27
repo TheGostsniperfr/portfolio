@@ -1,10 +1,10 @@
 <template>
-    <div class="ud-content">
+    <article class="ud-content">
         <BackBtn />
         <div class="presentation" :style="{ '--hero': 'url(/images/Arffornia/lobby_arfforniaV4.png)' }">
             <div class="content">
                 <p class="title-midle text-less">{{ $t("arffornia.header.overlay") }}</p>
-                <p class="title presentation-title">{{ $t("arffornia.header.title") }}</p>
+                <h1 class="title presentation-title">{{ $t("arffornia.header.title") }}</h1>
                 <p class="title-mini description text-less">
                     {{ $t("arffornia.header.description.body.1") }}
                     <br />
@@ -112,7 +112,7 @@
         </PresentationSection>
 
         <TechnoSection :blocks="technoBlocksInfra" :title="$t('arffornia.devopsTech.title')" />
-    </div>
+    </article>
 </template>
 
 <script setup>
@@ -127,8 +127,27 @@ const { t } = useI18n();
 useHead({
     title: () => t('projects.arffornia.title'),
     meta: [
-        { name: 'description', content: () => t('arffornia.head.content') }
-    ]
+        { name: 'description', content: () => t('arffornia.head.content') },
+        { property: 'og:title', content: () => t('projects.arffornia.title') },
+        { property: 'og:description', content: () => t('arffornia.head.content') },
+        { property: 'og:image', content: '/images/Arffornia/launcher_homepage.png' },
+    ],
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: () => JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'CreativeWork',
+                name: t('projects.arffornia.title'),
+                description: t('arffornia.head.content'),
+                url: 'https://about.arffornia.com/Projects/ArfforniaProject',
+                codeRepository: 'https://github.com/Arffornia',
+                dateCreated: '2024',
+                keywords: [ 'Kubernetes', 'Laravel', 'Electron' ],
+                author: { '@type': 'Person', name: 'Brian Perret' },
+            }),
+        },
+    ],
 });
 
 onMounted(() => {

@@ -3,7 +3,7 @@
     <div class="presentation" :style="{ '--hero': 'url(/images/other/me.png)' }">
       <div class="content">
         <p class="title-midle text-less">{{ $t("about.header.hello") }}</p>
-        <p class="title presentation-title">Brian Perret</p>
+        <h1 class="title presentation-title">Brian Perret</h1>
         <p class="title-mini description text-less">
           <i18n-t keypath="about.header.presentation.1">
             <template #school>
@@ -93,8 +93,28 @@ const { t } = useI18n();
 useHead({
   title: 'Brian Perret',
   meta: [
-    { name: 'description', content: t('about.head.content') }
-  ]
+    { name: 'description', content: t('about.head.content') },
+    { property: 'og:title', content: 'Brian Perret' },
+    { property: 'og:description', content: t('about.head.content') },
+    { property: 'og:image', content: '/images/other/me.png' },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Brian Perret',
+        jobTitle: 'Software Engineer / DevOps',
+        email: 'mailto:brianperret.pro@gmail.com',
+        url: 'https://about.arffornia.com/About',
+        sameAs: [
+          'https://www.linkedin.com/in/brian-perret',
+          'https://github.com/TheGostsniperfr',
+        ],
+      }),
+    },
+  ],
 });
 
 onMounted(() => {

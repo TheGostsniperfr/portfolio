@@ -1,10 +1,10 @@
 <template>
-  <div class="ud-content">
+  <article class="ud-content">
     <BackBtn />
     <div class="presentation" :style="{ '--hero': 'url(/images/UpsideDown/UpsideDownBG.png)' }">
       <div class="content">
         <img class="ud-logo" src="/images/UpsideDown/Logo_S2game.png" alt="">
-        <p class="title presentation-title">{{ $t("ud.header.overlay") }}</p>
+        <h1 class="title presentation-title">{{ $t("ud.header.overlay") }}</h1>
         <p class="title-mini description text-less">
 
           {{ $t("ud.header.description.body.1") }}
@@ -68,7 +68,7 @@
 
       </template>
     </PresentationSection>
-  </div>
+  </article>
 </template>
 
 <script setup>
@@ -84,8 +84,27 @@ const { t } = useI18n();
 useHead({
   title: () => t('projects.ud.title'),
   meta: [
-    { name: 'description', content: () => t('ud.head.content') }
-  ]
+    { name: 'description', content: () => t('ud.head.content') },
+    { property: 'og:title', content: () => t('projects.ud.title') },
+    { property: 'og:description', content: () => t('ud.head.content') },
+    { property: 'og:image', content: '/images/UpsideDown/UpsideDownBG.png' },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: () => JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: t('projects.ud.title'),
+        description: t('ud.head.content'),
+        url: 'https://about.arffornia.com/Projects/UpsideDown',
+        codeRepository: 'https://github.com/TheGostsniperfr/UpsideDown',
+        dateCreated: '2023',
+        keywords: [ 'Unity', 'C#', 'Game Design' ],
+        author: { '@type': 'Person', name: 'Brian Perret' },
+      }),
+    },
+  ],
 });
 
 onMounted(() => {
