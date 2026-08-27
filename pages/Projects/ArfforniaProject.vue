@@ -112,6 +112,23 @@
         </PresentationSection>
 
         <TechnoSection :blocks="technoBlocksInfra" :title="$t('arffornia.devopsTech.title')" />
+
+        <PresentationSection imageSrc="/images/Arffornia/theodo_speech.jpg" imageAlt="Présentation d'Arffornia et du HomeLab chez Theodo Cloud"
+            :overview="$t('arffornia.theodo.overlay')" :title="$t('arffornia.theodo.title')" dir="right">
+
+            <template #description>
+                <p class="title-mini description text-less">
+                    {{ $t('arffornia.theodo.description.1') }}
+                    <br /><br />
+                    {{ $t('arffornia.theodo.description.2') }}
+                </p>
+
+                <a href="https://www.linkedin.com/posts/stanislas-bernard-3b14b586_meetup-homelab-on-remet-le-couvert-le-29-activity-7417869563125469184-tNd_"
+                    target="_blank" rel="noopener noreferrer">
+                    <button class="redirectBtn">LinkedIn</button>
+                </a>
+            </template>
+        </PresentationSection>
     </article>
 </template>
 

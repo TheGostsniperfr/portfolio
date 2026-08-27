@@ -202,6 +202,14 @@
     },
     "devopsTech": {
       "title": "Technologies DevOps"
+    },
+    "theodo": {
+      "title": "Présenté devant 50 à 60 ingénieurs cloud, chez Theodo",
+      "description": {
+        "1": "J'ai eu l'occasion de présenter Arffornia et le HomeLab qui l'héberge lors de la première édition de la Homelab Night, un meetup organisé chez Theodo Cloud — une cinquantaine à soixante personnes spécialisées en cloud et infrastructure dans la salle.",
+        "2": "Très bon accueil, retours solides sur l'architecture. C'est aussi l'occasion de mesurer concrètement le niveau d'exigence attendu pour tenir la route devant une salle d'ingénieurs cloud confirmés — et de voir que le projet et son infra tiennent la comparaison."
+      },
+      "overlay": "Reconnaissance externe"
     }
   },
   "ocr": {

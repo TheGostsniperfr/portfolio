@@ -98,6 +98,17 @@
     ],
     "base": "/images/Arffornia/map/v.4 (2)"
   },
+  "/images/Arffornia/theodo_speech.jpg": {
+    "width": 2040,
+    "height": 1536,
+    "widths": [
+      640,
+      1280,
+      1920,
+      1920
+    ],
+    "base": "/images/Arffornia/theodo_speech"
+  },
   "/images/Arffornia/website_homepage.png": {
     "width": 1148,
     "height": 920,
