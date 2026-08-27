@@ -81,12 +81,25 @@ function toggleViewAll() {
     color: #c2c2c2d3;
 }
 
-/* minmax(30%) forced three columns forever; a px floor lets it drop to one on a phone. */
+/* Fixed 3 columns from 1024px up, stepping down to 2 then 1 on smaller screens, so the default
+   (unexpanded) view is always one full row of 3 on desktop. */
 .content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+    grid-template-columns: 1fr;
     gap: clamp(16px, 2.5vw, 40px);
     margin: 20px var(--page-gutter);
+}
+
+@media (min-width: 640px) {
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .content {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .block {
@@ -102,18 +115,25 @@ function toggleViewAll() {
     transform: scale(1.1);
 }
 
+/* height: 100% (not var(--techno-width)) so the image always fills the card's actual height —
+   .block only has a min-height, and a taller text neighbour in the same grid row stretches it. */
 .block-image {
-    height: var(--techno-width);
+    height: 100%;
     width: var(--techno-width);
     object-fit: cover;
-    border-radius: 8px;
     transform: scale(1);
     transition: transform ease 0.5s;
 }
 
+/* flex: 0 0 auto keeps the width fixed; the height comes from .block's default cross-axis
+   stretch, so this container (and the image filling it) always matches the card's real height.
+   border-radius lives here (not on .block-image): overflow:hidden only clips to a rounded shape
+   if the clipping box itself is rounded, otherwise the corner turns square once hover's scale(1.1)
+   pushes the image past the radius. */
 .img-container {
     overflow: hidden;
     flex: 0 0 auto;
+    border-radius: 8px;
 }
 
 /* min-width: 0 lets the text shrink instead of pushing the card past its column. */

@@ -143,10 +143,11 @@ defineExpose({ frame, imageEl, scrim })
   pointer-events: auto;
 }
 
+/* Kept in sync with BackBtn's .back-btn-content — same "Retour" button, same position formula. */
 .overlay-back {
   position: absolute;
   top: max(2.5vh, env(safe-area-inset-top, 0px));
-  left: max(2.5vw, env(safe-area-inset-left, 0px));
+  left: max(1rem, env(safe-area-inset-left, 0px));
 }
 
 .overlay-center {

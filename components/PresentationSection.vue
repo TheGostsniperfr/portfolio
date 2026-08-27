@@ -54,8 +54,9 @@ defineProps({
 
 
 <style scoped>
-/* The columns were 40% + 55% with a 5% gap and 5% padding either side — 110% of the row, so
-   this section overflowed even on a desktop. Flex basis with wrap replaces the fixed widths. */
+/* Original was a 40%/55% split with a 5% gap and 5% padding either side — 110% of the row, so
+   this overflowed even on a desktop. Keeping the image capped at 40% (flex-grow: 0) and letting
+   the text take the rest reproduces the same ratio without the overflow. */
 .overview {
     display: flex;
     flex-wrap: wrap;
@@ -65,8 +66,8 @@ defineProps({
 }
 
 .overview-image {
-    flex: 1 1 20rem;
-    min-width: 0;
+    flex: 0 1 40%;
+    min-width: 18rem;
     max-width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
@@ -74,8 +75,8 @@ defineProps({
 }
 
 .section-ti-sep {
-    flex: 1 1 22rem;
-    min-width: 0;
+    flex: 1 1 0;
+    min-width: 18rem;
     padding-top: 0%;
 }
 

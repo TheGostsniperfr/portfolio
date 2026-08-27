@@ -73,13 +73,26 @@ export default {
     position: relative;
 }
 
-/* Was repeat(3, 1fr) at every width, which squeezed three tiles onto a phone. */
+/* Fixed 3 columns from 1024px up reproduces the original 3x2 layout for a 6-block grid,
+   regardless of monitor width. Below that it steps down to 2, then 1 on a phone. */
 .grids {
     margin: 0%;
     padding: 0%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+    grid-template-columns: 1fr;
     gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+@media (min-width: 640px) {
+    .grids {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grids {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 720px) {

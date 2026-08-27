@@ -109,22 +109,31 @@ iframe {
   transform: scale(1);
 }
 
-/* Reproduces the original desktop framing (max-width 31%, padding-left 10%) while adding a
-   readable floor: the ch cap stops the measure growing past ~44 characters on ultrawide. */
+/* Reproduces the original desktop framing (max-width 31%, padding-left 10%). The 70ch ceiling
+   only bites past ~2260px width, so it guards ultrawide monitors without shrinking normal desktops
+   the way a 44ch cap did. */
 .presentation .content {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: min(44ch, 40%);
+  max-width: min(70ch, 31%);
   padding: clamp(4.5rem, 6vw, 7.5rem) var(--page-gutter) clamp(3rem, 8vw, 7rem)
     clamp(1.25rem, 10vw, 12rem);
 }
 
-/* Was a hard translate(-100px, 30px), which pushed the logo off-screen on a phone. */
+/* Deliberate artistic offset (originally a hard translate(-100px, 30px) against a 200px-tall
+   logo). Expressed in % of the logo's own box so it scales down with max-height instead of
+   pushing the logo off-screen on a phone; gated to tablet+ where the hero has room to spare. */
 .ud-logo {
   max-height: clamp(80px, 18vw, 200px);
   max-width: 100%;
   margin-bottom: 0.5rem;
+}
+
+@media (min-width: 681px) {
+  .ud-logo {
+    transform: translate(-29%, 15%);
+  }
 }
 
 /* ---------- Call to action ---------- */

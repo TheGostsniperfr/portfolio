@@ -62,6 +62,9 @@ export function useProjectCarousel(options: CarouselOptions) {
   let lastMoveTime = 0
   let velocity = 0
   let wheelTimer: ReturnType<typeof setTimeout> | null = null
+  let wheelEventsInGesture = 0
+  let wheelGestureStart = 0
+  let wheelGestureDirection = 0
 
   const maxIndex = computed(() => Math.max(0, count.value - 1))
 
@@ -221,12 +224,37 @@ export function useProjectCarousel(options: CarouselOptions) {
     if (!enabled.value) return
     event.preventDefault()
 
-    setTarget(target + normalizeWheelDelta(event) / step)
+    const delta = normalizeWheelDelta(event)
+
+    // wheelTimer is null once a gesture has settled, so its absence marks the first event of a
+    // new one — remember where it started and which way it's headed.
+    if (wheelTimer === null) {
+      wheelEventsInGesture = 0
+      wheelGestureStart = target
+      wheelGestureDirection = Math.sign(delta)
+    }
+    wheelEventsInGesture += 1
+
+    setTarget(target + delta / step)
 
     if (wheelTimer) clearTimeout(wheelTimer)
     wheelTimer = setTimeout(() => {
+      wheelTimer = null
       velocity = 0
-      snap()
+
+      // A single light notch rarely moves `target` past the 0.5 needed to round on to the next
+      // card, so it used to visibly advance for the settle animation and then snap straight back
+      // to where it started. Only that exact case is overridden — a lone tick that already
+      // reached a different card, and any multi-event scroll, still settle via plain snap().
+      if (
+        wheelEventsInGesture === 1 &&
+        wheelGestureDirection !== 0 &&
+        Math.round(target) === wheelGestureStart
+      ) {
+        setTarget(wheelGestureStart + wheelGestureDirection)
+      } else {
+        snap()
+      }
     }, WHEEL_SETTLE_MS)
   }
 

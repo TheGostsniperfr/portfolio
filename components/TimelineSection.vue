@@ -158,9 +158,11 @@ a.timeline-item {
   width: 25px;
 }
 
+/* Capped at 40% (flex-grow: 0) to reproduce the original 40/45 split instead of growing equally
+   with .section-ti-sep. */
 .timeline {
-  flex: 1 1 20rem;
-  min-width: 0;
+  flex: 0 1 40%;
+  min-width: 18rem;
 }
 
 .timeline-item:hover {
@@ -186,8 +188,8 @@ a.timeline-item {
 }
 
 .section-ti-sep {
-  flex: 1 1 22rem;
-  min-width: 0;
+  flex: 1 1 0;
+  min-width: 18rem;
   padding-top: 0%;
 }
 
