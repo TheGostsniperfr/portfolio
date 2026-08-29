@@ -530,6 +530,14 @@
     ],
     "base": "/images/other/external-link-blue"
   },
+  "/images/other/forge_logo.png": {
+    "width": 349,
+    "height": 314,
+    "widths": [
+      349
+    ],
+    "base": "/images/other/forge_logo"
+  },
   "/images/other/lang/en.png": {
     "width": 128,
     "height": 128,

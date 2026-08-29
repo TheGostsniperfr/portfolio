@@ -150,6 +150,14 @@ onMounted(() => {
 
 const workBlocks = computed(() => ([
   {
+    image: "/images/other/forge_logo.png",
+    alt: "Forge Logo",
+    title: t('about.workingXp.blocks.5.title'),
+    date: t('about.workingXp.blocks.5.date'),
+    description: t('about.workingXp.blocks.5.description'),
+    link: "",
+  },
+  {
     image: "/images/Rakuten/Rakuten_logo.svg",
     alt: "Rakuten Logo",
     title: t('about.workingXp.blocks.4.title'),
