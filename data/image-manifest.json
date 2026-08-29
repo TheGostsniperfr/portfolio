@@ -141,10 +141,10 @@
     "base": "/images/CNP/focus-app"
   },
   "/images/CNP/gatus-icon.png": {
-    "width": 184,
-    "height": 190,
+    "width": 512,
+    "height": 512,
     "widths": [
-      184
+      512
     ],
     "base": "/images/CNP/gatus-icon"
   },
@@ -179,6 +179,17 @@
       1920
     ],
     "base": "/images/CNP/isolation-logique"
+  },
+  "/images/CNP/nuc7-maintenance.jpg": {
+    "width": 4000,
+    "height": 1800,
+    "widths": [
+      640,
+      1280,
+      1920,
+      1920
+    ],
+    "base": "/images/CNP/nuc7-maintenance"
   },
   "/images/CNP/provisioning-day0.png": {
     "width": 4000,
@@ -448,6 +459,15 @@
     ],
     "base": "/images/OCR/trainning"
   },
+  "/images/OffhoursGuard/dashboard.png": {
+    "width": 1237,
+    "height": 945,
+    "widths": [
+      640,
+      1237
+    ],
+    "base": "/images/OffhoursGuard/dashboard"
+  },
   "/images/OffhoursGuard/logo.png": {
     "width": 1254,
     "height": 1254,
@@ -546,16 +566,6 @@
       1920
     ],
     "base": "/images/other/me2"
-  },
-  "/images/other/portfolio_home.png": {
-    "width": 1920,
-    "height": 1000,
-    "widths": [
-      640,
-      1280,
-      1920
-    ],
-    "base": "/images/other/portfolio_home"
   },
   "/images/TC/devops.png": {
     "width": 2560,

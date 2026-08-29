@@ -30,9 +30,6 @@
     "acdc": {
       "title": "ACDC"
     },
-    "portfolio": {
-      "title": "Portfolio"
-    },
     "cnp": {
       "title": "Cloud Native Platform"
     },
@@ -422,32 +419,6 @@
         "1": "- Ce travail m'a permis d'acquérir des connaissances solides sur divers outils, tels que Docker et GitLab CI/CD, que j'utilise quotidiennement sur des projets de production à grande échelle.",
         "2": "- J'ai également appris à collaborer efficacement au sein de grandes équipes, à gérer les défis posés par les membres individuels et à maintenir une communication claire pour résoudre les problèmes inattendus.",
         "3": "- Enfin, cela m'a appris à gérer les urgences, comme pendant les examens ou les périodes particulièrement chargées avec des cours et des projets qui se chevauchent."
-      }
-    }
-  },
-  "portfolio": {
-    "head": {
-      "content": "Aperçu du projet Portfolio"
-    },
-    "header": {
-      "overlay": "Portfolio - 2025",
-      "title": "La vue d'ensemble",
-      "description": "Pour montrer mon travail et ma passion, j'ai créé le site portfolio que vous consultez en ce moment. J'ai choisi des outils précis pour en faire un projet modulaire et rapide à développer."
-    },
-    "tech": {
-      "blocks": {
-        "1": {
-          "title": "NuxtJS",
-          "description": "Nuxt est idéal pour un site simple comme ce portfolio : il offre un large éventail de fonctionnalités pour un développement rapide et efficace."
-        },
-        "2": {
-          "title": "VueJS",
-          "description": "Un framework front-end que j'apprécie beaucoup pour sa rapidité de développement et ses fonctionnalités."
-        },
-        "3": {
-          "title": "GitHub Pages & CI/CD",
-          "description": "Déploiements automatisés du site via GitHub Pages et GitHub Actions."
-        }
       }
     }
   },

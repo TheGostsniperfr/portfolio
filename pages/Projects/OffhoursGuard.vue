@@ -19,8 +19,8 @@
 
         <TechnoSection :blocks="technoBlocks" />
 
-        <PresentationSection imageSrc="/images/OffhoursGuard/logo.png" imageAlt="Opérateur Kubernetes Offhours-Guard"
-            :overview="$t('offhoursguard.how.overview')" :title="$t('offhoursguard.how.title')" dir="left">
+        <PresentationSection imageSrc="/images/OffhoursGuard/dashboard.png" imageAlt="Tableau de bord web d'Offhours-Guard"
+            :overview="$t('offhoursguard.how.overview')" :title="$t('offhoursguard.how.title')" dir="left" imageFit="contain">
             <template #description>
                 <p class="title-mini description text-less">
                     {{ $t('offhoursguard.how.description.1') }}

@@ -125,7 +125,7 @@
             </template>
         </PresentationSection>
 
-        <PresentationSection imageSrc="/images/CNP/homelab.png" imageAlt="Le HomeLab où sont survenus les incidents"
+        <PresentationSection imageSrc="/images/CNP/nuc7-maintenance.jpg" imageAlt="Maintenance sur le NUC7 du HomeLab, après un des incidents"
             :overview="$t('cnp.results.overview')" :title="$t('cnp.results.title')" dir="right">
             <template #description>
                 <p class="title-mini description text-less">

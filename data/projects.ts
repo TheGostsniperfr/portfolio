@@ -60,15 +60,6 @@ export const projects: Project[] = [
     accent: '#f472b6',
   },
   {
-    slug: 'Portfolio',
-    titleKey: 'projects.portfolio.title',
-    fallbackTitle: 'Portfolio',
-    cover: '/images/other/portfolio_home.png',
-    year: 2025,
-    tags: [ 'Nuxt', 'Vue', 'TypeScript' ],
-    accent: '#38bdf8',
-  },
-  {
     slug: 'CNP',
     titleKey: 'projects.cnp.title',
     fallbackTitle: 'Cloud Native Platform',
