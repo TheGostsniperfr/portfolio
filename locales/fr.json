@@ -85,6 +85,15 @@
         }
       }
     },
+    "teaching": {
+      "overlay": "Transmission",
+      "title": "Enseigner, une façon de transmettre.",
+      "description": {
+        "1": "Partager mes connaissances, c'est quelque chose que j'apprécie vraiment. Ça a commencé comme assistant prof sur le projet ACDC, à accompagner les étudiants de première année sur leurs TP en C#.",
+        "2": "Les années suivantes, j'ai continué à donner des cours et des sessions de formation sur des projets cloud et Kubernetes, avec des retours toujours très positifs des personnes présentes. Enseigner m'a appris à transmettre la bonne information de la bonne manière, pour qu'elle soit réellement percutante pour celui qui l'écoute : une compétence que je considère essentielle en entreprise, pour communiquer clairement avec ses collègues comme avec des personnes qui ne sont pas ingénieurs."
+      },
+      "link": "Voir le projet ACDC →"
+    },
     "projects": {
       "title": "Projets & Travaux qui me représentent.",
       "blocks": {

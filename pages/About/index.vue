@@ -71,6 +71,19 @@
       </template>
     </TimelineSection>
 
+    <PresentationSection imageSrc="/images/other/teaching-cloud-archi.jpg" imageAlt="Cours d'architecture cloud sur tableau blanc"
+      :overview="$t('about.teaching.overlay')" :title="$t('about.teaching.title')" dir="right">
+
+      <template #description>
+        <p class="title-mini description text-less">
+          {{ $t("about.teaching.description.1") }}
+          <br /><br />
+          {{ $t("about.teaching.description.2") }}
+        </p>
+        <ProjectLinkBtn to="/Projects/ACDC" :title="$t('about.teaching.link')" />
+      </template>
+    </PresentationSection>
+
     <GridSection :title="$t('about.projects.title')" description="" :blocks="MapGridBlocks" />
 
     <IconSection :blocks="languageBlocks" :title="$t('about.language.title')"
@@ -87,6 +100,7 @@ import PresentationSection from '~/components/PresentationSection.vue';
 import GridSection from '~/components/GridSection.vue';
 import IconSection from '~/components/IconSection.vue';
 import TimelineSection from '~/components/TimelineSection.vue';
+import ProjectLinkBtn from '~/components/ProjectLinkBtn.vue';
 
 const { t } = useI18n(); 
 

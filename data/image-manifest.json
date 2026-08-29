@@ -567,6 +567,17 @@
     ],
     "base": "/images/other/me2"
   },
+  "/images/other/teaching-cloud-archi.jpg": {
+    "width": 2880,
+    "height": 2160,
+    "widths": [
+      640,
+      1280,
+      1920,
+      1920
+    ],
+    "base": "/images/other/teaching-cloud-archi"
+  },
   "/images/TC/devops.png": {
     "width": 2560,
     "height": 1536,

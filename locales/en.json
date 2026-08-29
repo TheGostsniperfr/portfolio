@@ -85,6 +85,15 @@
         }
       }
     },
+    "teaching": {
+      "overlay": "Knowledge Sharing",
+      "title": "Teaching, a way to give back.",
+      "description": {
+        "1": "Sharing knowledge is something I genuinely enjoy. It started as a teaching assistant on the ACDC project, helping first-year students through their C# practicals.",
+        "2": "In the years since, I've kept giving talks and training sessions on cloud and Kubernetes projects, and got consistently great feedback from the people attending. Teaching is what taught me how to convey the right information the right way, so it actually lands for whoever is listening: a skill I consider essential at work, communicating clearly with teammates and with people who aren't engineers at all."
+      },
+      "link": "See the ACDC project →"
+    },
     "projects": {
       "title": "Projects & Works That Represents Me.",
       "blocks": {
