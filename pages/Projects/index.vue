@@ -13,7 +13,7 @@ useHead({
   title: 'Projects',
   meta: [
     { name: 'description', content: t('projects.head.content') },
-    { property: 'og:title', content: 'Brian Perret — Projects' },
+    { property: 'og:title', content: 'Brian Perret - Projects' },
     { property: 'og:description', content: t('projects.head.content') },
   ],
 })

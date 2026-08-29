@@ -115,7 +115,7 @@
             </template>
         </PresentationSection>
 
-        <PresentationSection imageSrc="/images/lang/kubernetes_logo.png" imageAlt="Offhours-Guard"
+        <PresentationSection imageSrc="/images/OffhoursGuard/logo.png" imageAlt="Offhours-Guard"
             :overview="$t('cnp.offhoursguard.overview')" :title="$t('cnp.offhoursguard.title')" dir="left">
             <template #description>
                 <p class="title-mini description text-less">

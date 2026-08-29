@@ -68,22 +68,22 @@
       "blocks": {
         "1": {
           "title": "Toolchain",
-          "date": "2024 — 2025",
+          "date": "2024-2025",
           "description": "Work as DevOps at Epita."
         },
         "2": {
           "title": "ACDC",
-          "date": "2024 — 2025",
+          "date": "2024-2025",
           "description": "Work as IT teacher for 1 year student at Epita."
         },
         "3": {
-          "title": "Cameraman — Video Editor",
+          "title": "Cameraman / Video Editor",
           "date": "2023",
           "description": "Making Docomentary, Afterworks, Ads."
         },
         "4": {
           "title": "DevOps Intern",
-          "date": "2025 — 2026",
+          "date": "2025-2026",
           "description": "Crafting K8s & Network Automation Tool at Rakuten."
         }
       }
@@ -116,18 +116,18 @@
       "content": "Arffornia Project Overview"
     },
     "header": {
-      "overlay": "Arffornia — 2016-Today",
+      "overlay": "Arffornia - 2016-Today",
       "title": "A Decade of Learning and Innovation.",
       "description": {
         "body": {
-          "1": "— Arffornia is more than a Minecraft server.",
+          "1": "- Arffornia is more than a Minecraft server.",
           "2": "It's a whole ecosystem combining a {Laravel} website with {MySQL}, an {Electron} game launcher, interconnected server instances with a Velocity proxy, and a scalable {Kubernetes} (k8s) infrastructure for high availability. Built on {Proxmox}-managed virtualization.",
           "laravel": "Laravel",
           "mysql": "MySQL",
           "electron": "Electron",
           "Kubernetes": "Kubernetes",
           "Proxmox": "Proxmox",
-          "3": "— This 10+ year project has been my playground for learning, innovation, and technical refinement.",
+          "3": "- This 10+ year project has been my playground for learning, innovation, and technical refinement.",
           "4": "And much more."
         }
       }
@@ -175,7 +175,7 @@
       "overlay": "Laravel Website",
       "title": "Arffornia Website",
       "description": {
-        "1": "To ensure direct visibility on the internet and to centralize my services—such as Account Management, Downloads, API, and more—I developed a website using Laravel. In 2023, I migrated to Laravel to enhance security, expand functionality, and stay up to date with modern web technologies."
+        "1": "To ensure direct visibility on the internet and to centralize my services, such as Account Management, Downloads, API, and more, I developed a website using Laravel. In 2023, I migrated to Laravel to enhance security, expand functionality, and stay up to date with modern web technologies."
       }
     },
     "websiteTech": {
@@ -206,8 +206,8 @@
     "theodo": {
       "title": "Presented to 50-60 cloud engineers, at Theodo",
       "description": {
-        "1": "I got to present Arffornia and the HomeLab it runs on at the first edition of Homelab Night, a meetup hosted at Theodo Cloud — somewhere between 50 and 60 cloud and infrastructure specialists in the room.",
-        "2": "Great reception, solid feedback on the architecture. It's also a good way to measure the bar you actually need to clear to hold your own in front of a room of seasoned cloud engineers — and to see that the project and its infra held up."
+        "1": "I got to present Arffornia and the HomeLab it runs on at the first edition of Homelab Night, a meetup hosted at Theodo Cloud, with somewhere between 50 and 60 cloud and infrastructure specialists in the room.",
+        "2": "Great reception, solid feedback on the architecture. It's also a good way to measure the bar you actually need to clear to hold your own in front of a room of seasoned cloud engineers, and to see that the project and its infra held up."
       },
       "overlay": "External recognition"
     }
@@ -317,7 +317,7 @@
     },
     "maps": {
       "title": "15 Hours of Unforgettable Gameplay.",
-      "description": "Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes. Stay alert — the test environments can be unforgiving, and mistakes can be costly.",
+      "description": "Step into six unique test chambers designed to push the limits of your skills with the GraviSphere under real-world conditions. Each chamber is carefully crafted to challenge different aspects of gravity manipulation, from precision control to rapid reflexes. Stay alert: the test environments can be unforgiving, and mistakes can be costly.",
       "map": {
         "1": {
           "title": "Room 1:",
@@ -346,7 +346,7 @@
       }
     },
     "inside": {
-      "overview": "Inside Overview — 2022-2023",
+      "overview": "Inside Overview - 2022-2023",
       "title": "5 Months to Build a Game.",
       "description": {
         "1": "The game project was the first major project of my first year at my IT School.",
@@ -367,7 +367,7 @@
       "content": "Toolchain Project Overview"
     },
     "header": {
-      "overlay": "Toolchain — 2024-2025",
+      "overlay": "Toolchain - 2024-2025",
       "title": "A Year of Challenges and Achievements",
       "description": {
         "body": {
@@ -411,17 +411,17 @@
       "overlay": "Overview",
       "title": "Development & Maintenance.",
       "description": {
-        "1": "— I was responsible for developing and maintaining the auto-correction tools that had been created over the past year, as well as implementing new features for subject designers.",
-        "2": "— Another key part of my role was ensuring that practical exercises functioned correctly during both production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet blackout on all campuses during an exam.."
+        "1": "- I was responsible for developing and maintaining the auto-correction tools that had been created over the past year, as well as implementing new features for subject designers.",
+        "2": "- Another key part of my role was ensuring that practical exercises functioned correctly during both production and exams. For instance, I had to prepare for scenarios such as a simultaneous internet blackout on all campuses during an exam.."
       }
     },
     "feedback": {
       "overlay": "Feedback",
       "title": "A Great and rewarding experience.",
       "description": {
-        "1": "— This work allowed me to gain solid knowledge of various tools, such as Docker and GitLab CI/CD, which I use daily on large-scale production projects.",
-        "2": "— I also learned how to collaborate effectively within large teams, manage the challenges posed by individual members, and maintain clear communication to address unexpected issues.",
-        "3": "— Finally, it taught me how to handle emergencies, such as during exams or particularly busy periods with overlapping courses and projects."
+        "1": "- This work allowed me to gain solid knowledge of various tools, such as Docker and GitLab CI/CD, which I use daily on large-scale production projects.",
+        "2": "- I also learned how to collaborate effectively within large teams, manage the challenges posed by individual members, and maintain clear communication to address unexpected issues.",
+        "3": "- Finally, it taught me how to handle emergencies, such as during exams or particularly busy periods with overlapping courses and projects."
       }
     }
   },
@@ -430,7 +430,7 @@
       "content": "Portfolio Project Overview"
     },
     "header": {
-      "overlay": "Portfolio — 2025",
+      "overlay": "Portfolio - 2025",
       "title": "The Big Overview",
       "description": "To show my work and my passion, I built the portfolio website you are looking at right now. I picked specific tools to make it a modular project that is quick to develop."
     },
@@ -456,7 +456,7 @@
       "content": "ACDC Project Overview"
     },
     "header": {
-      "overlay": "ACDC — 2024-2025",
+      "overlay": "ACDC - 2024-2025",
       "title": {
         "1": "Assistants C",
         "2": "Diese Caml"
@@ -487,17 +487,17 @@
       "overlay": "About my Job",
       "title": "Teaching & Helping.",
       "description": {
-        "1": "— For one year, I had the privilege to teach a class of about fifty students.",
+        "1": "- For one year, I had the privilege to teach a class of about fifty students.",
         "2": "I learned a lot about good teaching methods, in particular how to make a student learn from mistakes and progress.",
-        "3": "— My work was divided into 2, with face-to-face sessions to answer questions and unblock the students on the practicalities of weeks in C#. The other part was to help them remotely during the week when they got stuck or had questions. "
+        "3": "- My work was divided into 2, with face-to-face sessions to answer questions and unblock the students on the practicalities of weeks in C#. The other part was to help them remotely during the week when they got stuck or had questions. "
       }
     },
     "designer": {
       "overlay": "Designer Job Overview",
       "title": "Pratical Designer.",
       "description": {
-        "1": "— Another big part of my job was to create the practical from start to finish that first-year students from all campuses would have to complete. I was able to apply different methods to help them learn new concepts in the best possible way.",
-        "2": "— A subject is calibrated over 12 hours, so that a lamdba student can finish it. The design period takes place in 3 stages, the design, the review by other members of the ACDC team and then the production week during which the students complete the subject. "
+        "1": "- Another big part of my job was to create the practical from start to finish that first-year students from all campuses would have to complete. I was able to apply different methods to help them learn new concepts in the best possible way.",
+        "2": "- A subject is calibrated over 12 hours, so that a lamdba student can finish it. The design period takes place in 3 stages, the design, the review by other members of the ACDC team and then the production week during which the students complete the subject. "
       }
     }
   },
@@ -506,11 +506,11 @@
       "content": "Self-hosted internal developer platform: self-service provisioning, GitOps, strict multi-tenancy, running on a private Kubernetes cluster (OpenStack HomeLab)."
     },
     "header": {
-      "overlay": "Cloud Native Platform — 2026",
+      "overlay": "Cloud Native Platform - 2026",
       "title": "Making the cloud invisible to developers.",
       "description": {
-        "1": "CNP is an internal developer platform (IDP) I designed and built as tech lead, with a 6-person team over 5 months (February-July 2026, EPITA SIGL). I carried almost all of the infrastructure — the 4 functional planes, the Kubernetes cluster and its GitOps setup, and the private OpenStack HomeLab — while the rest of the team worked on the CMP dashboard and a few non-critical pieces.",
-        "2": "The concrete result: a developer, junior or expert, deploys a complete application — Git repo, CI/CD, database, secrets, SSO, DNS — in 3 minutes on their own, without ever getting direct access to the cluster."
+        "1": "CNP is an internal developer platform (IDP) I designed and built as tech lead, with a 6-person team over 5 months (February-July 2026, EPITA SIGL). I carried almost all of the infrastructure: the 4 functional planes, the Kubernetes cluster and its GitOps setup, and the private OpenStack HomeLab.",
+        "2": "The concrete result: a developer, junior or expert, deploys a complete application (Git repo, CI/CD, database, secrets, SSO, DNS) in 3 minutes on their own, without ever getting direct access to the cluster."
       }
     },
     "context": {
@@ -518,11 +518,11 @@
       "title": "Why build a cloud native platform?",
       "description": {
         "1": "4 realities drove our architecture decisions:",
-        "2": "— Productivity & Time-to-Market: self-service deployment in 3 minutes instead of several days, with fast onboarding (under an hour, AI-assisted).",
-        "3": "— Risk mitigation: security applied by default on every project, with strict RBAC (owner / admin / guest).",
-        "4": "— Cost control (FinOps): every team sees what their app actually costs and can set a budget.",
-        "5": "— Governance & auditability: every deployment action is traced (who, what, when) for easy audits, without slowing teams down.",
-        "6": "Give developers autonomy, the company security, and finance teams cost control — all in one platform."
+        "2": "- Productivity & Time-to-Market: self-service deployment in 3 minutes instead of several days, with fast onboarding (under an hour, AI-assisted).",
+        "3": "- Risk mitigation: security applied by default on every project, with strict RBAC (owner / admin / guest).",
+        "4": "- Cost control (FinOps): every team sees what their app actually costs and can set a budget.",
+        "5": "- Governance & auditability: every deployment action is traced (who, what, when) for easy audits, without slowing teams down.",
+        "6": "Give developers autonomy, the company security, and finance teams cost control, all in one platform."
       }
     },
     "architecture": {
@@ -530,10 +530,10 @@
       "title": "An orchestrator of orchestrators, Git as the source of truth",
       "description": {
         "1": "The CMP never talks directly to the Kubernetes API to deploy an app. It orchestrates 4 clearly separated functional planes:",
-        "2": "— Control Plane (Next.js + FastAPI): captures the developer's intent and orchestrates tasks through a Saga pattern.",
-        "3": "— Provisioning Plane (Terraform): isolates the context, generates an ephemeral GitHub token, configures Keycloak, Vault and DNS.",
-        "4": "— Delivery Plane (ArgoCD + Helm): continuously syncs the K3s cluster from the app repos.",
-        "5": "— Security & Network Plane (Cilium, Envoy Gateway, Vault): enforces network isolation and authentication on every request.",
+        "2": "- Control Plane (Next.js + FastAPI): captures the developer's intent and orchestrates tasks through a Saga pattern.",
+        "3": "- Provisioning Plane (Terraform): isolates the context, generates an ephemeral GitHub token, configures Keycloak, Vault and DNS.",
+        "4": "- Delivery Plane (ArgoCD + Helm): continuously syncs the K3s cluster from the app repos.",
+        "5": "- Security & Network Plane (Cilium, Envoy Gateway, Vault): enforces network isolation and authentication on every request.",
         "6": "Each plane writes its state to Git, which stays the platform's single source of truth: a single commit is enough for a reproducible deployment, with no cluster access and no infra ticket."
       }
     },
@@ -542,10 +542,10 @@
       "title": "Zero-Trust isolation at the network, identity and secrets layers",
       "description": {
         "1": "4 independent security layers, each with its own boundaries:",
-        "2": "— Network: Cilium in default-deny, only intra-project traffic and the Gateway get through.",
-        "3": "— Edge: Envoy Gateway checks the JWT token's groups before it even routes the request.",
-        "4": "— Identity: Keycloak SSO with mandatory MFA from the very first login.",
-        "5": "— Secrets: Vault policy scoped per project, tied to the namespace's Kubernetes Auth role.",
+        "2": "- Network: Cilium in default-deny, only intra-project traffic and the Gateway get through.",
+        "3": "- Edge: Envoy Gateway checks the JWT token's groups before it even routes the request.",
+        "4": "- Identity: Keycloak SSO with mandatory MFA from the very first login.",
+        "5": "- Secrets: Vault policy scoped per project, tied to the namespace's Kubernetes Auth role.",
         "6": "An attempt from one tenant to reach another is blocked by Cilium at the network layer, before it ever reaches the target application."
       }
     },
@@ -553,7 +553,7 @@
       "overview": "Logical isolation",
       "title": "One Keycloak group, one boundary everywhere",
       "description": {
-        "1": "A project's Keycloak group propagates all the way to the Vault policy, the ArgoCD AppProject and the Grafana organization — a single source of truth for the entire isolation chain.",
+        "1": "A project's Keycloak group propagates all the way to the Vault policy, the ArgoCD AppProject and the Grafana organization: a single source of truth for the entire isolation chain.",
         "2": "100% of changes are auditable and traced: even legitimate access to one project opens no door into another."
       }
     },
@@ -562,17 +562,17 @@
       "title": "A path for every skill level, without ever losing anyone",
       "description": {
         "1": "Every team is an isolated project (Keycloak, Vault, ArgoCD) with clear roles:",
-        "2": "— Project Lead (Owner): creates the project, manages members, tracks their team's deployment costs.",
-        "3": "— Developer (Admin): SSO + MFA, deploys via the catalog or directly through Git, AI assistance through MCP.",
-        "4": "— Guest (Viewer): read-only on the resources they need.",
-        "5": "App templates, identity & SSO, managed database, zero-plaintext secrets, continuous S3 backups and FinOps auto-sleep are all ready from Day-0 — nothing improvised in prod."
+        "2": "- Project Lead (Owner): creates the project, manages members, tracks their team's deployment costs.",
+        "3": "- Developer (Admin): SSO + MFA, deploys via the catalog or directly through Git, AI assistance through MCP.",
+        "4": "- Guest (Viewer): read-only on the resources they need.",
+        "5": "App templates, identity & SSO, managed database, zero-plaintext secrets, continuous S3 backups and FinOps auto-sleep are all ready from Day-0: nothing improvised in prod."
       }
     },
     "homelab": {
       "overview": "Infrastructure",
       "title": "The HomeLab: a real OpenStack cluster, at my place",
       "description": {
-        "1": "CNP's Kubernetes cluster doesn't run on a public cloud: it runs on a private OpenStack cluster I personally host and administer, at home — electricity bill and subscription included, roughly $200/year all-in.",
+        "1": "CNP's Kubernetes cluster doesn't run on a public cloud: it runs on a private OpenStack cluster I personally host and administer, at home, electricity bill and subscription included, roughly $200/year all-in.",
         "2": "OpenStack supports live-migrating a VM from one node to another without interrupting service: that's what let us add RAM or do hardware maintenance without ever taking the platform down.",
         "3": "The Provisioning Plane stays provider-agnostic (Strategy pattern): the same Terraform model can target this self-hosted K3s cluster as easily as legacy AWS or OpenStack VMs. Work in progress for next semester: extend that independence to AWS and GCP, so we stop depending on a single site."
       }
@@ -591,7 +591,7 @@
       "description": {
         "1": "A heatwave caused the cluster to overload: infrastructure down for ≤1h, fixed by adding RAM and cleaning the cooling airflow.",
         "2": "A live OpenStack migration was later carried out with zero downtime.",
-        "3": "Dependency we currently accept: a single site at my place, with Bouygues Telecom and EDF as single points of failure — that's exactly what the multi-cloud effort is meant to fix."
+        "3": "Dependency we currently accept: a single site at my place, with Bouygues Telecom and EDF as single points of failure. That's exactly what the multi-cloud effort is meant to fix."
       },
       "tech": {
         "blocks": {
@@ -613,7 +613,7 @@
           },
           "5": {
             "title": "€0.12",
-            "description": "per node per day internally — about €1/day saved versus an equivalent public cloud setup."
+            "description": "per node per day internally, about €1/day saved versus an equivalent public cloud setup."
           },
           "6": {
             "title": "~$200/yr",
@@ -627,18 +627,18 @@
       "overview": "Technical choices we own",
       "title": "What we could have done differently, and why we didn't",
       "description": {
-        "1": "— Full GitOps instead of a direct Kubernetes controller: slower to write, but full traceability and the ability to rebuild everything from Git alone won out.",
-        "2": "— Project > Application isolation instead of a plain namespace: one namespace per app would have been technically enough, but didn't match how teams are actually organized.",
-        "3": "— Multi-provider strategy (Strategy pattern) instead of a single provider: hardcoding for K3s would have been simpler short-term, but would have blocked migrating a legacy VM without breaking anything for the developer."
+        "1": "- Full GitOps instead of a direct Kubernetes controller: slower to write, but full traceability and the ability to rebuild everything from Git alone won out.",
+        "2": "- Project > Application isolation instead of a plain namespace: one namespace per app would have been technically enough, but didn't match how teams are actually organized.",
+        "3": "- Multi-provider strategy (Strategy pattern) instead of a single provider: hardcoding for K3s would have been simpler short-term, but would have blocked migrating a legacy VM without breaking anything for the developer."
       }
     },
     "outcome": {
       "overview": "Outcome",
       "title": "More than a technical tool: a company standard",
       "description": {
-        "1": "— Speed & autonomy: from several days of waiting to 3 minutes, across the whole lifecycle (Day-0 and Day-2).",
-        "2": "— Security & governance: 100% of changes auditable and traced, inside a standardized Zero-Trust framework.",
-        "3": "— Financial control: up to -70% cost on non-production environments.",
+        "1": "- Speed & autonomy: from several days of waiting to 3 minutes, across the whole lifecycle (Day-0 and Day-2).",
+        "2": "- Security & governance: 100% of changes auditable and traced, inside a standardized Zero-Trust framework.",
+        "3": "- Financial control: up to -70% cost on non-production environments.",
         "4": "We built far more than a technical tool: a real company standard, ready to scale and to integrate tomorrow's innovations (AI/MCP)."
       }
     }
@@ -648,11 +648,11 @@
       "content": "Personal Kubernetes operator that automatically sleeps non-production environments, with real efficiency numbers."
     },
     "header": {
-      "overlay": "Offhours-Guard — Personal tool, 2026",
+      "overlay": "Offhours-Guard - Personal tool, 2026",
       "title": "A Kubernetes operator that only pays for what's used.",
       "description": {
         "1": "After noticing most of the CNP cluster's non-production environments ran 24/7 for nothing, I built Offhours-Guard on my own initiative: a Kubernetes operator written in Go, with its own OffhoursSchedule CRD.",
-        "2": "A confession: this didn't start as a FinOps project. I mostly wanted to stop myself from coding until stupid o'clock — the default window stops non-prod services from 1am to 5am, far too narrow to be a real energy-saving policy, plenty wide enough to force me to close the laptop. The actual cost benefit came later, once I applied it to every non-production environment on the CNP platform."
+        "2": "A confession: this didn't start as a FinOps project. I mostly wanted to stop myself from coding until stupid o'clock. The default window stops non-prod services from 1am to 5am, far too narrow to be a real energy-saving policy, plenty wide enough to force me to close the laptop. The actual cost benefit came later, once I applied it to every non-production environment on the CNP platform."
       }
     },
     "tech": {
@@ -679,8 +679,8 @@
       "overview": "How it works",
       "title": "A reconciler that remembers state, not just a cron job",
       "description": {
-        "1": "The reconciler scales deployments down to 0 replicas at the scheduled time, remembering the original replica count so it restores the exact prior state on wake-up — not just a default \"1 replica\".",
-        "2": "A web dashboard (Tailwind + HTMX) lists every managed app with its state (Active / Asleep), current vs. original replica count and the cron schedule details — with a one-click button to force a wake-up or a manual sleep, auto-refreshing every 15 seconds."
+        "1": "The reconciler scales deployments down to 0 replicas at the scheduled time, remembering the original replica count so it restores the exact prior state on wake-up, not just a default \"1 replica\".",
+        "2": "A web dashboard (Tailwind + HTMX) lists every managed app with its state (Active / Asleep), current vs. original replica count and the cron schedule details, with a one-click button to force a wake-up or a manual sleep, auto-refreshing every 15 seconds."
       }
     },
     "outcome": {

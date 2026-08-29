@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { lang: 'fr' },
       meta: [
-        { property: 'og:site_name', content: 'Brian Perret — Portfolio' },
+        { property: 'og:site_name', content: 'Brian Perret - Portfolio' },
         { property: 'og:type', content: 'website' },
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
