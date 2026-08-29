@@ -77,4 +77,13 @@ export const projects: Project[] = [
     tags: [ 'Go', 'Kubernetes Operator', 'FinOps' ],
     accent: '#facc15',
   },
+  {
+    slug: 'DockAir',
+    titleKey: 'projects.dockair.title',
+    fallbackTitle: 'DockAir',
+    cover: '/images/DockAir/tech-cartography.png',
+    year: 2026,
+    tags: [ 'Kubernetes', 'Platform Engineering', 'SOA' ],
+    accent: '#3b82f6',
+  },
 ]

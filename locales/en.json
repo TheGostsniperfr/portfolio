@@ -35,6 +35,9 @@
     },
     "offhoursguard": {
       "title": "Offhours-Guard"
+    },
+    "dockair": {
+      "title": "DockAir"
     }
   },
   "about": {
@@ -683,6 +686,74 @@
       "description": {
         "1": "A service that's intentionally stopped shouldn't fire an alert as if it had crashed. Offhours-Guard exposes an endpoint that Gatus, CNP's health-check tool, queries instead of the real service.",
         "2": "During the sleep window, that endpoint directly returns 200 OK with a \"SLEEPING (managed by Offhours-Guard)\" status. Outside that window, it faithfully proxies the app's real status. Monitoring stays honest, never mistaking a scheduled shutdown for an incident."
+      }
+    }
+  },
+  "dockair": {
+    "head": {
+      "content": "A year-long EPITA school project: leading the platform team behind an Air France-KLM-style airline information system."
+    },
+    "header": {
+      "overlay": "DockAir - SOCLE Team, 2026-2027",
+      "title": "The invisible foundation of an airline.",
+      "description": {
+        "1": "DockAir is a year-long EPITA school project simulating the information system of an airline in the style of Air France-KLM, with about fifty students split into urbanists, application developers, DevOps, leads and a BI team. I lead the SOCLE team: five of us responsible for the platform everyone else builds on.",
+        "2": "My job isn't to write application code. It's to understand what every other team needs, turn it into a real architecture, then build it and hand it off as a self-service catalog, in close coordination with the DevOps team who plug the application teams into it."
+      }
+    },
+    "context": {
+      "overview": "Mission & Scope",
+      "title": "One platform, from the first commit to production.",
+      "description": {
+        "1": "The brief was intentionally broad: provide the entire execution platform, from the physical layer (VMs, storage, network) to the middlewares (web/app servers, databases), and the two integration services applications are only allowed to talk through, synchronous HTTP APIs and asynchronous pub/sub messaging.",
+        "2": "It also had to include a full time-simulation engine, so five days of airline activity, bookings, flights, check-ins, can play out in fifteen real minutes, plus an external-actor simulator standing in for passengers, airports and the IATA network.",
+        "3": "Structural constraints from the brief: two strictly isolated environments, production reachable by the SOCLE team alone, fully automated deployments, high availability, and a platform able to rebuild itself from nothing after a major incident without losing application data."
+      }
+    },
+    "architecture": {
+      "overview": "Technical Architecture",
+      "title": "Kubernetes on an immutable OS, zero-trust by default.",
+      "description": {
+        "1": "The cluster runs on Talos Linux on top of OpenStack VMs: no shell, no SSH, no package manager, an OS administered purely through an authenticated API. Cilium replaces kube-proxy entirely and enforces default-deny at the network layer, eBPF instead of iptables.",
+        "2": "Envoy Gateway is the platform's only door: every HTTP call, external or inter-application, goes through it, offloading TLS and OIDC authentication so application code never has to. Everything is deployed through ArgoCD in pull mode, and each application gets its own dedicated CloudNativePG Postgres cluster and RabbitMQ vhost, never a shared database.",
+        "3": "Secrets are never touched by hand: a hub-and-spoke Vault setup injects them straight into pods. Production has to survive a total loss, so every WAL is streamed continuously to object storage, letting us rebuild the whole cluster and restore every database to the exact second before the crash."
+      }
+    },
+    "catalog": {
+      "title": "The Service Catalog",
+      "blocks": {
+        "1": {
+          "title": "Runtime & Deployment",
+          "description": "A standardized Helm chart and namespace-per-app-per-environment model, synced by ArgoCD."
+        },
+        "2": {
+          "title": "GitOps Delivery",
+          "description": "Zero write access to the cluster for humans: every change flows through a Merge Request and ArgoCD's pull reconciliation."
+        },
+        "3": {
+          "title": "Source of Truth & CI/CD",
+          "description": "Self-hosted GitLab governs the entire group tree, RBAC and pipeline templates via Terraform."
+        },
+        "4": {
+          "title": "App Packaging",
+          "description": "Hardened, non-root base images maintained by the platform team, scanned on every build and every night."
+        },
+        "5": {
+          "title": "Observability",
+          "description": "Prometheus, Loki and Grafana Alloy, wired so every team can see the health of their own services."
+        },
+        "6": {
+          "title": "SDK & Simulation Engines",
+          "description": "Python and TypeScript SDKs plus the custom clock and actor-simulation microservices, built in-house."
+        }
+      }
+    },
+    "org": {
+      "overview": "Organisation & Roadmap",
+      "title": "Leading five, answering to forty-five.",
+      "description": {
+        "1": "The SOCLE team is Maxence Cosaque, Hugo Guillet, Thibault Briens, Lukas Ling and me. All our work is tracked on a shared Kanban (Linear), and most of it lives in a tight feedback loop with the DevOps team: they're the ones actually building on what we ship, so half the job is making sure the catalog matches what they need, not what we think is elegant.",
+        "2": "First semester closed on schedule end of July 2026: staging environment live, first service catalog shipped, full deployment demoed end-to-end. Second semester (September 2026 - January 2027) is about onboarding the application teams for real, hardening observability and BI hosting, and shipping the custom simulation engines."
       }
     }
   }

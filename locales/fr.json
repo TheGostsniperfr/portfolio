@@ -35,6 +35,9 @@
     },
     "offhoursguard": {
       "title": "Offhours-Guard"
+    },
+    "dockair": {
+      "title": "DockAir"
     }
   },
   "about": {
@@ -683,6 +686,74 @@
       "description": {
         "1": "Un service volontairement arrêté ne doit pas déclencher d'alerte comme s'il était tombé en panne. Offhours-Guard expose un endpoint que Gatus, l'outil de health-check de CNP, interroge à la place du vrai service.",
         "2": "Pendant la fenêtre de sommeil, cet endpoint répond directement 200 OK avec un statut « SLEEPING (managed by Offhours-Guard) ». En dehors de cette fenêtre, il relaie fidèlement le vrai statut de l'application. Le monitoring reste honnête, sans jamais confondre une extinction planifiée avec un incident."
+      }
+    }
+  },
+  "dockair": {
+    "head": {
+      "content": "Un projet EPITA d'un an : diriger l'équipe plateforme d'un système d'information de compagnie aérienne façon Air France-KLM."
+    },
+    "header": {
+      "overlay": "DockAir - Équipe SOCLE, 2026-2027",
+      "title": "Le socle invisible d'une compagnie aérienne.",
+      "description": {
+        "1": "DockAir est un projet d'école EPITA d'un an, qui simule le système d'information d'une compagnie aérienne façon Air France-KLM, avec une cinquantaine d'étudiants répartis en urbanistes, développeurs applicatifs, DevOps, leads et une équipe BI. Je dirige l'équipe SOCLE : cinq personnes responsables de la plateforme sur laquelle tout le monde construit.",
+        "2": "Mon travail, ce n'est pas d'écrire du code applicatif. C'est de comprendre le besoin de chaque autre équipe, de le traduire en une vraie architecture, puis de la construire et de la livrer sous forme de catalogue de services en self-service, en coordination étroite avec l'équipe DevOps qui branche ensuite les équipes applicatives dessus."
+      }
+    },
+    "context": {
+      "overview": "Mission & Périmètre",
+      "title": "Une seule plateforme, du premier commit à la production.",
+      "description": {
+        "1": "Le périmètre était volontairement large : fournir toute la plateforme d'exécution, de la couche physique (VMs, stockage, réseau) aux middlewares (serveurs web/applicatifs, bases de données), et les deux services d'intégration par lesquels les applications ont exclusivement le droit de communiquer : des APIs HTTP synchrones et de la messagerie asynchrone pub/sub.",
+        "2": "Il fallait aussi un moteur de simulation temporelle complet, pour que cinq jours d'activité aérienne, réservations, vols, enregistrements, se déroulent en quinze minutes réelles, ainsi qu'un simulateur d'acteurs externes pour incarner les passagers, les aéroports et le réseau IATA.",
+        "3": "Contraintes structurantes du cahier des charges : deux environnements strictement isolés, une production accessible uniquement par l'équipe SOCLE, des déploiements entièrement automatisés, de la haute disponibilité, et une plateforme capable de se reconstruire entièrement après un incident majeur sans perdre les données applicatives."
+      }
+    },
+    "architecture": {
+      "overview": "Architecture technique",
+      "title": "Kubernetes sur un OS immuable, zero-trust par défaut.",
+      "description": {
+        "1": "Le cluster tourne sur Talos Linux au-dessus de VMs OpenStack : pas de shell, pas de SSH, pas de gestionnaire de paquets, un OS administré uniquement via une API authentifiée. Cilium remplace entièrement kube-proxy et impose le default-deny au niveau réseau, en eBPF plutôt qu'en iptables.",
+        "2": "Envoy Gateway est l'unique porte d'entrée de la plateforme : chaque appel HTTP, externe ou inter-applicatif, y transite, avec le déchargement du TLS et de l'authentification OIDC pour que le code applicatif n'ait jamais à s'en soucier. Tout est déployé via ArgoCD en mode pull, et chaque application reçoit son propre cluster CloudNativePG et son propre vhost RabbitMQ, jamais de base partagée.",
+        "3": "Les secrets ne sont jamais manipulés à la main : une architecture Vault en hub-and-spoke les injecte directement dans les pods. La production doit survivre à une perte totale, donc chaque WAL est streamé en continu vers du stockage objet, ce qui permet de reconstruire tout le cluster et de restaurer chaque base à la seconde exacte précédant le crash."
+      }
+    },
+    "catalog": {
+      "title": "Le catalogue de services",
+      "blocks": {
+        "1": {
+          "title": "Runtime & Déploiement",
+          "description": "Un chart Helm standardisé et un modèle namespace par app et par environnement, synchronisé par ArgoCD."
+        },
+        "2": {
+          "title": "Livraison GitOps",
+          "description": "Zéro accès en écriture au cluster pour les humains : tout changement passe par une Merge Request et la réconciliation pull d'ArgoCD."
+        },
+        "3": {
+          "title": "Source de vérité & CI/CD",
+          "description": "GitLab auto-hébergé pilote toute l'arborescence des groupes, le RBAC et les templates de pipelines via Terraform."
+        },
+        "4": {
+          "title": "Packaging applicatif",
+          "description": "Images de base durcies et non-root, maintenues par l'équipe plateforme, scannées à chaque build et chaque nuit."
+        },
+        "5": {
+          "title": "Observabilité",
+          "description": "Prometheus, Loki et Grafana Alloy, câblés pour que chaque équipe voie l'état de santé de ses propres services."
+        },
+        "6": {
+          "title": "SDK & moteurs de simulation",
+          "description": "SDKs Python et TypeScript, plus les microservices maison d'horloge et de simulation d'acteurs."
+        }
+      }
+    },
+    "org": {
+      "overview": "Organisation & Feuille de route",
+      "title": "Diriger cinq personnes, répondre à quarante-cinq autres.",
+      "description": {
+        "1": "L'équipe SOCLE, c'est Maxence Cosaque, Hugo Guillet, Thibault Briens, Lukas Ling et moi. Tout notre travail est suivi sur un Kanban partagé (Linear), et la majeure partie se joue dans une boucle de feedback étroite avec l'équipe DevOps : ce sont eux qui construisent réellement sur ce qu'on livre, donc la moitié du travail consiste à s'assurer que le catalogue correspond à leur besoin, pas à ce qu'on trouve élégant de notre côté.",
+        "2": "Le premier semestre s'est terminé dans les temps fin juillet 2026 : environnement de staging en ligne, premier catalogue de services livré, déploiement complet démontré de bout en bout. Le second semestre (septembre 2026 - janvier 2027) consiste à onboarder pour de bon les équipes applicatives, à durcir l'observabilité et l'hébergement BI, et à livrer les moteurs de simulation sur-mesure."
       }
     }
   }

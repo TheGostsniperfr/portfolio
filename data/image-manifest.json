@@ -235,6 +235,39 @@
     ],
     "base": "/images/CNP/zero-trust-network"
   },
+  "/images/DockAir/architecture-globale.png": {
+    "width": 2470,
+    "height": 1628,
+    "widths": [
+      640,
+      1280,
+      1920,
+      1920
+    ],
+    "base": "/images/DockAir/architecture-globale"
+  },
+  "/images/DockAir/linear-kanban.png": {
+    "width": 2000,
+    "height": 822,
+    "widths": [
+      640,
+      1280,
+      1920,
+      1920
+    ],
+    "base": "/images/DockAir/linear-kanban"
+  },
+  "/images/DockAir/tech-cartography.png": {
+    "width": 2425,
+    "height": 1780,
+    "widths": [
+      640,
+      1280,
+      1920,
+      1920
+    ],
+    "base": "/images/DockAir/tech-cartography"
+  },
   "/images/lang/argocd_logo.png": {
     "width": 800,
     "height": 531,
