@@ -81,7 +81,7 @@ export const projects: Project[] = [
     slug: 'OffhoursGuard',
     titleKey: 'projects.offhoursguard.title',
     fallbackTitle: 'Offhours-Guard',
-    cover: '/images/lang/kubernetes_logo.png',
+    cover: '/images/OffhoursGuard/logo.png',
     year: 2026,
     tags: [ 'Go', 'Kubernetes Operator', 'FinOps' ],
     accent: '#facc15',

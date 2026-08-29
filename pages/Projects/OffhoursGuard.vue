@@ -19,7 +19,7 @@
 
         <TechnoSection :blocks="technoBlocks" />
 
-        <PresentationSection imageSrc="/images/lang/kubernetes_logo.png" imageAlt="Opérateur Kubernetes Offhours-Guard"
+        <PresentationSection imageSrc="/images/OffhoursGuard/logo.png" imageAlt="Opérateur Kubernetes Offhours-Guard"
             :overview="$t('offhoursguard.how.overview')" :title="$t('offhoursguard.how.title')" dir="left">
             <template #description>
                 <p class="title-mini description text-less">
@@ -72,7 +72,7 @@ useHead({
         { name: 'description', content: () => t('offhoursguard.head.content') },
         { property: 'og:title', content: () => t('projects.offhoursguard.title') },
         { property: 'og:description', content: () => t('offhoursguard.head.content') },
-        { property: 'og:image', content: '/images/lang/kubernetes_logo.png' },
+        { property: 'og:image', content: '/images/OffhoursGuard/logo.png' },
     ],
     script: [
         {

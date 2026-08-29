@@ -448,6 +448,15 @@
     ],
     "base": "/images/OCR/trainning"
   },
+  "/images/OffhoursGuard/logo.png": {
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      640,
+      1254
+    ],
+    "base": "/images/OffhoursGuard/logo"
+  },
   "/images/other/camera-operator.png": {
     "width": 256,
     "height": 256,
