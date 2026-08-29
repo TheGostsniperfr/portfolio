@@ -257,6 +257,26 @@
     ],
     "base": "/images/DockAir/linear-kanban"
   },
+  "/images/DockAir/logo-wordmark.png": {
+    "width": 2170,
+    "height": 725,
+    "widths": [
+      640,
+      1280,
+      1920,
+      1920
+    ],
+    "base": "/images/DockAir/logo-wordmark"
+  },
+  "/images/DockAir/logo.png": {
+    "width": 725,
+    "height": 725,
+    "widths": [
+      640,
+      725
+    ],
+    "base": "/images/DockAir/logo"
+  },
   "/images/DockAir/tech-cartography.png": {
     "width": 2425,
     "height": 1780,

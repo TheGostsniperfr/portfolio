@@ -81,7 +81,7 @@ export const projects: Project[] = [
     slug: 'DockAir',
     titleKey: 'projects.dockair.title',
     fallbackTitle: 'DockAir',
-    cover: '/images/DockAir/tech-cartography.png',
+    cover: '/images/DockAir/logo.png',
     year: 2026,
     tags: [ 'Kubernetes', 'Platform Engineering', 'SOA' ],
     accent: '#3b82f6',

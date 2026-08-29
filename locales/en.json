@@ -695,7 +695,7 @@
     },
     "header": {
       "overlay": "DockAir - SOCLE Team, 2026-2027",
-      "title": "The invisible foundation of an airline.",
+      "title": "The invisible foundation of an airline company.",
       "description": {
         "1": "DockAir is a year-long EPITA school project simulating the information system of an airline in the style of Air France-KLM, with about fifty students split into urbanists, application developers, DevOps, leads and a BI team. I lead the SOCLE team: five of us responsible for the platform everyone else builds on.",
         "2": "My job isn't to write application code. It's to understand what every other team needs, turn it into a real architecture, then build it and hand it off as a self-service catalog, in close coordination with the DevOps team who plug the application teams into it."
@@ -748,12 +748,22 @@
         }
       }
     },
+    "decisions": {
+      "overview": "Choices & Trade-offs",
+      "title": "Every choice here is a trade-off, not a best practice.",
+      "description": {
+        "1": "- Envoy Gateway as the platform's single entry point instead of per-app ingress: all HTTP security and observability lives in one place, but the whole platform now depends on it staying up, so it runs multi-replica behind a shared VIP.",
+        "2": "- Full GitOps (ArgoCD pull, immutable tags, zero write access even for SOCLE) instead of any manual deployment: every version and every rollback is one Git revert away, at the cost of a few extra minutes of latency versus a raw kubectl apply.",
+        "3": "- Vault Hub-and-Spoke (one root vault outside the cluster, one tenant vault per environment) instead of a single shared vault: more moving pieces to operate, but a leaked staging token can never reach production secrets."
+      }
+    },
     "org": {
       "overview": "Organisation & Roadmap",
       "title": "Leading five, answering to forty-five.",
       "description": {
-        "1": "The SOCLE team is Maxence Cosaque, Hugo Guillet, Thibault Briens, Lukas Ling and me. All our work is tracked on a shared Kanban (Linear), and most of it lives in a tight feedback loop with the DevOps team: they're the ones actually building on what we ship, so half the job is making sure the catalog matches what they need, not what we think is elegant.",
-        "2": "First semester closed on schedule end of July 2026: staging environment live, first service catalog shipped, full deployment demoed end-to-end. Second semester (September 2026 - January 2027) is about onboarding the application teams for real, hardening observability and BI hosting, and shipping the custom simulation engines."
+        "1": "Leading the SOCLE team didn't mean stepping back from the infrastructure. I'm the one with the deepest hands-on knowledge of it on the team, and I stayed directly involved: writing the YAML, making the architecture calls, building the platform alongside everyone else. All our work is tracked on a shared Kanban (Linear), most of it in a tight feedback loop with the DevOps team, since they're the ones actually building on what we ship.",
+        "2": "The other half of the role was mentoring. When a teammate needed to grow on a topic, I'd rather hand them resources and a real mission than a ready-made answer, then work through it together in a one-on-one: their first pass, my questions, and a solution we'd land on together, usually better than anything I'd have written alone. 1+1=3.",
+        "3": "First semester closed on schedule end of July 2026: staging environment live, first service catalog shipped, full deployment demoed end-to-end. Second semester (September 2026 - January 2027) is about onboarding the application teams for real, hardening observability and BI hosting, and shipping the custom simulation engines."
       }
     }
   }

@@ -748,12 +748,22 @@
         }
       }
     },
+    "decisions": {
+      "overview": "Choix & Trade-offs",
+      "title": "Chaque choix ici est un trade-off, pas une best practice.",
+      "description": {
+        "1": "- Envoy Gateway comme point d'entrée unique de la plateforme plutôt qu'un ingress par appli : toute la sécurité et l'observabilité HTTP tient en un seul endroit, mais toute la plateforme dépend de sa disponibilité, donc il tourne en multi-réplicas derrière une VIP partagée.",
+        "2": "- Full GitOps (ArgoCD en pull, tags immuables, zéro accès en écriture même pour SOCLE) plutôt qu'un déploiement manuel : chaque version et chaque rollback ne sont qu'un revert Git, au prix de quelques minutes de latence en plus face à un kubectl apply direct.",
+        "3": "- Vault en Hub-and-Spoke (un root vault hors cluster, un tenant vault par environnement) plutôt qu'un vault unique partagé : plus de pièces à opérer, mais un token de staging qui fuite ne peut jamais atteindre les secrets de prod."
+      }
+    },
     "org": {
       "overview": "Organisation & Feuille de route",
       "title": "Diriger cinq personnes, répondre à quarante-cinq autres.",
       "description": {
-        "1": "L'équipe SOCLE, c'est Maxence Cosaque, Hugo Guillet, Thibault Briens, Lukas Ling et moi. Tout notre travail est suivi sur un Kanban partagé (Linear), et la majeure partie se joue dans une boucle de feedback étroite avec l'équipe DevOps : ce sont eux qui construisent réellement sur ce qu'on livre, donc la moitié du travail consiste à s'assurer que le catalogue correspond à leur besoin, pas à ce qu'on trouve élégant de notre côté.",
-        "2": "Le premier semestre s'est terminé dans les temps fin juillet 2026 : environnement de staging en ligne, premier catalogue de services livré, déploiement complet démontré de bout en bout. Le second semestre (septembre 2026 - janvier 2027) consiste à onboarder pour de bon les équipes applicatives, à durcir l'observabilité et l'hébergement BI, et à livrer les moteurs de simulation sur-mesure."
+        "1": "Diriger l'équipe SOCLE n'a pas voulu dire prendre du recul sur l'infrastructure : je suis celui qui la connaît le mieux dans l'équipe, et je suis resté directement impliqué dedans, à écrire les YAML, à trancher sur l'architecture, à construire la plateforme aux côtés du reste de l'équipe. Tout notre travail est suivi sur un Kanban partagé (Linear), et une bonne partie se joue dans une boucle de feedback étroite avec l'équipe DevOps, puisque ce sont eux qui construisent réellement sur ce qu'on livre.",
+        "2": "L'autre moitié du rôle, c'était le mentorat. Quand un membre de l'équipe avait besoin de monter en compétence sur un sujet, je préférais lui donner des ressources et une vraie mission plutôt qu'une réponse toute faite, puis qu'on reprenne ça ensemble en one-on-one : son premier jet, mes questions, et une solution qu'on trouvait ensemble, souvent meilleure que ce que j'aurais écrit seul. 1+1=3.",
+        "3": "Le premier semestre s'est terminé dans les temps fin juillet 2026 : environnement de staging en ligne, premier catalogue de services livré, déploiement complet démontré de bout en bout. Le second semestre (septembre 2026 - janvier 2027) consiste à onboarder pour de bon les équipes applicatives, à durcir l'observabilité et l'hébergement BI, et à livrer les moteurs de simulation sur-mesure."
       }
     }
   }

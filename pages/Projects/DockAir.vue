@@ -1,7 +1,7 @@
 <template>
     <article class="ud-content">
         <BackBtn />
-        <div class="presentation" :style="{ '--hero': 'url(/images/DockAir/tech-cartography.png)' }">
+        <div class="presentation" :style="{ '--hero': 'url(/images/DockAir/logo-wordmark.png)' }">
             <div class="content">
                 <p class="title-midle text-less">{{ $t('dockair.header.overlay') }}</p>
                 <h1 class="title presentation-title">{{ $t('dockair.header.title') }}</h1>
@@ -41,6 +41,19 @@
 
         <TechnoSection :blocks="catalogBlocks" :title="$t('dockair.catalog.title')" />
 
+        <PresentationSection imageSrc="/images/DockAir/architecture-globale.png" imageAlt="Schéma d'architecture technique globale de DockAir"
+            :overview="$t('dockair.decisions.overview')" :title="$t('dockair.decisions.title')" dir="left" imageFit="contain">
+            <template #description>
+                <p class="title-mini description text-less">
+                    {{ $t('dockair.decisions.description.1') }}
+                    <br />
+                    {{ $t('dockair.decisions.description.2') }}
+                    <br />
+                    {{ $t('dockair.decisions.description.3') }}
+                </p>
+            </template>
+        </PresentationSection>
+
         <PresentationSection imageSrc="/images/DockAir/linear-kanban.png" imageAlt="Kanban Linear de l'équipe SOCLE"
             :overview="$t('dockair.org.overview')" :title="$t('dockair.org.title')" dir="left" imageFit="contain">
             <template #description>
@@ -48,6 +61,8 @@
                     {{ $t('dockair.org.description.1') }}
                     <br /><br />
                     {{ $t('dockair.org.description.2') }}
+                    <br /><br />
+                    {{ $t('dockair.org.description.3') }}
                 </p>
             </template>
         </PresentationSection>
@@ -70,7 +85,7 @@ useHead({
         { name: 'description', content: () => t('dockair.head.content') },
         { property: 'og:title', content: () => t('projects.dockair.title') },
         { property: 'og:description', content: () => t('dockair.head.content') },
-        { property: 'og:image', content: '/images/DockAir/tech-cartography.png' },
+        { property: 'og:image', content: '/images/DockAir/logo.png' },
     ],
     script: [
         {
