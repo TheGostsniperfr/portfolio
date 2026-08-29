@@ -84,9 +84,9 @@
           "description": "K8s & Network Automation Tool à Rakuten."
         },
         "5": {
-          "title": "Forge",
+          "title": "SRE",
           "date": "2026-2027",
-          "description": "Travail sur l'infrastructure interne de l'Epita."
+          "description": "Site Reliability Engineer sur Forge, l'infrastructure interne de l'Epita."
         }
       }
     },

@@ -84,9 +84,9 @@
           "description": "Crafting K8s & Network Automation Tool at Rakuten."
         },
         "5": {
-          "title": "Forge",
+          "title": "SRE",
           "date": "2026-2027",
-          "description": "Working on Epita's internal infrastructure."
+          "description": "Site Reliability Engineer on Epita's internal infrastructure, Forge."
         }
       }
     },
